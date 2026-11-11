@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>minu suvi – kollaaž</title>
+  <meta name="description" content="Kollaaži stiilis suvealbum – mall, mida saab muuta piltide, tekstide ja märkmetega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       MINU SUVI – kollaaž ehk suvealbum veebis.
+       Asenda pildid, märkmed ja nimekiri enda omadega.
+       ============================================================ -->
+
+  <div class="taust" aria-hidden="true"></div>
+
+  <header class="pais">
+    <div class="pais__riba">
+      <!-- ✏️ MUUDA: kuupäevad -->
+      <span class="pais__kuupaev">juuni — august 2026</span>
+
+      <!-- ✏️ MUUDA: albumi pealkiri -->
+      <h1 class="logo">minu <span>suvi</span></h1>
+
+      <!-- ✏️ MUUDA: koht -->
+      <span class="pais__koht">Eesti · 59°N</span>
+    </div>
+
+    <!-- ✏️ MUUDA: alapealkiri -->
+    <p class="pais__devise">kollaaž asjadest, mida ma ei taha unustada</p>
+  </header>
+
+  <main>
+
+    <!-- ================= AVAUS ================= -->
+    <section class="avaus">
+      <span class="avaus__taht" aria-hidden="true">✳</span>
+
+      <!-- ✏️ MUUDA: suur pealkiri -->
+      <h2>kolm kuud,<br><em>tuhat väikest asja.</em></h2>
+
+      <!-- ✏️ MUUDA: sissejuhatus -->
+      <p>
+        Panin kokku kõik, mis juhtus vahemikus juuni ja august:
+        sõidud, hommikud, inimesed ja need hetked, mida telefonikaamerast
+        ei leia, sest ma lihtsalt unustasin pildistada.
+      </p>
+    </section>
+
+    <!-- ================= KOLLAAŽ ================= -->
+    <section class="leht" aria-label="Suve kollaaž">
+
+      <!-- ---------- VASAK VEERG ---------- -->
+      <div class="veerg">
+
+        <figure class="polaroid polaroid--suur" style="--pöör: -3deg">
+          <span class="teip" aria-hidden="true"></span>
+          <!-- 🖼️ MUUDA: suur suvepilt -->
+          <img src="pildid/sugislehed.jpg" alt="Sügislehed maas">
+          <figcaption>esimene hommik maal</figcaption>
+        </figure>
+
+        <div class="märge märge--kollane" style="--pöör: 1.5deg">
+          <p class="märge__pealkiri">sel suvel õppisin:</p>
+          <!-- ✏️ MUUDA: kolm asja, mida suvel õppisid -->
+          <ul class="märge__nimekiri">
+            <li>ärkama enne äratust</li>
+            <li>tegema kohvi, mis ei ole liiga tugev</li>
+            <li>ütlema „ei“ ilma vabandusteta</li>
+          </ul>
+          <p class="märge__allkiri">edasiminek: 2/3</p>
+        </div>
+
+      </div>
+
+      <!-- ---------- KESKMINE VEERG ---------- -->
+      <div class="veerg veerg--keskmine">
+
+        <figure class="polaroid polaroid--vaike" style="--pöör: 2deg">
+          <span class="teip" aria-hidden="true"></span>
+          <!-- 🖼️ MUUDA: väike pilt -->
+          <img src="pildid/mootorpaat.jpg" alt="Väike paat merel" loading="lazy">
+          <figcaption>see sõit, mis lõppes teisel pool lahte</figcaption>
+        </figure>
+
+        <div class="pilet" style="--pöör: -2deg">
+          <!-- ✏️ MUUDA: piletid, kuupäevad ja kohad -->
+          <p class="pilet__firma">PÄRNU → KUURESSAARE</p>
+          <p class="pilet__aeg">14:20</p>
+          <p class="pilet__info">istekoht 7A · aken · 12. juuli</p>
+          <p class="pilet__number">pileti nr 004821</p>
+          <span class="pilet__triip" aria-hidden="true"></span>
+        </div>
+
+        <div class="märge märge--roosa" style="--pöör: -1deg">
+          <span class="märge__nõel" aria-hidden="true"></span>
+          <p class="märge__tsitaat">
+            „Suvi ei ole aastaaeg. Suvi on see, kui sa lõpuks rahuned.“
+          </p>
+          <p class="märge__allkiri">— mina, bussis, 12. juuli</p>
+        </div>
+
+      </div>
+
+      <!-- ---------- PAREM VEERG ---------- -->
+      <div class="veerg">
+
+        <figure class="polaroid polaroid--keskmine" style="--pöör: -1.5deg">
+          <span class="teip" aria-hidden="true"></span>
+          <!-- 🖼️ MUUDA: portree või suvine foto -->
+          <img src="pildid/klassikaline-auto.jpg" alt="Klassikaline auto maanteel" loading="lazy">
+          <figcaption>auto, mis sai suveks nime</figcaption>
+        </figure>
+
+        <div class="noot">
+          <h3 class="noot__pealkiri">suve soundtrack</h3>
+          <!-- ✏️ MUUDA: lemmiklood ja esitajad -->
+          <ol class="noot__nimekiri">
+            <li><span>01</span> Raudtee — Vaikne hommik</li>
+            <li><span>02</span> Suve lõpp — Pikk vari</li>
+            <li><span>03</span> Aken lahti — Klaasist linn</li>
+            <li><span>04</span> Ära tule veel — Mari ja pojad</li>
+            <li><span>05</span> Teine tuba — Pikk vari</li>
+          </ol>
+          <p class="noot__jalus">kuulatud 64 korda · lemmik #02</p>
+        </div>
+
+        <div class="kleeps" style="--pöör: 7deg" aria-hidden="true">
+          <span>100%<br>SUVI</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= KOKKUVÕTE ================= -->
+    <section class="lõpp">
+      <span class="teip teip--lai" aria-hidden="true"></span>
+      <p class="lõpp__silt">kõige parem osa</p>
+
+      <!-- ✏️ MUUDA: kokkuvõtlik mõte -->
+      <p class="lõpp__tekst">
+        Ei olnud see suur reis ega midagi, mida saaks piltide pealt näidata.
+        Kõige parem osa oli üks tavaline teisipäeva õhtu, kui me istusime
+        trepil, sõime arbuusi ja rääkisime tühjast-tähjast, kuni läks pimedaks.
+      </p>
+
+      <!-- ✏️ MUUDA: e-posti aadress -->
+      <a class="lõpp__nupp" href="mailto:mina@example.com">Kirjuta mulle ♡</a>
+    </section>
+
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst -->
+    <p>minu suvi · juuni–august 2026</p>
+    <p class="jalus__vaike">See on mall. Muuda pilte ja tekste — vaata kommentaare „MUUDA“.</p>
+  </footer>
+
+</body>
+</html>

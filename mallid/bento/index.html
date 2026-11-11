@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jaak Aibast – autod</title>
+  <meta name="description" content="Bento-stiilis autode leht – mall, mida saab muuta tekstide, piltide ja linkidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       BENTO – autode ja garaaži leht kaartide mosaiigina.
+       Iga kaart on eraldi <section>. Muuda teksti, pilte ja linke.
+       ============================================================ -->
+
+  <div class="taust" aria-hidden="true"></div>
+
+  <header class="pais">
+    <div class="pais__mina">
+      <!-- 🖼️ MUUDA: sinu väike profiilipilt -->
+      <img class="pais__pilt" src="pildid/roosad-bmw-d.jpg" alt="Roosa BMW esituli">
+      <p>hei, mina olen <strong>Jaak</strong> <span aria-hidden="true">✳</span></p>
+    </div>
+
+    <p class="pais__staatus">
+      <span class="pais__punkt" aria-hidden="true"></span>
+      autosid pildistanud 2019–2026
+    </p>
+  </header>
+
+  <main class="vorgustik">
+
+    <!-- ================= TUTVUSTUS ================= -->
+    <section class="kaart kaart--tutvustus">
+      <p class="silt">autode pildistaja · garaaž · Tallinn</p>
+
+      <!-- ✏️ MUUDA: suur nimi -->
+      <h1>Jaak<br><em>Aibast.</em></h1>
+
+      <!-- ✏️ MUUDA: lühitutvustus -->
+      <p class="tutvustus">
+        Pildistan autosid, mis on kas liiga kiired, liiga roosad või liiga
+        haruldased. Siia olen kogunud oma lemmikud — roosast BMW-st kuni
+        Nissan Skyline'ini.
+      </p>
+
+      <a class="tutvustus__nool" href="#autod">Vaata garaaži <span aria-hidden="true">↓</span></a>
+
+      <span class="kaart__taht" aria-hidden="true">✳</span>
+    </section>
+
+    <!-- ================= SUUR PILT ================= -->
+    <section class="kaart kaart--pilt">
+      <!-- 🖼️ MUUDA: suur lemmikpilt -->
+      <img src="pildid/roosad-bmw-d.jpg" alt="Roosa BMW E36 esiosa">
+      <span class="pildi-silt">roosa BMW · E36</span>
+    </section>
+
+    <!-- ================= GARAAŽIS ================= -->
+    <section class="kaart kaart--praegu">
+      <h2>garaažis</h2>
+
+      <ul class="praegu-nimekiri">
+        <!-- ✏️ MUUDA: autod ja märksõnad -->
+        <li><span>lemmik</span> roosa BMW E36</li>
+        <li><span>unistus</span> Nissan Skyline R34</li>
+        <li><span>valjem</span> Dodge Viper GTS</li>
+        <li><span>kogus</span> 88 pilti</li>
+      </ul>
+
+      <p class="kaart__vaike">viimati uuendatud: november 2026</p>
+    </section>
+
+    <!-- ================= Lingid ================= -->
+    <section class="kaart kaart--lingid" id="lingid">
+      <h2>veel pilte</h2>
+
+      <div class="lingid">
+        <!-- ✏️ MUUDA: sinu lingid ja aadressid -->
+        <a href="#">Instagram <span aria-hidden="true">↗</span></a>
+        <a href="#">YouTube <span aria-hidden="true">↗</span></a>
+        <a href="#">Auto24 <span aria-hidden="true">↗</span></a>
+        <a href="#">Flickr <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <!-- ================= AUTOD ================= -->
+    <section class="kaart kaart--autod" id="autod">
+      <div class="autod__pais">
+        <p class="silt">garaažist</p>
+        <h2>Kogu kollektsioon</h2>
+      </div>
+
+      <div class="autod__rida">
+        <figure>
+          <!-- 🖼️ MUUDA: auto pilt ja nimi -->
+          <img src="pildid/roosad-bmw-d.jpg" alt="Roosa BMW E36" loading="lazy">
+          <figcaption>Roosa BMW E36</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/hobedane-skyline.jpg" alt="Hõbedane Nissan Skyline R34" loading="lazy">
+          <figcaption>Nissan Skyline R34</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/punane-sportauto.jpg" alt="Punane Dodge Viper valgete triipudega" loading="lazy">
+          <figcaption>Dodge Viper GTS</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/punane-ferrari.jpg" alt="Punane Ferrari California" loading="lazy">
+          <figcaption>Ferrari California</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/punane-mini.jpg" alt="Punane Mini Cooper" loading="lazy">
+          <figcaption>Punane Mini Cooper</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/sinine-ralliauto.jpg" alt="Sinine ralliauto" loading="lazy">
+          <figcaption>Sinine ralliauto</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/hobedane-klassikaline.jpg" alt="Hõbedane klassikaline auto" loading="lazy">
+          <figcaption>Klassikaline</figcaption>
+        </figure>
+        <figure>
+          <img src="pildid/must-auto-lumes.jpg" alt="Must auto lumes" loading="lazy">
+          <figcaption>Must auto lumes</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= TSITAAT ================= -->
+    <section class="kaart kaart--tsitaat">
+      <!-- ✏️ MUUDA: tsitaat -->
+      <p class="tsitaat__mark" aria-hidden="true">“</p>
+      <p class="tsitaat__tekst">
+        Iga auto on lugu. Mõnel on lihtsalt valjem mootor.
+      </p>
+      <p class="kaart__vaike">minu garaažist</p>
+    </section>
+
+    <!-- ================= PROJEKT ================= -->
+    <section class="kaart kaart--projekt">
+      <div class="projekt__tekst">
+        <p class="silt silt--hele">viimane projekt</p>
+
+        <!-- ✏️ MUUDA: projekti nimi ja kirjeldus -->
+        <h2>Mallide galerii</h2>
+        <p>
+          Kooliprojekt, kus panin kokku kümme valmis veebilehe kujundust
+          ja panin need Raspberry Pi peal tööle.
+        </p>
+        <a class="projekt__link" href="#">Vaata projekti <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="projekt__aken" aria-hidden="true">
+        <div class="projekt__riba">
+          <i></i><i></i><i></i>
+          <span>mallid.local</span>
+        </div>
+        <div class="projekt__sisu">
+          <span class="plokk plokk--laim"></span>
+          <span class="plokk plokk--lilla"></span>
+          <span class="plokk plokk--hele"></span>
+          <span class="plokk plokk--joon"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KONTAKT ================= -->
+    <section class="kaart kaart--kontakt">
+      <p class="silt">kirjuta mulle</p>
+
+      <!-- ✏️ MUUDA: e-posti aadress -->
+      <a class="kontakt__meil" href="mailto:jaak@example.com">jaak@example.com</a>
+
+      <p class="kaart__vaike">
+        Vastan tavaliselt ühe päeva jooksul. Kui ei vasta, siis ilmselt
+        olen jälle autot pildistamas.
+      </p>
+    </section>
+
+    <!-- ================= ASUKOHT ================= -->
+    <section class="kaart kaart--asukoht">
+      <p class="silt">asukoht</p>
+      <p class="asukoht__linn">Tallinn,<br>Eesti</p>
+      <p class="kaart__vaike">GMT+2 · vahel ka Tartu</p>
+    </section>
+
+    <!-- ================= Väike fakt ================= -->
+    <section class="kaart kaart--fakt">
+      <p class="fakt__number">88</p>
+      <p class="fakt__tekst">pilti, mille Jaak Aibast andis ühiskasutuseks.</p>
+      <span class="fakt__taht" aria-hidden="true">✳</span>
+    </section>
+
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst ja autorid -->
+    <p>Jaak Aibast · 2026</p>
+    <p class="jalus__vaike">
+      Mallid: Eva-Liisa Aibast (tegi mallid) · Fotod: Jaak Aibast (andis ühiskasutuseks 88 pilti)
+      · See on mall, muuda vabalt.
+    </p>
+  </footer>
+
+</body>
+</html>

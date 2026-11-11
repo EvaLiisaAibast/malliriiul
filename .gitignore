@@ -1,0 +1,6 @@
+# Tööriista metaandmed — ei kuulu saidi juurde
+.freebuff/
+.cloud-attachments/
+
+# Kohalikud vahefailid
+_tmp/

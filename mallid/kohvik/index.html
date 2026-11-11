@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kohvik Kirsipuu</title>
+  <meta name="description" content="Soe ja lihtne kohviku leht – mall, mida saab muuta tekstide ja piltidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       KOHVIK KIRSIPUU – soe, lihtne kohviku leht.
+       Muuda pealkirju, menüüd, hindu ja pilte. Värvid on stiil.css failis.
+       ============================================================ -->
+
+  <header class="pais">
+    <!-- ✏️ MUUDA: kohviku nimi -->
+    <a class="logo" href="#">
+      <span class="logo__kirsid" aria-hidden="true"><i></i><i></i></span>
+      Kirsipuu
+    </a>
+
+    <nav class="pais__nav" aria-label="Menüü">
+      <a href="#menu">Menüü</a>
+      <a href="#lugu">Meist</a>
+      <a href="#tule">Külasta</a>
+      <a href="#kkk">KKK</a>
+    </nav>
+
+    <!-- ✏️ MUUDA: broneerimise link (või jäta #tule) -->
+    <a class="nupp nupp--tume" href="#tule">Broneeri laud</a>
+  </header>
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <div class="kangelane__tekst">
+        <!-- ✏️ MUUDA: väike tekst pealkirja kohal -->
+        <p class="silt">Kohvik · Tallinn · alates 2014</p>
+
+        <!-- ✏️ MUUDA: suur pealkiri -->
+        <h1>Hommik algab<br><em>kirsipuu all.</em></h1>
+
+        <!-- ✏️ MUUDA: lühitutvustus -->
+        <p class="kangelane__juht">
+          Väike kohvik vana maja esimesel korrusel. Värske kohv, soojad saiakesed
+          ja laud, kuhu mahub ka see sõber, kes alati hiljaks jääb.
+        </p>
+
+        <div class="kangelane__nupud">
+          <a class="nupp nupp--tuli" href="#menu">Vaata menüüd</a>
+          <a class="nupp nupp--joon" href="#lugu">Meie lugu</a>
+        </div>
+
+        <p class="avatud">
+          <span class="avatud__punkt" aria-hidden="true"></span>
+          Avatud E–L 8–18 · P 9–15
+        </p>
+      </div>
+
+      <div class="kangelane__pildid">
+        <figure class="pilt-pohi">
+          <!-- 🖼️ MUUDA: suur avafoto -->
+          <img src="pildid/vaarikas.jpg" alt="Küpsed vaarikad lähedalt">
+        </figure>
+
+        <figure class="pilt-vaike">
+          <!-- 🖼️ MUUDA: väike foto -->
+          <img src="pildid/roosa-lill-mesilasega.jpg" alt="Roosa lill aias" loading="lazy">
+        </figure>
+
+        <span class="kleeps" aria-hidden="true">parim<br>vaarikakook</span>
+        <span class="pildi-tekst" aria-hidden="true">meie aiast</span>
+      </div>
+    </section>
+
+    <!-- ================= RIBa ================= -->
+    <div class="riba" aria-hidden="true">
+      <span>Värske kohv</span><i>✳</i>
+      <span>Iga päev kohapeal küpsetatud</span><i>✳</i>
+      <span>Kohalik mesi</span><i>✳</i>
+      <span>Koertele ka vett</span><i>✳</i>
+      <span>Värske kohv</span><i>✳</i>
+      <span>Iga päev kohapeal küpsetatud</span><i>✳</i>
+      <span>Kohalik mesi</span><i>✳</i>
+    </div>
+
+    <!-- ================= MENÜÜ ================= -->
+    <section class="sektsioon menu" id="menu">
+      <div class="menu__pais">
+        <div>
+          <p class="silt">Menüü</p>
+          <h2>Väike, aga<br><em>aus menüü.</em></h2>
+        </div>
+        <p class="menu__markus">
+          Kõik hinnad sisaldavad käibemaksu. Gluteenivaba ja taimset valikut
+          küsi leti äärest — meil on alati midagi.
+        </p>
+      </div>
+
+      <div class="menu__sisu">
+        <div class="menu__veerg">
+          <!-- ✏️ MUUDA: esimene menüüplokk -->
+          <h3>Hommikusöök</h3>
+          <ul class="menuu-nimekiri">
+            <li>
+              <div>
+                <span class="menuu-nimi">Kaerahelbepuder</span>
+                <small>vaarikad, mesi, röstitud mandlid</small>
+              </div>
+              <span class="menuu-hind">5 €</span>
+            </li>
+            <li>
+              <div>
+                <span class="menuu-nimi">Munad röstsaial</span>
+                <small>pehme mun, ürdid, hapukoor</small>
+              </div>
+              <span class="menuu-hind">7 €</span>
+            </li>
+            <li>
+              <div>
+                <span class="menuu-nimi">Kirsipuu saiake</span>
+                <small>kaneel, kohalik mesi, või</small>
+              </div>
+              <span class="menuu-hind">3,50 €</span>
+            </li>
+          </ul>
+
+          <!-- ✏️ MUUDA: teine menüüplokk -->
+          <h3>Lõuna</h3>
+          <ul class="menuu-nimekiri">
+            <li>
+              <div>
+                <span class="menuu-nimi">Päevasupp</span>
+                <small>küsi teenindajalt, mis täna potis on</small>
+              </div>
+              <span class="menuu-hind">6 €</span>
+            </li>
+            <li>
+              <div>
+                <span class="menuu-nimi">Juustu-õuna salat</span>
+                <small>röstitud kõrvits, seemned, mesi</small>
+              </div>
+              <span class="menuu-hind">9 €</span>
+            </li>
+            <li>
+              <div>
+                <span class="menuu-nimi">Kirsipuu võileib</span>
+                <small>juust, tomat, pesto, hapukurk</small>
+              </div>
+              <span class="menuu-hind">8 €</span>
+            </li>
+          </ul>
+
+          <!-- ✏️ MUUDA: joogid -->
+          <h3>Juua</h3>
+          <ul class="menuu-nimekiri menuu-nimekiri--joogid">
+            <li>
+              <div><span class="menuu-nimi">Kohv</span><small>must, piimaga või jääga</small></div>
+              <span class="menuu-hind">2,50 €</span>
+            </li>
+            <li>
+              <div><span class="menuu-nimi">Kohalik mesi-limonaad</span><small>mesi, sidrun, piparmünt</small></div>
+              <span class="menuu-hind">4 €</span>
+            </li>
+            <li>
+              <div><span class="menuu-nimi">Tee</span><small>küsi päevavalikut</small></div>
+              <span class="menuu-hind">2,50 €</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="info-kaart">
+          <h3>Lahtiolekuajad</h3>
+          <dl>
+            <!-- ✏️ MUUDA: lahtiolekuajad -->
+            <div><dt>Esmaspäev–reede</dt><dd>8–18</dd></div>
+            <div><dt>Laupäev</dt><dd>9–18</dd></div>
+            <div><dt>Pühapäev</dt><dd>9–15</dd></div>
+          </dl>
+
+          <div class="info-kaart__joon" aria-hidden="true"></div>
+
+          <!-- ✏️ MUUDA: aadress ja kontakt -->
+          <p class="info-kaart__silt">Leiad meid</p>
+          <p>Kirsipuu 4, Tallinn<br>Vanalinna servas, rohelise uksega majas.</p>
+          <p class="info-kaart__silt">Helista</p>
+          <p><a href="tel:+3725555555">+372 5555 5555</a></p>
+
+          <a class="nupp nupp--tuli nupp--lai" href="#tule">Broneeri laud</a>
+          <p class="info-kaart__vaike">Suuremale seltskonnale anna palun päev ette teada.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= MEIST ================= -->
+    <section class="sektsioon lugu" id="lugu">
+      <figure class="lugu__pilt">
+        <!-- 🖼️ MUUDA: foto kohvikust või inimestest -->
+        <img src="pildid/mesilased-lahedalt.jpg" alt="Mesilased kärjel lähedalt" loading="lazy">
+        <figcaption>Meie mesi tuleb naabri mesilastest.</figcaption>
+      </figure>
+
+      <div class="lugu__tekst">
+        <p class="silt">Meist</p>
+        <h2>Väike kohvik,<br><em>suur laud.</em></h2>
+
+        <!-- ✏️ MUUDA: kohviku lugu -->
+        <p class="lugu__juht">
+          Kirsipuu algas ühest lauast, kahest toolist ja soovist teha koht,
+          kus ei pea kiirustama.
+        </p>
+        <p>
+          Suurem osa meie menüüst sünnib väikeses köögis. Moosid teeme ise,
+          leiva toob naabertänava pagar ja mee toob mesinik, kelle tarud
+          asuvad linnast väljas. Kui midagi otsa saab, siis nii on — homme
+          tuleb uus.
+        </p>
+
+        <blockquote class="lugu__tsitaat">
+          „Hea kohvik ei ole see, kus on kõige rohkem valikut. See on see,
+          kus sa tead, mida tellida.“
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= KÜLASTA ================= -->
+    <section class="tule" id="tule">
+      <div class="tule__tekst">
+        <p class="silt silt--hele">Külasta</p>
+        <!-- ✏️ MUUDA: üleskutse -->
+        <h2>Tule istu.<br><em>Meil on ruumi.</em></h2>
+        <p>
+          Broneerimiseks helista või saada e-kiri. Väikese laua leiab
+          tavaliselt ka ilma broneerimata.
+        </p>
+      </div>
+
+      <div class="tule__info">
+        <!-- ✏️ MUUDA: kontaktandmed -->
+        <div>
+          <p class="tule__silt">Aadress</p>
+          <p>Kirsipuu 4<br>Tallinn</p>
+        </div>
+        <div>
+          <p class="tule__silt">Kontakt</p>
+          <p><a href="mailto:tere@kirsipuu.example">tere@kirsipuu.example</a><br>
+             <a href="tel:+3725555555">+372 5555 5555</a></p>
+        </div>
+        <div>
+          <p class="tule__silt">Jälgi meid</p>
+          <p><a href="#">Instagram ↗</a><br><a href="#">Facebook ↗</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KKK ================= -->
+    <section class="sektsioon kkk" id="kkk">
+      <div class="kkk__pais">
+        <div>
+          <p class="silt">Enne tulekut</p>
+          <h2>Küsimused,<br><em>mida kõige rohkem küsitakse.</em></h2>
+        </div>
+        <p class="kkk__markus">Klõpsa küsimusel ja vastus avaneb. Teine klõps paneb selle jälle kinni.</p>
+      </div>
+
+      <div class="kkk__nimekiri">
+        <!-- ✏️ MUUDA: küsimus on summary-real, vastus tuleb selle järele -->
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas laud tuleb ette broneerida?</summary>
+          <p>Väikese laua leiab tavaliselt ka ilma broneerimata. Kui tulete rohkem kui neljakesi, anna palun päev ette teada — siis saame lauad kokku panna.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas saab ka taimetoitu?</summary>
+          <p>Jah. Menüüs on alati vähemalt üks taimne ja üks gluteenivaba valik — küsi leti äärest, töötaja oskab täpselt öelda, mis täna saadaval on.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas koeraga võib tulla?</summary>
+          <p>Jah, terrassile võib koera kaasa võtta. Vett toome alati eraldi kausiga ja maiustus on leti taga olemas.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas on olemas wifi ja lastetool?</summary>
+          <p>Mõlemad on olemas. Wifi parooli leiab kassast ja lastetooli saab küsida ilma eraldi broneerimata.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst -->
+    <p>Kohvik Kirsipuu · 2014–2026</p>
+    <p class="jalus__vaike">See on mall. Muuda teksti ja pilte — vaata kommentaare „MUUDA“.</p>
+  </footer>
+
+</body>
+</html>

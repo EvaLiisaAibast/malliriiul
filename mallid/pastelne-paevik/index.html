@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minu nädal – pastelne päevik</title>
+  <meta name="description" content="Pastelses toonis isiklik päevik – mall, mida saab muuta tekstide ja piltidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SEE ON MALL. Kõik kohad, mida tavaliselt muuta tasub,
+       on tähistatud kommentaariga „MUUDA“.
+       ============================================================ -->
+
+  <div class="taust" aria-hidden="true">
+    <span class="taust__syda"></span>
+    <span class="taust__syda taust__syda--2"></span>
+    <span class="taust__syda taust__syda--3"></span>
+  </div>
+
+  <header class="pais">
+    <!-- ✏️ MUUDA: sinu nimi või päeviku pealkiri -->
+    <a class="logo" href="#">✿ minu nädal</a>
+
+    <nav class="pais__nav" aria-label="Menüü">
+      <a href="#paevik">Päevik</a>
+      <a href="#minust">Minust</a>
+      <a href="#kontakt">Kirjuta</a>
+    </nav>
+
+    <!-- ✏️ MUUDA: kuu ja aasta -->
+    <span class="pais__kuupaev">november 2026</span>
+  </header>
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <div class="kangelane__tekst">
+        <!-- ✏️ MUUDA: tere­tus ja nimi -->
+        <p class="kangelane__tervitus">hei, mina olen <strong>Liisa</strong> ♡</p>
+
+        <!-- ✏️ MUUDA: suur pealkiri -->
+        <h1>Väikesed asjad,<br><em>mis teevad nädala.</em></h1>
+
+        <!-- ✏️ MUUDA: tutvustus -->
+        <p class="kangelane__sissejuhatus">
+          Siia kirjutan asjadest, mis mulle rõõmu teevad: hommikukohvist,
+          pooleli jäänud raamatutest, jalutuskäikudest ja kõigest muust
+          väiksest ja suurest.
+        </p>
+
+        <a class="nupp" href="#paevik">Loe päevikut <span aria-hidden="true">→</span></a>
+      </div>
+
+      <figure class="kangelane__pilt">
+        <!-- 🖼️ MUUDA: kangelase pilt (või asenda oma pildiga kaustast pildid/) -->
+        <img src="pildid/kass-portree.jpg" alt="Kass vaatab kaamerasse">
+        <span class="kangelane__teip" aria-hidden="true"></span>
+        <span class="kangelane__kleeps" aria-hidden="true">suvi<br>2026</span>
+        <figcaption>mina, umbes nii iga hommik ☕</figcaption>
+      </figure>
+    </section>
+
+    <div class="lint" aria-hidden="true">
+      <span>✿ kohv</span><span>✿ raamatud</span><span>✿ pikkade varrukatega ilmad</span>
+      <span>✿ vanad filmid</span><span>✿ kleebised</span><span>✿ jalutuskäigud</span>
+      <span>✿ kohv</span><span>✿ raamatud</span><span>✿ pikkade varrukatega ilmad</span>
+      <span>✿ vanad filmid</span><span>✿ kleebised</span><span>✿ jalutuskäigud</span>
+    </div>
+
+    <!-- ================= SISU ================= -->
+    <div class="sisu">
+
+      <section class="paevik" id="paevik">
+        <h2 class="paevik__pealkiri">Viimased sissekanded <span aria-hidden="true">♡</span></h2>
+
+        <!-- ---------------- KANNE 1 ---------------- -->
+        <article class="kanne">
+          <div class="kanne__pais">
+            <!-- ✏️ MUUDA: kuupäev -->
+            <span class="kanne__kuupaev">12. november</span>
+            <span class="kanne__margis">#nädalavahetus</span>
+          </div>
+
+          <!-- ✏️ MUUDA: sissekande pealkiri -->
+          <h3>Pühapäeva hommik, mis algas kell 11</h3>
+
+          <p>
+            Mul oli plaanis ärgata vara, teha pannkoogid ja olla produktiivne inimene.
+            Tegelikult ärkasin kell 11, sõin külma pitsat ja vaatasin kaks tundi
+            videoid sellest, kuidas teised inimesed pannkooke teevad. Täiesti korras
+            pühapäev, kui minu käest küsida.
+          </p>
+
+          <figure class="foto">
+            <!-- 🖼️ MUUDA: sissekande pilt -->
+            <img src="pildid/rebane-heinamaal.jpg" alt="Rebane rohelisel heinamaal">
+            <figcaption>Hiljem läksin siiski välja. Ausalt!</figcaption>
+          </figure>
+
+          <p>
+            Õhtul tegin kokkuvõtte: nädal oli kiire, aga hea. Sain kaks raamatut
+            lõpetatud, leidsin uue lemmikkohviku ja õppisin, et külm pitsa ei ole
+            tegelikult nii hull, kui keegi arvab.
+          </p>
+
+          <span class="kanne__link">Loe edasi <span aria-hidden="true">→</span></span>
+        </article>
+
+        <!-- ---------------- KANNE 2 ---------------- -->
+        <article class="kanne">
+          <div class="kanne__pais">
+            <span class="kanne__kuupaev">5. november</span>
+            <span class="kanne__margis">#raamatud</span>
+          </div>
+
+          <h3>Kolmkümmend lehekülge enne magamaminekut</h3>
+
+          <p>
+            Võtsin endale lubaduse lugeda iga õhtu vähemalt kolmkümmend lehekülge.
+            Esimesed kolm päeva läks suurepäraselt. Neljandal päeval avastasin, et
+            olen sama lehekülge lugenud kolm korda, sest mõtted uitavad kogu aeg
+            homsetesse asjadesse.
+          </p>
+
+          <div class="fotod-paar">
+            <figure class="foto">
+              <!-- 🖼️ MUUDA: esimene väike pilt -->
+              <img src="pildid/vaike-lind.jpg" alt="Väike lind oksal">
+              <figcaption> lugemisnurk</figcaption>
+            </figure>
+            <figure class="foto">
+              <!-- 🖼️ MUUDA: teine väike pilt -->
+              <img src="pildid/tuhkur-lahedalt.jpg" alt="Tuhkur lähedalt vaadatuna">
+              <figcaption>lemmik peatükk</figcaption>
+            </figure>
+          </div>
+
+          <p>
+            Aga vähemalt on mul nüüd ilus lugemisnurk: suur padi, soe tekk ja
+            kohvitass, mis on alati liiga kaugel, et ilma teki alt välja tulemata
+            ulatuda. Väikesed asjad, eks ole.
+          </p>
+
+          <span class="kanne__link">Loe edasi <span aria-hidden="true">→</span></span>
+        </article>
+
+        <!-- ---------------- KANNE 3 ---------------- -->
+        <article class="kanne kanne--lyhike">
+          <div class="kanne__pais">
+            <span class="kanne__kuupaev">28. oktoober</span>
+            <span class="kanne__margis">#väike rõõm</span>
+          </div>
+
+          <h3>Kolm asja, mis sel nädalal naeratama panid</h3>
+
+          <ul class="naeratused">
+            <li>Leidsin jope taskust viieeurose, mille olemasolu olin täiesti unustanud.</li>
+            <li>Bussijuht ootas mind, kuigi jooksin nagu viimane hetk enne maailmalõppu.</li>
+            <li>Tegin ise pestot ja see maitses esimest korda elus nii, nagu oleks plaanis olnud.</li>
+          </ul>
+
+          <p>
+            Panen need siia kirja, et halvemal päeval oleks kuhugi tagasi vaadata.
+            See ongi vist kogu päeviku mõte.
+          </p>
+        </article>
+      </section>
+
+      <!-- ================= KÕRVALTULP ================= -->
+      <aside class="kylg" id="minust">
+
+        <div class="kaart minust">
+          <!-- 🖼️ MUUDA: sinu pilt -->
+          <img class="minust__pilt" src="pildid/kass-must-valgel.jpg" alt="Must kass valgel taustal">
+          <h2>Minust</h2>
+
+          <!-- ✏️ MUUDA: paar sõna endast -->
+          <p>
+            Olen Liisa, 19-aastane ja veidi liiga palju kohvi jõudev inimene.
+            Mulle meeldib teha asju, mis ei ole eluliselt vajalikud, aga
+            muudavad päeva toredamaks.
+          </p>
+
+          <ul class="minust__faktid">
+            <!-- ✏️ MUUDA: väikesed faktid enda kohta -->
+            <li><span aria-hidden="true">🎧</span> kuulan: vana indie</li>
+            <li><span aria-hidden="true">📖</span> loen: „Normaalsed inimesed“</li>
+            <li><span aria-hidden="true">☕</span> joon: kohvi piimaga</li>
+            <li><span aria-hidden="true">🌱</span> proovin: hoida taimi elus</li>
+          </ul>
+        </div>
+
+        <div class="kaart">
+          <h2>Sildid</h2>
+          <div class="sildid">
+            <!-- ✏️ MUUDA: märksõnad -->
+            <span>#kohv</span>
+            <span>#raamatud</span>
+            <span>#väikerõõm</span>
+            <span>#nädalavahetus</span>
+            <span>#ilm</span>
+            <span>#kokkamine</span>
+          </div>
+        </div>
+
+        <div class="kaart tsitaat-kaart">
+          <p>„Mõnikord on kõige produktiivsem asi, mida sa teha saad, mitte midagi teha.“</p>
+          <span>— mina, pärast kolme tundi internetis</span>
+        </div>
+
+        <div class="kaart kontakt-kaart" id="kontakt">
+          <h2>Kirjuta mulle</h2>
+          <p>Kui tahad millestki rääkida või lihtsalt tere öelda:</p>
+          <!-- ✏️ MUUDA: sinu e-posti aadress -->
+          <a class="kontakt-kaart__link" href="mailto:mina@example.com">mina@example.com</a>
+          <p class="kontakt-kaart__vaike">Vastan tavaliselt paari päeva jooksul ♡</p>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst -->
+    <p>✿ kirjutatud vaiksel õhtul, kohvitass käeulatuses</p>
+    <p class="jalus__vaike">See on mall – muuda teksti ja pilte julgelt. Vaata kommentaare „MUUDA“.</p>
+  </footer>
+
+</body>
+</html>

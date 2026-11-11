@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metsaääre pood</title>
+  <meta name="description" content="Väike kohalik pood – lihtne veebipoe mall algajale.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       METSAÄÄRE POOD – lihtne veebipoe vaade.
+       Muuda tooteid, hindu ja pilte. Värvid on stiil.css failis.
+       Ostukorv on väike näidis (skript.js) – see ei saada kuhugi andmeid.
+       ============================================================ -->
+
+  <!-- 🏷️ MUUDA: ülemine teadete riba -->
+  <div class="teade">
+    <p>Tasuta kohaletoimetus Tallinnas alates 30 €</p>
+    <p class="teade__lisa">Avatud E–L 10–18</p>
+  </div>
+
+  <header class="pais">
+    <!-- ✏️ MUUDA: poe nimi -->
+    <a class="logo" href="#">
+      <span class="logo__tapp" aria-hidden="true"></span>
+      metsaääre
+    </a>
+
+    <nav class="pais__nav" aria-label="Peamenüü">
+      <a href="#tooted">Tooted</a>
+      <a href="#lugu">Meist</a>
+      <a href="#uudiskiri">Uudiskiri</a>
+      <a href="#kkk">KKK</a>
+    </nav>
+
+    <!-- 🛒 Ostukorv: number muutub, kui vajutad „Lisa korvi“ -->
+    <button class="korv" type="button" aria-live="polite">
+      <span class="korv__ikoon" aria-hidden="true">◒</span>
+      <span>Korv</span>
+      <span class="korv__arv" id="korvi-arv">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <div class="kangelane__tekst">
+        <!-- ✏️ MUUDA: väike tekst -->
+        <p class="silt">Kohalik pood · Tallinn</p>
+
+        <!-- ✏️ MUUDA: suur pealkiri -->
+        <h1>Väike pood<br><span>metsa servas.</span></h1>
+
+        <!-- ✏️ MUUDA: tutvustus -->
+        <p class="kangelane__juht">
+          Mesi, seened, marjad ja paberkaardid – kõik väikestelt tegijatelt.
+          Pakime taaskasutatud paberisse ja lisame alati väikese joonistuse.
+        </p>
+
+        <div class="kangelane__nupud">
+          <a class="nupp nupp--tuli" href="#tooted">Vaata tooteid</a>
+          <a class="nupp nupp--joon" href="#lugu">Kes me oleme?</a>
+        </div>
+
+        <ul class="tunnused">
+          <li>100% kohalik</li>
+          <li>Pakendamata prügi</li>
+          <li>Käsitsi tehtud</li>
+        </ul>
+      </div>
+
+      <div class="kangelane__pilt">
+        <!-- 🖼️ MUUDA: avafoto -->
+        <img src="pildid/mesinik-rohus.jpg" alt="Mesinik tarude juures rohus" fetchpriority="high">
+
+        <div class="hinnasilt">
+          <span class="hinnasilt__silt">Nädala lemmik</span>
+          <strong>Metsamesi</strong>
+          <span class="hinnasilt__hind">9,50 €</span>
+        </div>
+
+        <span class="taht" aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <!-- ================= KATEGOORIAD ================= -->
+    <div class="kategooriad" aria-label="Kategooriad">
+      <a class="kiip kiip--aktiivne" href="#tooted">Kõik</a>
+      <a class="kiip" href="#tooted">Mesilast</a>
+      <a class="kiip" href="#tooted">Metsast</a>
+      <a class="kiip" href="#tooted">Aeda</a>
+      <a class="kiip" href="#tooted">Paber</a>
+    </div>
+
+    <!-- ================= TOOTED ================= -->
+    <section class="tooted" id="tooted">
+      <div class="tooted__pais">
+        <h2>Letil praegu</h2>
+        <!-- ✏️ MUUDA: väike selgitus -->
+        <p>Väike valik, mis muutub iga nädal. Kui midagi otsa saab, kirjuta ja teen juurde.</p>
+      </div>
+
+      <div class="tootevorgustik">
+
+        <!-- ---------- TOOTEKAART 1 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <!-- 🖼️ MUUDA: toote pilt -->
+            <img src="pildid/mesilased-tarul.jpg" alt="Mesilased kärjel mee juures" loading="lazy">
+            <span class="margis margis--roheline">Parim müüja</span>
+            <!-- 🛒 nupu tekst ja toote nimi on all data-nimi sees -->
+            <button class="lisa" type="button" data-nimi="Metsamesi">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Mesilast</span>
+            <h3>Metsamesi</h3>
+            <!-- ✏️ MUUDA: hind -->
+            <p class="toode__hind">9,50 €</p>
+          </div>
+        </article>
+
+        <!-- ---------- TOOTEKAART 2 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <img src="pildid/seened.jpg" alt="Metsaseened korvis" loading="lazy">
+            <button class="lisa" type="button" data-nimi="Kuivatatud kukeseened">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Metsast</span>
+            <h3>Kuivatatud kukeseened</h3>
+            <p class="toode__hind">6,90 €</p>
+          </div>
+        </article>
+
+        <!-- ---------- TOOTEKAART 3 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <img src="pildid/kummelid.jpg" alt="Kummelid aias" loading="lazy">
+            <span class="margis margis--uus">Uus</span>
+            <button class="lisa" type="button" data-nimi="Kummeli tee">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Aeda</span>
+            <h3>Kummeli tee</h3>
+            <p class="toode__hind">7,50 €</p>
+          </div>
+        </article>
+
+        <!-- ---------- TOOTEKAART 4 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <img src="pildid/pihlakamarjad.jpg" alt="Pihlakamarjad oksal" loading="lazy">
+            <button class="lisa" type="button" data-nimi="Pihlakaseemned">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Aeda</span>
+            <h3>Pihlakaseemned</h3>
+            <p class="toode__hind">4,20 €</p>
+          </div>
+        </article>
+
+        <!-- ---------- TOOTEKAART 5 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <img src="pildid/lill-pall.jpg" alt="Kuivatatud lilled" loading="lazy">
+            <button class="lisa" type="button" data-nimi="Kuivatatud lilled">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Paber</span>
+            <h3>Kuivatatud lilled</h3>
+            <p class="toode__hind">12,00 €</p>
+          </div>
+        </article>
+
+        <!-- ---------- TOOTEKAART 6 ---------- -->
+        <article class="toode">
+          <div class="toode__pilt">
+            <img src="pildid/seen-samblal.jpg" alt="Seen samblal" loading="lazy">
+            <button class="lisa" type="button" data-nimi="Metsa plakat A3">Lisa korvi +</button>
+          </div>
+          <div class="toode__info">
+            <span class="toode__kat">Paber</span>
+            <h3>Metsa plakat A3</h3>
+            <p class="toode__hind">15,00 €</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= MEIST ================= -->
+    <section class="lugu" id="lugu">
+      <div class="lugu__pilt">
+        <!-- 🖼️ MUUDA: poodi või tegija foto -->
+        <img src="pildid/lill-pall.jpg" alt="Lilled poe letil" loading="lazy">
+      </div>
+
+      <div class="lugu__tekst">
+        <p class="silt">Meist</p>
+        <!-- ✏️ MUUDA: pealkiri -->
+        <h2>Väike pood,<br>suured taskud.</h2>
+
+        <!-- ✏️ MUUDA: lugu -->
+        <p>
+          Alustasime ühe riiuliga kohalikus kohvikus. Nüüd on meil oma väike
+          pood, kus iga toote taga on inimene, kelle nime me teame.
+        </p>
+        <p>
+          Mesi tuleb Nõmme mesinikult, seened Tõnu käest ja paberkaardid
+          naabruses elavalt illustraatorilt. Kui midagi ei ole, siis me ei
+          mõtle välja – ütleme ausalt.
+        </p>
+
+        <dl class="numbrid">
+          <div><dt>2019</dt><dd>avatud</dd></div>
+          <div><dt>36</dt><dd>kohalikku tegijat</dd></div>
+          <div><dt>0</dt><dd>plastpakendit</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= UUDISKIRI ================= -->
+    <section class="uudiskiri" id="uudiskiri">
+      <div>
+        <p class="silt silt--hele">Uudiskiri</p>
+        <!-- ✏️ MUUDA: üleskutse -->
+        <h2>Kord kuus<br>üks hea kiri.</h2>
+        <p class="uudiskiri__tekst">
+          Mis on letile tulnud, mis otsa saanud ja millal pood puhkab.
+          Ei mingit müra.
+        </p>
+      </div>
+
+      <!-- ✏️ MUUDA: vormi tegevus (action), kui sul on uudiskirja teenus -->
+      <form class="vorm" action="#" method="post">
+        <label for="email">Sinu e-post</label>
+        <div class="vorm__rida">
+          <input id="email" name="email" type="email" placeholder="nimi@epost.ee" required>
+          <button class="nupp nupp--tuli" type="submit">Liitun</button>
+        </div>
+        <p class="vorm__vaike">Saad igal ajal lahkuda. Ausalt.</p>
+      </form>
+    </section>
+
+    <!-- ================= KKK ================= -->
+    <section class="kkk" id="kkk">
+      <div class="kkk__pais">
+        <p class="silt">Enne ostu</p>
+        <h2>Küsimused,<br>mida kõige rohkem küsitakse.</h2>
+        <p class="kkk__markus">Klõpsa küsimusel ja vastus avaneb. Teine klõps paneb selle jälle kinni.</p>
+      </div>
+
+      <div class="kkk__nimekiri">
+        <!-- ✏️ MUUDA: küsimus on summary-real, vastus tuleb selle järele -->
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kui kiiresti tellimus kohale jõuab?</summary>
+          <p>Tallinnas toome tellimuse kohale 1–2 tööpäeva jooksul, üle Eesti 2–4 päevaga. Üle 30 € tellimusele on kohaletoimetamine tasuta.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kuidas ostukorv töötab?</summary>
+          <p>See on väike näidis: „Lisa korvi“ liidab toote ja number üleval paremal kasvab. Midagi ei saadeta kuhugi — päris poe jaoks tuleb see osa ise ühendada.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas toote võib tagastada?</summary>
+          <p>Avamata toote võib tagastada 14 päeva jooksul. Mesi ja seened on toidukaubad — neid tagastada ei saa, aga kui midagi on korrast ära, kirjuta ja leiame lahenduse.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas saab tulla ise järele?</summary>
+          <p>Jah, Metsa tee 7 juures saab tellimuse kätte E–L kella 10–18. Kirjuta lihtsalt enne, et paneme koti valmis.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="jalus">
+    <div>
+      <!-- ✏️ MUUDA: poe nimi ja aasta -->
+      <p class="jalus__nimi">metsaääre</p>
+      <p class="jalus__vaike">Metsa tee 7, Tallinn · tere@metsaaare.example</p>
+    </div>
+
+    <nav class="jalus__nav" aria-label="Jaluse lingid">
+      <a href="#tooted">Tooted</a>
+      <a href="#lugu">Meist</a>
+      <a href="#uudiskiri">Uudiskiri</a>
+    </nav>
+
+    <p class="jalus__vaike">See on mall · muuda vabalt</p>
+  </footer>
+
+  <!-- Väike teade, mis ilmub pärast „Lisa korvi“ vajutust -->
+  <div class="teavitus" id="teavitus" role="status" aria-live="polite"></div>
+
+  <script src="skript.js"></script>
+</body>
+</html>

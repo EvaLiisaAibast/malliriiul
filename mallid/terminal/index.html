@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mari Mets – terminal</title>
+  <meta name="description" content="Terminali stiilis isiklik portfoolio – mall, mida saab muuta tekstide ja linkidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       TERMINAL – isiklik portfoolio käsuereal.
+       Muuda teksti nii, nagu loeksid terminali väljundit.
+       ============================================================ -->
+
+  <div class="taust" aria-hidden="true"></div>
+
+  <main class="terminal">
+    <!-- Akna ülariba -->
+    <div class="terminal__riba">
+      <span class="terminal__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="terminal__nimi">mina@arvuti: ~/portfoolio</span>
+      <span class="terminal__keel">bash</span>
+    </div>
+
+    <div class="terminal__sisu">
+
+      <p class="tere">Viimane sisselogimine: täna, 09:41:07</p>
+
+      <!-- Suur ASCII-nimi. ✏️ MUUDA: vaheta tekst oma nimega (või jäta lihtsalt h1) -->
+      <pre class="banner" role="img" aria-label="Mari Mets">
+ ███╗   ███╗ █████╗ ██████╗ ██╗
+ ████╗ ████║██╔══██╗██╔══██╗██║
+ ██╔████╔██║███████║██████╔╝██║
+ ██║╚██╔╝██║██╔══██║██╔══██╗██║
+ ██║ ╚═╝ ██║██║  ██║██║  ██║██║
+ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝
+      </pre>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">whoami</span></p>
+
+      <!-- ✏️ MUUDA: nimi ja roll -->
+      <h1>Mari Mets</h1>
+      <p class="roll">veebiarendaja · disainer · kohvijooja</p>
+
+      <!-- ✏️ MUUDA: lühitutvustus -->
+      <p class="tekst">
+        Ehitan asju, mis töötavad brauseris ja näevad head välja ka siis,
+        kui internet on aeglane. Viimased kolm aastat olen teinud veebilehti,
+        väikeseid rakendusi ja ühte liiga ambitsioonikat mänguprojekti.
+      </p>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">cat kontakt.txt</span></p>
+
+      <ul class="info">
+        <!-- ✏️ MUUDA: kontaktid -->
+        <li><span>asukoht</span> Tallinn, Eesti</li>
+        <li><span>e-post</span> <a href="mailto:mari@example.com">mari@example.com</a></li>
+        <li><span>GitHub</span> <a href="#">github.com/marimets</a></li>
+        <li><span>saadaval</span> <em>jah, uutele projektidele</em></li>
+      </ul>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">ls -la projektid/</span></p>
+
+      <div class="failid">
+        <!-- ✏️ MUUDA: projektid. Iga rida on üks projekt. -->
+        <a class="fail" href="#">
+          <span class="fail__õigus">drwxr-xr-x</span>
+          <span class="fail__nimi">päevik/</span>
+          <span class="fail__kirjeldus">isiklik päevik, mis näeb välja nagu 2005</span>
+          <span class="fail__aeg">2026</span>
+        </a>
+
+        <a class="fail" href="#">
+          <span class="fail__õigus">drwxr-xr-x</span>
+          <span class="fail__nimi">kohvik/</span>
+          <span class="fail__kirjeldus">väike kohviku menüü ja broneerimisleht</span>
+          <span class="fail__aeg">2025</span>
+        </a>
+
+        <a class="fail" href="#">
+          <span class="fail__õigus">drwxr-xr-x</span>
+          <span class="fail__nimi">mang/</span>
+          <span class="fail__kirjeldus">brauserimäng, millel on liiga palju reegleid</span>
+          <span class="fail__aeg">2025</span>
+        </a>
+
+        <a class="fail" href="#">
+          <span class="fail__õigus">drwxr-xr-x</span>
+          <span class="fail__nimi">katsetused/</span>
+          <span class="fail__kirjeldus">siin elavad asjad, mis kunagi ei valmi</span>
+          <span class="fail__aeg">2024</span>
+        </a>
+      </div>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">cat oskused.txt</span></p>
+
+      <div class="oskused">
+        <!-- ✏️ MUUDA: oskused ja tase (--tase: 0–100%) -->
+        <div class="oskus" style="--tase: 92%">
+          <span class="oskus__nimi">HTML &amp; CSS</span>
+          <span class="oskus__riba"></span>
+          <span class="oskus__arv">92%</span>
+        </div>
+        <div class="oskus" style="--tase: 78%">
+          <span class="oskus__nimi">JavaScript</span>
+          <span class="oskus__riba"></span>
+          <span class="oskus__arv">78%</span>
+        </div>
+        <div class="oskus" style="--tase: 64%">
+          <span class="oskus__nimi">Figma</span>
+          <span class="oskus__riba"></span>
+          <span class="oskus__arv">64%</span>
+        </div>
+        <div class="oskus" style="--tase: 41%">
+          <span class="oskus__nimi">Kannatlikkus</span>
+          <span class="oskus__riba"></span>
+          <span class="oskus__arv">41%</span>
+        </div>
+      </div>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">ls -la pildid/</span></p>
+
+      <div class="pildiriba">
+        <!-- 🖼️ MUUDA: galerii pildid ja failinimed -->
+        <figure class="pildiriba__kaart">
+          <img src="pildid/kopter-taevas.jpg" alt="Kopter taevas" loading="lazy">
+          <figcaption>kopter-taevas.jpg</figcaption>
+        </figure>
+        <figure class="pildiriba__kaart">
+          <img src="pildid/lennuk-siluett.jpg" alt="Lennuki siluett taevas" loading="lazy">
+          <figcaption>lennuk-siluett.jpg</figcaption>
+        </figure>
+        <figure class="pildiriba__kaart">
+          <img src="pildid/kabel.jpg" alt="Kaabel ja konstruktsioonid" loading="lazy">
+          <figcaption>kabel.jpg</figcaption>
+        </figure>
+        <figure class="pildiriba__kaart">
+          <img src="pildid/tuhi-maantee.jpg" alt="Tühi maantee" loading="lazy">
+          <figcaption>tuhi-maantee.jpg</figcaption>
+        </figure>
+      </div>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">./praegu.sh</span></p>
+
+      <ul class="praegu">
+        <!-- ✏️ MUUDA: mida parasjagu teed -->
+        <li><span aria-hidden="true">▸</span> Õpin: kuidas CSS-grid päriselt töötab</li>
+        <li><span aria-hidden="true">▸</span> Ehitan: ühte väikest veebipoodi</li>
+        <li><span aria-hidden="true">▸</span> Kuulan: vanu videomängu heliribasid</li>
+      </ul>
+
+      <p class="prompt"><span class="prompt__tee">~</span> $ <span class="prompt__cmd">echo $TERE_TULEMAST</span></p>
+
+      <p class="tere-tulemast">
+        Kui tahad midagi ehitada või lihtsalt tere öelda, kirjuta julgelt.
+        Vastan tavaliselt ühe tööpäeva jooksul.
+      </p>
+
+      <p class="prompt prompt--viimane"><span class="prompt__tee">~</span> $ <span class="kursor" aria-hidden="true"></span></p>
+    </div>
+
+    <footer class="terminal__jalg">
+      <span>NORMAL</span>
+      <span>utf-8</span>
+      <span>100%</span>
+      <span class="terminal__jalg-markus">mall · muuda teksti ja linke</span>
+    </footer>
+  </main>
+
+</body>
+</html>

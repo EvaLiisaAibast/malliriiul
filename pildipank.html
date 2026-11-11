@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pildipank – 85 fotot Malliriiulist</title>
+  <meta name="description" content="Kõik 85 töötoa fotot ühes vaates: eelvaade, kategooriad ja valmis failiteed, mille saab ühe klikiga kopeerida.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23ff4d24'/><path d='M24 72V28h10l16 24 16-24h10v44H66V46L50 68 34 46v26z' fill='%23f7f2e8'/></svg>">
+  <link rel="stylesheet" href="stiil.css">
+  <link rel="stylesheet" href="pildipank.css">
+</head>
+<body>
+
+  <a class="huppe-link" href="#pildid">Hüppa piltide juurde</a>
+
+  <header class="pais">
+    <a class="logo" href="index.html" aria-label="Malliriiul, avaleht">
+      <span class="logo__marg">M</span>
+      <span class="logo__nimi">Malliriiul</span>
+    </a>
+
+    <nav class="pais__nav" aria-label="Põhinavigatsioon">
+      <a href="index.html#mallid">Mallid</a>
+      <a href="index.html#juhend">Kuidas kasutada</a>
+      <a href="pildipank.html" aria-current="page">Pildipank</a>
+    </nav>
+
+    <a class="nupp nupp--tume nupp--vaike" href="zip/koik-mallid.zip" download>
+      Laadi kõik alla <span aria-hidden="true">↓</span>
+    </a>
+  </header>
+
+  <main class="pildipank">
+
+    <div class="pildipank__pais">
+      <p class="silt"><span class="silt__tapp"></span> Pildipank · 85 fotot</p>
+      <h1>Kõik pildid <em>ühes kohas.</em></h1>
+      <p class="pildipank__sissejuhatus">
+        Siin on kogu töötoa pildivalik kategooriate kaupa. Klõpsa pildil, et näha
+        seda suuremalt, ja kopeeri tee nupuga „Kopeeri tee“ — see sobib otse
+        <code>&lt;img src="…"&gt;</code> reale sinu lehel.
+      </p>
+      <p class="pildipank__meta">Fotod: Jaak Aibast (andis ühiskasutuseks 88 pilti) · Tehtud INSA insapäevade raames</p>
+    </div>
+
+    <div class="pildipank__riistad">
+      <label class="pildipank__otsing">
+        <span class="pildipank__otsing-silt">Otsi pilti</span>
+        <input id="pildi-otsing" type="search" placeholder="nt kass, raba, bmw" autocomplete="off">
+      </label>
+      <button class="nupp nupp--vaata nupp--vaike" id="kopeeri-koik" type="button">Kopeeri nähtavad teed</button>
+      <p class="pildipank__loendur" id="pildi-loendur">85 pilti</p>
+    </div>
+
+    <div class="filtrid" id="pildi-filtrid" role="group" aria-label="Filtreeri kategooria järgi">
+      <button class="filtreeri on-aktiivne" data-filter="koik" aria-pressed="true">Kõik <span class="filtreeri__arv">85</span></button>
+        <button class="filtreeri" data-filter="loomad" aria-pressed="false">Loomad <span class="filtreeri__arv">9</span></button>
+        <button class="filtreeri" data-filter="linnud" aria-pressed="false">Linnud <span class="filtreeri__arv">4</span></button>
+        <button class="filtreeri" data-filter="putukad" aria-pressed="false">Putukad <span class="filtreeri__arv">15</span></button>
+        <button class="filtreeri" data-filter="taimed" aria-pressed="false">Taimed <span class="filtreeri__arv">9</span></button>
+        <button class="filtreeri" data-filter="loodus" aria-pressed="false">Loodus <span class="filtreeri__arv">11</span></button>
+        <button class="filtreeri" data-filter="autod" aria-pressed="false">Autod <span class="filtreeri__arv">13</span></button>
+        <button class="filtreeri" data-filter="soidukid" aria-pressed="false">Sõidukid <span class="filtreeri__arv">9</span></button>
+        <button class="filtreeri" data-filter="inimesed-ja-kohad" aria-pressed="false">Inimesed ja kohad <span class="filtreeri__arv">15</span></button>
+    </div>
+
+    <p class="tuhi-tulemus" id="pildi-tuhi" hidden>Ühtegi pilti selle otsinguga ei leidunud. Proovi teist sõna või kategooriat.</p>
+
+    <div class="pildipank__vorgustik" id="pildid">
+      <article class="pilt" data-kategooria="loomad" data-nimi="kass-must-valgel.jpg">
+        <a class="pilt__ava" href="pildid/loomad/kass-must-valgel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/kass-must-valgel.jpg" alt="Kass must valgel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kass must valgel</p>
+          <code class="pilt__tee">pildid/loomad/kass-must-valgel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/kass-must-valgel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="kass-portree.jpg">
+        <a class="pilt__ava" href="pildid/loomad/kass-portree.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/kass-portree.jpg" alt="Kass portree" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kass portree</p>
+          <code class="pilt__tee">pildid/loomad/kass-portree.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/kass-portree.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="lehmad-karjamaal.jpg">
+        <a class="pilt__ava" href="pildid/loomad/lehmad-karjamaal.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/lehmad-karjamaal.jpg" alt="Lehmad karjamaal" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Lehmad karjamaal</p>
+          <code class="pilt__tee">pildid/loomad/lehmad-karjamaal.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/lehmad-karjamaal.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="madu.jpg">
+        <a class="pilt__ava" href="pildid/loomad/madu.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/madu.jpg" alt="Madu" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Madu</p>
+          <code class="pilt__tee">pildid/loomad/madu.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/madu.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="rebane-heinamaal.jpg">
+        <a class="pilt__ava" href="pildid/loomad/rebane-heinamaal.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/rebane-heinamaal.jpg" alt="Rebane heinamaal" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Rebane heinamaal</p>
+          <code class="pilt__tee">pildid/loomad/rebane-heinamaal.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/rebane-heinamaal.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="sisalik-kivil.jpg">
+        <a class="pilt__ava" href="pildid/loomad/sisalik-kivil.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/sisalik-kivil.jpg" alt="Sisalik kivil" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sisalik kivil</p>
+          <code class="pilt__tee">pildid/loomad/sisalik-kivil.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/sisalik-kivil.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="sisalikud.jpg">
+        <a class="pilt__ava" href="pildid/loomad/sisalikud.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/sisalikud.jpg" alt="Sisalikud" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sisalikud</p>
+          <code class="pilt__tee">pildid/loomad/sisalikud.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/sisalikud.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="tuhkur-kates.jpg">
+        <a class="pilt__ava" href="pildid/loomad/tuhkur-kates.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/tuhkur-kates.jpg" alt="Tuhkur kates" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Tuhkur kates</p>
+          <code class="pilt__tee">pildid/loomad/tuhkur-kates.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/tuhkur-kates.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loomad" data-nimi="tuhkur-lahedalt.jpg">
+        <a class="pilt__ava" href="pildid/loomad/tuhkur-lahedalt.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loomad/tuhkur-lahedalt.jpg" alt="Tuhkur lahedalt" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Tuhkur lahedalt</p>
+          <code class="pilt__tee">pildid/loomad/tuhkur-lahedalt.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loomad/tuhkur-lahedalt.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="linnud" data-nimi="ookull-oksal.jpg">
+        <a class="pilt__ava" href="pildid/linnud/ookull-oksal.jpg" target="_blank" rel="noopener">
+          <img src="pildid/linnud/ookull-oksal.jpg" alt="Ookull oksal" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Ookull oksal</p>
+          <code class="pilt__tee">pildid/linnud/ookull-oksal.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/linnud/ookull-oksal.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="linnud" data-nimi="roovlind-taevas.jpg">
+        <a class="pilt__ava" href="pildid/linnud/roovlind-taevas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/linnud/roovlind-taevas.jpg" alt="Roovlind taevas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Roovlind taevas</p>
+          <code class="pilt__tee">pildid/linnud/roovlind-taevas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/linnud/roovlind-taevas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="linnud" data-nimi="vaike-lind.jpg">
+        <a class="pilt__ava" href="pildid/linnud/vaike-lind.jpg" target="_blank" rel="noopener">
+          <img src="pildid/linnud/vaike-lind.jpg" alt="Vaike lind" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Vaike lind</p>
+          <code class="pilt__tee">pildid/linnud/vaike-lind.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/linnud/vaike-lind.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="linnud" data-nimi="vares-lumes.jpg">
+        <a class="pilt__ava" href="pildid/linnud/vares-lumes.jpg" target="_blank" rel="noopener">
+          <img src="pildid/linnud/vares-lumes.jpg" alt="Vares lumes" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Vares lumes</p>
+          <code class="pilt__tee">pildid/linnud/vares-lumes.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/linnud/vares-lumes.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-koorel-2.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-koorel-2.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-koorel-2.jpg" alt="Amblik koorel 2" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik koorel 2</p>
+          <code class="pilt__tee">pildid/putukad/amblik-koorel-2.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-koorel-2.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-koorel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-koorel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-koorel.jpg" alt="Amblik koorel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik koorel</p>
+          <code class="pilt__tee">pildid/putukad/amblik-koorel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-koorel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-lahedalt.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-lahedalt.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-lahedalt.jpg" alt="Amblik lahedalt" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik lahedalt</p>
+          <code class="pilt__tee">pildid/putukad/amblik-lahedalt.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-lahedalt.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-lilles.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-lilles.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-lilles.jpg" alt="Amblik lilles" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik lilles</p>
+          <code class="pilt__tee">pildid/putukad/amblik-lilles.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-lilles.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-vorgus-2.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-vorgus-2.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-vorgus-2.jpg" alt="Amblik vorgus 2" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik vorgus 2</p>
+          <code class="pilt__tee">pildid/putukad/amblik-vorgus-2.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-vorgus-2.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="amblik-vorgus.jpg">
+        <a class="pilt__ava" href="pildid/putukad/amblik-vorgus.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/amblik-vorgus.jpg" alt="Amblik vorgus" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Amblik vorgus</p>
+          <code class="pilt__tee">pildid/putukad/amblik-vorgus.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/amblik-vorgus.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="kimalane-lilles.jpg">
+        <a class="pilt__ava" href="pildid/putukad/kimalane-lilles.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/kimalane-lilles.jpg" alt="Kimalane lilles" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kimalane lilles</p>
+          <code class="pilt__tee">pildid/putukad/kimalane-lilles.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/kimalane-lilles.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="lepatriinu-lehel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/lepatriinu-lehel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/lepatriinu-lehel.jpg" alt="Lepatriinu lehel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Lepatriinu lehel</p>
+          <code class="pilt__tee">pildid/putukad/lepatriinu-lehel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/lepatriinu-lehel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="liblikas-lillel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/liblikas-lillel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/liblikas-lillel.jpg" alt="Liblikas lillel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Liblikas lillel</p>
+          <code class="pilt__tee">pildid/putukad/liblikas-lillel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/liblikas-lillel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="liblikas-lilles.jpg">
+        <a class="pilt__ava" href="pildid/putukad/liblikas-lilles.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/liblikas-lilles.jpg" alt="Liblikas lilles" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Liblikas lilles</p>
+          <code class="pilt__tee">pildid/putukad/liblikas-lilles.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/liblikas-lilles.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="mardikas-lillel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/mardikas-lillel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/mardikas-lillel.jpg" alt="Mardikas lillel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mardikas lillel</p>
+          <code class="pilt__tee">pildid/putukad/mardikas-lillel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/mardikas-lillel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="mardikas-rohelisel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/mardikas-rohelisel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/mardikas-rohelisel.jpg" alt="Mardikas rohelisel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mardikas rohelisel</p>
+          <code class="pilt__tee">pildid/putukad/mardikas-rohelisel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/mardikas-rohelisel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="mesilased-lahedalt.jpg">
+        <a class="pilt__ava" href="pildid/putukad/mesilased-lahedalt.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/mesilased-lahedalt.jpg" alt="Mesilased lahedalt" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mesilased lahedalt</p>
+          <code class="pilt__tee">pildid/putukad/mesilased-lahedalt.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/mesilased-lahedalt.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="mesilased-tarul.jpg">
+        <a class="pilt__ava" href="pildid/putukad/mesilased-tarul.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/mesilased-tarul.jpg" alt="Mesilased tarul" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mesilased tarul</p>
+          <code class="pilt__tee">pildid/putukad/mesilased-tarul.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/mesilased-tarul.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="putukad" data-nimi="touk-lehel.jpg">
+        <a class="pilt__ava" href="pildid/putukad/touk-lehel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/putukad/touk-lehel.jpg" alt="Touk lehel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Touk lehel</p>
+          <code class="pilt__tee">pildid/putukad/touk-lehel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/putukad/touk-lehel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="kummelid.jpg">
+        <a class="pilt__ava" href="pildid/taimed/kummelid.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/kummelid.jpg" alt="Kummelid" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kummelid</p>
+          <code class="pilt__tee">pildid/taimed/kummelid.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/kummelid.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="lill-pall.jpg">
+        <a class="pilt__ava" href="pildid/taimed/lill-pall.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/lill-pall.jpg" alt="Lill pall" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Lill pall</p>
+          <code class="pilt__tee">pildid/taimed/lill-pall.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/lill-pall.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="lilled-liblikatega.jpg">
+        <a class="pilt__ava" href="pildid/taimed/lilled-liblikatega.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/lilled-liblikatega.jpg" alt="Lilled liblikatega" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Lilled liblikatega</p>
+          <code class="pilt__tee">pildid/taimed/lilled-liblikatega.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/lilled-liblikatega.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="pihlakamarjad.jpg">
+        <a class="pilt__ava" href="pildid/taimed/pihlakamarjad.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/pihlakamarjad.jpg" alt="Pihlakamarjad" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Pihlakamarjad</p>
+          <code class="pilt__tee">pildid/taimed/pihlakamarjad.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/pihlakamarjad.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="roosa-lill-mesilasega.jpg">
+        <a class="pilt__ava" href="pildid/taimed/roosa-lill-mesilasega.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/roosa-lill-mesilasega.jpg" alt="Roosa lill mesilasega" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Roosa lill mesilasega</p>
+          <code class="pilt__tee">pildid/taimed/roosa-lill-mesilasega.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/roosa-lill-mesilasega.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="sinine-lill.jpg">
+        <a class="pilt__ava" href="pildid/taimed/sinine-lill.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/sinine-lill.jpg" alt="Sinine lill" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sinine lill</p>
+          <code class="pilt__tee">pildid/taimed/sinine-lill.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/sinine-lill.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="sugislehed.jpg">
+        <a class="pilt__ava" href="pildid/taimed/sugislehed.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/sugislehed.jpg" alt="Sugislehed" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sugislehed</p>
+          <code class="pilt__tee">pildid/taimed/sugislehed.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/sugislehed.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="vaarikas.jpg">
+        <a class="pilt__ava" href="pildid/taimed/vaarikas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/vaarikas.jpg" alt="Vaarikas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Vaarikas</p>
+          <code class="pilt__tee">pildid/taimed/vaarikas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/vaarikas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="taimed" data-nimi="valged-lilled.jpg">
+        <a class="pilt__ava" href="pildid/taimed/valged-lilled.jpg" target="_blank" rel="noopener">
+          <img src="pildid/taimed/valged-lilled.jpg" alt="Valged lilled" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Valged lilled</p>
+          <code class="pilt__tee">pildid/taimed/valged-lilled.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/taimed/valged-lilled.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="ilutulestik.jpg">
+        <a class="pilt__ava" href="pildid/loodus/ilutulestik.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/ilutulestik.jpg" alt="Ilutulestik" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Ilutulestik</p>
+          <code class="pilt__tee">pildid/loodus/ilutulestik.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/ilutulestik.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="juga.jpg">
+        <a class="pilt__ava" href="pildid/loodus/juga.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/juga.jpg" alt="Juga" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Juga</p>
+          <code class="pilt__tee">pildid/loodus/juga.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/juga.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="maantee-droon.jpg">
+        <a class="pilt__ava" href="pildid/loodus/maantee-droon.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/maantee-droon.jpg" alt="Maantee droon" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Maantee droon</p>
+          <code class="pilt__tee">pildid/loodus/maantee-droon.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/maantee-droon.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="merepromenaad.jpg">
+        <a class="pilt__ava" href="pildid/loodus/merepromenaad.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/merepromenaad.jpg" alt="Merepromenaad" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Merepromenaad</p>
+          <code class="pilt__tee">pildid/loodus/merepromenaad.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/merepromenaad.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="oranzid-seened.jpg">
+        <a class="pilt__ava" href="pildid/loodus/oranzid-seened.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/oranzid-seened.jpg" alt="Oranzid seened" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Oranzid seened</p>
+          <code class="pilt__tee">pildid/loodus/oranzid-seened.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/oranzid-seened.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="raba-droon.jpg">
+        <a class="pilt__ava" href="pildid/loodus/raba-droon.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/raba-droon.jpg" alt="Raba droon" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Raba droon</p>
+          <code class="pilt__tee">pildid/loodus/raba-droon.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/raba-droon.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="raba-puud.jpg">
+        <a class="pilt__ava" href="pildid/loodus/raba-puud.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/raba-puud.jpg" alt="Raba puud" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Raba puud</p>
+          <code class="pilt__tee">pildid/loodus/raba-puud.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/raba-puud.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="seen-samblal.jpg">
+        <a class="pilt__ava" href="pildid/loodus/seen-samblal.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/seen-samblal.jpg" alt="Seen samblal" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Seen samblal</p>
+          <code class="pilt__tee">pildid/loodus/seen-samblal.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/seen-samblal.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="seened.jpg">
+        <a class="pilt__ava" href="pildid/loodus/seened.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/seened.jpg" alt="Seened" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Seened</p>
+          <code class="pilt__tee">pildid/loodus/seened.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/seened.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="sugismets-droon.jpg">
+        <a class="pilt__ava" href="pildid/loodus/sugismets-droon.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/sugismets-droon.jpg" alt="Sugismets droon" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sugismets droon</p>
+          <code class="pilt__tee">pildid/loodus/sugismets-droon.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/sugismets-droon.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="loodus" data-nimi="tuhi-maantee.jpg">
+        <a class="pilt__ava" href="pildid/loodus/tuhi-maantee.jpg" target="_blank" rel="noopener">
+          <img src="pildid/loodus/tuhi-maantee.jpg" alt="Tuhi maantee" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Tuhi maantee</p>
+          <code class="pilt__tee">pildid/loodus/tuhi-maantee.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/loodus/tuhi-maantee.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="automess.jpg">
+        <a class="pilt__ava" href="pildid/autod/automess.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/automess.jpg" alt="Automess" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Automess</p>
+          <code class="pilt__tee">pildid/autod/automess.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/automess.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="avariiline-auto.jpg">
+        <a class="pilt__ava" href="pildid/autod/avariiline-auto.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/avariiline-auto.jpg" alt="Avariiline auto" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Avariiline auto</p>
+          <code class="pilt__tee">pildid/autod/avariiline-auto.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/avariiline-auto.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="hobedane-klassikaline.jpg">
+        <a class="pilt__ava" href="pildid/autod/hobedane-klassikaline.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/hobedane-klassikaline.jpg" alt="Hobedane klassikaline" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Hobedane klassikaline</p>
+          <code class="pilt__tee">pildid/autod/hobedane-klassikaline.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/hobedane-klassikaline.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="hobedane-skyline.jpg">
+        <a class="pilt__ava" href="pildid/autod/hobedane-skyline.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/hobedane-skyline.jpg" alt="Hobedane skyline" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Hobedane skyline</p>
+          <code class="pilt__tee">pildid/autod/hobedane-skyline.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/hobedane-skyline.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="klassikaline-auto.jpg">
+        <a class="pilt__ava" href="pildid/autod/klassikaline-auto.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/klassikaline-auto.jpg" alt="Klassikaline auto" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Klassikaline auto</p>
+          <code class="pilt__tee">pildid/autod/klassikaline-auto.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/klassikaline-auto.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="klassikalised-autod.jpg">
+        <a class="pilt__ava" href="pildid/autod/klassikalised-autod.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/klassikalised-autod.jpg" alt="Klassikalised autod" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Klassikalised autod</p>
+          <code class="pilt__tee">pildid/autod/klassikalised-autod.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/klassikalised-autod.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="must-auto-lumes.jpg">
+        <a class="pilt__ava" href="pildid/autod/must-auto-lumes.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/must-auto-lumes.jpg" alt="Must auto lumes" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Must auto lumes</p>
+          <code class="pilt__tee">pildid/autod/must-auto-lumes.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/must-auto-lumes.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="punane-ferrari.jpg">
+        <a class="pilt__ava" href="pildid/autod/punane-ferrari.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/punane-ferrari.jpg" alt="Punane ferrari" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Punane ferrari</p>
+          <code class="pilt__tee">pildid/autod/punane-ferrari.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/punane-ferrari.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="punane-mini.jpg">
+        <a class="pilt__ava" href="pildid/autod/punane-mini.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/punane-mini.jpg" alt="Punane mini" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Punane mini</p>
+          <code class="pilt__tee">pildid/autod/punane-mini.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/punane-mini.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="punane-sportauto.jpg">
+        <a class="pilt__ava" href="pildid/autod/punane-sportauto.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/punane-sportauto.jpg" alt="Punane sportauto" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Punane sportauto</p>
+          <code class="pilt__tee">pildid/autod/punane-sportauto.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/punane-sportauto.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="roosad-bmw-d.jpg">
+        <a class="pilt__ava" href="pildid/autod/roosad-bmw-d.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/roosad-bmw-d.jpg" alt="Roosad bmw d" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Roosad bmw d</p>
+          <code class="pilt__tee">pildid/autod/roosad-bmw-d.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/roosad-bmw-d.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="sinine-ralliauto.jpg">
+        <a class="pilt__ava" href="pildid/autod/sinine-ralliauto.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/sinine-ralliauto.jpg" alt="Sinine ralliauto" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sinine ralliauto</p>
+          <code class="pilt__tee">pildid/autod/sinine-ralliauto.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/sinine-ralliauto.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="autod" data-nimi="vanad-autod.jpg">
+        <a class="pilt__ava" href="pildid/autod/vanad-autod.jpg" target="_blank" rel="noopener">
+          <img src="pildid/autod/vanad-autod.jpg" alt="Vanad autod" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Vanad autod</p>
+          <code class="pilt__tee">pildid/autod/vanad-autod.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/autod/vanad-autod.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="havitaja-alt.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/havitaja-alt.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/havitaja-alt.jpg" alt="Havitaja alt" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Havitaja alt</p>
+          <code class="pilt__tee">pildid/soidukid/havitaja-alt.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/havitaja-alt.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="havitaja-taevas.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/havitaja-taevas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/havitaja-taevas.jpg" alt="Havitaja taevas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Havitaja taevas</p>
+          <code class="pilt__tee">pildid/soidukid/havitaja-taevas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/havitaja-taevas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="kombain-pollul.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/kombain-pollul.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/kombain-pollul.jpg" alt="Kombain pollul" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kombain pollul</p>
+          <code class="pilt__tee">pildid/soidukid/kombain-pollul.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/kombain-pollul.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="kopter-taevas.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/kopter-taevas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/kopter-taevas.jpg" alt="Kopter taevas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kopter taevas</p>
+          <code class="pilt__tee">pildid/soidukid/kopter-taevas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/kopter-taevas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="lennuk-siluett.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/lennuk-siluett.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/lennuk-siluett.jpg" alt="Lennuk siluett" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Lennuk siluett</p>
+          <code class="pilt__tee">pildid/soidukid/lennuk-siluett.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/lennuk-siluett.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="mootorpaat.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/mootorpaat.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/mootorpaat.jpg" alt="Mootorpaat" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mootorpaat</p>
+          <code class="pilt__tee">pildid/soidukid/mootorpaat.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/mootorpaat.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="mootorratas.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/mootorratas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/mootorratas.jpg" alt="Mootorratas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mootorratas</p>
+          <code class="pilt__tee">pildid/soidukid/mootorratas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/mootorratas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="punane-maastur.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/punane-maastur.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/punane-maastur.jpg" alt="Punane maastur" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Punane maastur</p>
+          <code class="pilt__tee">pildid/soidukid/punane-maastur.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/punane-maastur.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="soidukid" data-nimi="veoautod-pollul.jpg">
+        <a class="pilt__ava" href="pildid/soidukid/veoautod-pollul.jpg" target="_blank" rel="noopener">
+          <img src="pildid/soidukid/veoautod-pollul.jpg" alt="Veoautod pollul" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Veoautod pollul</p>
+          <code class="pilt__tee">pildid/soidukid/veoautod-pollul.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/soidukid/veoautod-pollul.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="bensiinijaam-oo.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/bensiinijaam-oo.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/bensiinijaam-oo.jpg" alt="Bensiinijaam oo" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Bensiinijaam oo</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/bensiinijaam-oo.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/bensiinijaam-oo.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="inimene-metsas.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/inimene-metsas.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/inimene-metsas.jpg" alt="Inimene metsas" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Inimene metsas</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/inimene-metsas.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/inimene-metsas.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="istutamine.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/istutamine.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/istutamine.jpg" alt="Istutamine" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Istutamine</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/istutamine.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/istutamine.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="jalgratturid.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/jalgratturid.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/jalgratturid.jpg" alt="Jalgratturid" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Jalgratturid</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/jalgratturid.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/jalgratturid.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="kaasaegne-hoone.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/kaasaegne-hoone.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/kaasaegne-hoone.jpg" alt="Kaasaegne hoone" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kaasaegne hoone</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/kaasaegne-hoone.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/kaasaegne-hoone.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="kabel.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/kabel.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/kabel.jpg" alt="Kabel" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kabel</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/kabel.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/kabel.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="kivised-astmed.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/kivised-astmed.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/kivised-astmed.jpg" alt="Kivised astmed" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Kivised astmed</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/kivised-astmed.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/kivised-astmed.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="mesinik-rohus.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/mesinik-rohus.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/mesinik-rohus.jpg" alt="Mesinik rohus" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mesinik rohus</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/mesinik-rohus.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/mesinik-rohus.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="mois.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/mois.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/mois.jpg" alt="Mois" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Mois</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/mois.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/mois.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="moodne-maja.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/moodne-maja.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/moodne-maja.jpg" alt="Moodne maja" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Moodne maja</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/moodne-maja.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/moodne-maja.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="puuviit.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/puuviit.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/puuviit.jpg" alt="Puuviit" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Puuviit</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/puuviit.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/puuviit.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="sadam.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/sadam.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/sadam.jpg" alt="Sadam" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Sadam</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/sadam.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/sadam.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="suitsusaun.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/suitsusaun.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/suitsusaun.jpg" alt="Suitsusaun" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Suitsusaun</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/suitsusaun.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/suitsusaun.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="tanav-autodega.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/tanav-autodega.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/tanav-autodega.jpg" alt="Tanav autodega" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Tanav autodega</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/tanav-autodega.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/tanav-autodega.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+      <article class="pilt" data-kategooria="inimesed-ja-kohad" data-nimi="vana-ait.jpg">
+        <a class="pilt__ava" href="pildid/inimesed-ja-kohad/vana-ait.jpg" target="_blank" rel="noopener">
+          <img src="pildid/inimesed-ja-kohad/vana-ait.jpg" alt="Vana ait" loading="lazy">
+        </a>
+        <div class="pilt__info">
+          <p class="pilt__nimi">Vana ait</p>
+          <code class="pilt__tee">pildid/inimesed-ja-kohad/vana-ait.jpg</code>
+          <button class="pilt__kopeeri" type="button" data-tee="pildid/inimesed-ja-kohad/vana-ait.jpg">Kopeeri tee</button>
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="jalus">
+    <div class="jalus__logo">
+      <span class="logo__marg">M</span>
+      <div>
+        <p>Malliriiul</p>
+        <p class="jalus__vaike">Valmis kujundused õpilastele · Tehtud INSA insapäevade raames 2026</p>
+      </div>
+    </div>
+    <nav class="jalus__nav" aria-label="Jaluse navigatsioon">
+      <a href="index.html#mallid">Mallid</a>
+      <a href="index.html#juhend">Juhend</a>
+      <a href="pildipank.html">Pildipank</a>
+      <a href="index.html#mallid">Laadi alla</a>
+    </nav>
+    <p class="jalus__markus">Mallid: Eva-Liisa Aibast (tegi mallid) · Fotod: Jaak Aibast (andis ühiskasutuseks 88 pilti)</p>
+  </footer>
+
+  <script src="pildipank.js"></script>
+</body>
+</html>

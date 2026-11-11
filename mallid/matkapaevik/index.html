@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matkapäevik – rajad, mida tasub käia</title>
+  <meta name="description" content="Matkapäeviku stiilis veebileht – mall, mida saab muuta tekstide, piltide ja radade nimekirjaga.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       MATKAPÄEVIK – rajad, päevik ja fotod ühel lehel.
+       Muuda pealkirju, radu ja pilte. Värvid on stiil.css failis.
+       ============================================================ -->
+
+  <div class="taust" aria-hidden="true"></div>
+
+  <header class="pais">
+    <!-- ✏️ MUUDA: lehe nimi -->
+    <a class="logo" href="#rajad">
+      <span class="logo__mark" aria-hidden="true">▲</span>
+      matkapäevik
+    </a>
+
+    <nav class="pais__nav" aria-label="Menüü">
+      <a href="#rajad">Rajad</a>
+      <a href="#paevik">Päevik</a>
+      <a href="#kkk">KKK</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <!-- ✏️ MUUDA: hooaeg -->
+    <span class="pais__hooaeg">2024 — 2026</span>
+  </header>
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <div class="kangelane__tekst">
+        <!-- ✏️ MUUDA: väike tekst pealkirja kohal -->
+        <p class="silt">matkad · Eesti · välismaal</p>
+
+        <!-- ✏️ MUUDA: suur pealkiri -->
+        <h1>Iga rada algab<br><em>ühest sammust.</em></h1>
+
+        <!-- ✏️ MUUDA: tutvustus -->
+        <p class="kangelane__juht">
+          Kirjutan siia üles rajad, mida ise käisin: kui kaua läks, mida nägid,
+          kas tasus minna. Ilma ilustamata ja ilma „imelise elamuse“ sõnadeta.
+        </p>
+
+        <div class="kangelane__nupud">
+          <a class="nupp nupp--tume" href="#rajad">Vaata radu</a>
+          <a class="nupp nupp--joon" href="#paevik">Loe päevikut</a>
+        </div>
+
+        <ul class="numbrid">
+          <!-- ✏️ MUUDA: kolm numbrit -->
+          <li><strong>42</strong> rada käidud</li>
+          <li><strong>610</strong> km maha kõnnitud</li>
+          <li><strong>0</strong> autoga kohale</li>
+        </ul>
+      </div>
+
+      <figure class="kangelane__pilt">
+        <!-- 🖼️ MUUDA: avafoto -->
+        <img src="pildid/merepromenaad.jpg" alt="Merepromenaad varahommikul" fetchpriority="high">
+        <figcaption>merepromenaad · kell 6.10</figcaption>
+        <span class="kangelane__kleeps" aria-hidden="true">vara<br>tõusmine</span>
+      </figure>
+    </section>
+
+    <!-- ================= KOLM RADA ================= -->
+    <section class="rajad" id="rajad">
+      <div class="rajad__pais">
+        <p class="silt">Rajad</p>
+        <h2>Kolm rada,<br><em>mida soovitan.</em></h2>
+        <!-- ✏️ MUUDA: selgitus -->
+        <p class="rajad__markus">
+          Kõik kolm on läbitavad tavalise jalgsiminekuga. Vaja läheb häid
+          jalanõusid, veepudelit ja natuke kannatust.
+        </p>
+      </div>
+
+      <div class="rajad__vorgustik">
+        <!-- ---------- RADA 1 ---------- -->
+        <article class="rada">
+          <div class="rada__pilt">
+            <!-- 🖼️ MUUDA: raja pilt -->
+            <img src="pildid/jalgratturid.jpg" alt="Jalgratturid kruusateel" loading="lazy">
+            <span class="rada__margis">lihtne</span>
+          </div>
+          <div class="rada__sisu">
+            <h3>Kruusatee mööda mereäärt</h3>
+            <!-- ✏️ MUUDA: raja andmed -->
+            <ul class="rada__andmed">
+              <li><span>pikkus</span> 12 km</li>
+              <li><span>aeg</span> 3 h</li>
+              <li><span>maa</span> kruus</li>
+            </ul>
+            <p>
+              Tasane ja lai tee, kus mahub ka rattaga sõitma. Hommikul on
+              vastutuul, õhtul on vaikus.
+            </p>
+          </div>
+        </article>
+
+        <!-- ---------- RADA 2 ---------- -->
+        <article class="rada">
+          <div class="rada__pilt">
+            <img src="pildid/kivised-astmed.jpg" alt="Kivised astmed metsas" loading="lazy">
+            <span class="rada__margis rada__margis--keskmine">keskmine</span>
+          </div>
+          <div class="rada__sisu">
+            <h3>Kivised astmed üles</h3>
+            <ul class="rada__andmed">
+              <li><span>pikkus</span> 6 km</li>
+              <li><span>aeg</span> 2,5 h</li>
+              <li><span>maa</span> kivid</li>
+            </ul>
+            <p>
+              Lühike, aga terav. Astmed on libedad ka kuival ajal — vihma
+              järel tasub tulla teisele poole mäge.
+            </p>
+          </div>
+        </article>
+
+        <!-- ---------- RADA 3 ---------- -->
+        <article class="rada">
+          <div class="rada__pilt">
+            <img src="pildid/valged-lilled.jpg" alt="Valged lilled õitsemas" loading="lazy">
+            <span class="rada__margis">hooajaline</span>
+          </div>
+          <div class="rada__sisu">
+            <h3>Niiduring</h3>
+            <ul class="rada__andmed">
+              <li><span>pikkus</span> 4 km</li>
+              <li><span>aeg</span> 1,5 h</li>
+              <li><span>maa</span> niit</li>
+            </ul>
+            <p>
+              Mõttetu ilus juunis ja juuli alguses. Augustis on kõik juba
+              kollane ja siis on rada lihtsalt rada.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= PÄEVIK ================= -->
+    <section class="paevik" id="paevik">
+      <div class="paevik__pais">
+        <p class="silt">Päevik</p>
+        <h2>Märkmed<br><em>teelt.</em></h2>
+      </div>
+
+      <!-- ---------- KANNE 1 ---------- -->
+      <article class="kanne">
+        <figure class="kanne__pilt">
+          <!-- 🖼️ MUUDA: sissekande pilt -->
+          <img src="pildid/inimene-metsas.jpg" alt="Inimene metsaradadel" loading="lazy">
+        </figure>
+        <div class="kanne__tekst">
+          <!-- ✏️ MUUDA: kuupäev ja koht -->
+          <p class="kanne__meta">18. oktoober · metsarada</p>
+          <h3>Rada, mis lõppes teisel teel</h3>
+          <p>
+            Plaanisin kaheksa kilomeetrit ja kõndisin kaksteist, sest metsas
+            läks üks ristmik valeks. Ei olnud hullu — tee viis välja samasse
+            kohta, ainult teise nurga alt.
+          </p>
+          <p>
+            Kõige rohkem meeldis mulle see, et keegi ei rääkinud. Mitte üks
+            sõna kaheksa kilomeetri jooksul.
+          </p>
+        </div>
+      </article>
+
+      <!-- ---------- KANNE 2 ---------- -->
+      <article class="kanne kanne--pooratud">
+        <figure class="kanne__pilt">
+          <img src="pildid/lehmad-karjamaal.jpg" alt="Lehmad karjamaal" loading="lazy">
+        </figure>
+        <div class="kanne__tekst">
+          <p class="kanne__meta">2. september · karjamaa serv</p>
+          <h3>Kolm lehma ja üks värav</h3>
+          <p>
+            Rada läheb läbi karjamaa ja värav tuleb enda järel kinni panna.
+            See on kirjas igal pool, aga ikka unustab keegi. Sel korral
+            unustasin mina.
+          </p>
+          <p>
+            Lehmad vaatasid mind nii, nagu oleksin neile midagi võlgu.
+            Vabandasin ja panin värava kinni.
+          </p>
+        </div>
+      </article>
+
+      <!-- ---------- KANNE 3 ---------- -->
+      <article class="kanne kanne--lyhike">
+        <p class="kanne__meta">12. august · merepromenaad</p>
+        <h3>Kõige lühem matk, mis loeb</h3>
+        <p>
+          Mõnikord ei ole vaja metsa ega mäge. Piisab kolmest kilomeetrist
+          mere ääres enne tööd — ja päev on juba teine. Kirjutan selle üles,
+          et mitte unustada: matk ei pea olema suur, et lugeda.
+        </p>
+      </article>
+    </section>
+
+    <!-- ================= KKK ================= -->
+    <section class="kkk" id="kkk">
+      <div class="kkk__pais">
+        <p class="silt">Enne minekut</p>
+        <h2>Küsimused,<br><em>mida kõige rohkem küsitakse.</em></h2>
+        <p class="kkk__markus">Klõpsa küsimusel ja vastus avaneb. Teine klõps paneb selle jälle kinni.</p>
+      </div>
+
+      <div class="kkk__nimekiri">
+        <!-- ✏️ MUUDA: küsimus on summary-real, vastus tuleb selle järele -->
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas rada on ka lastega läbitav?</summary>
+          <p>Jah, kui lapsed on harjunud kõndima. Kruusatee ja niiduring sobivad ka väiksematele, kivised astmed mitte — need on kõrged ja libedad.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kust ma raja alguse üles leian?</summary>
+          <p>Iga raja juures on kirjas parkimiskoht ja esimene tähis. Kui tahad kaarti, kirjuta mulle ja saadan GPX-faili.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Mis jalatsid jalga panna?</summary>
+          <p>Tavalised matkajalatsid on piisavad. Kiviste astmete jaoks tasub valida paksema tallaga jalanõu, niiduringil sobib ka tavaline toss.</p>
+        </details>
+
+        <details class="kkk__punkt">
+          <summary class="kkk__kysimus">Kas koeraga tohib tulla?</summary>
+          <p>Enamikul radadest jah. Karjamaal käib koer rihma otsas ja värav tuleb enda järel kinni panna.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= KONTAKT ================= -->
+    <section class="kontakt" id="kontakt">
+      <div class="kontakt__tekst">
+        <p class="silt silt--hele">Kontakt</p>
+        <h2>Annan radu<br><em>edasi.</em></h2>
+        <p>
+          Kui tahad mõnda rada täpsemalt teada või on sul endal mõni, mida
+          peaksin käima — kirjuta.
+        </p>
+      </div>
+
+      <div class="kontakt__info">
+        <!-- ✏️ MUUDA: kontaktandmed -->
+        <p class="kontakt__silt">E-post</p>
+        <a class="kontakt__meil" href="mailto:tere@matkapaevik.example">tere@matkapaevik.example</a>
+
+        <p class="kontakt__silt">Kaardid</p>
+        <div class="kontakt__lingid">
+          <a href="#">Kõik rajad kaardil <span aria-hidden="true">↗</span></a>
+          <a href="#">GPX-failid <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst -->
+    <p class="jalus__nimi">matkapäevik</p>
+    <p class="jalus__vaike">Kirjutatud pärast igat matka, märjas märkmikus.</p>
+    <p class="jalus__vaike">
+      Mallid: Eva-Liisa Aibast (tegi mallid) · Fotod: Jaak Aibast (andis ühiskasutuseks 88 pilti)
+      · See on mall, muuda vabalt.
+    </p>
+  </footer>
+
+</body>
+</html>

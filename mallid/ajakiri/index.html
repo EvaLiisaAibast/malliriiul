@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KULTUUR – november 2026</title>
+  <meta name="description" content="Ajakirja stiilis veebileht – mall, mida saab muuta tekstide ja piltidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       KULTUUR – ajakirja stiilis leht.
+       Vaheta pealkirjad, lood ja pildid. Värvid on stiil.css failis.
+       ============================================================ -->
+
+  <header class="masthead">
+    <div class="masthead__riba">
+      <!-- ✏️ MUUDA: number ja kuupäev -->
+      <span>Nr 11 · november 2026</span>
+      <span class="masthead__keskel">Lugusid linnast ja inimestest</span>
+      <span>Tallinn · 6 €</span>
+    </div>
+
+    <div class="masthead__pealkiri">
+      <p class="masthead__number">11<br><span>2026</span></p>
+
+      <!-- ✏️ MUUDA: väljaande nimi -->
+      <h1>KULTUUR</h1>
+
+      <p class="masthead__devise">Asjad, mida tasub<br>märgata ja lugeda.</p>
+    </div>
+
+    <nav class="masthead__nav" aria-label="Rubriigid">
+      <a href="#linn">Linn</a>
+      <a href="#inimesed">Inimesed</a>
+      <a href="#raamatud">Raamatud</a>
+      <a href="#muusika">Muusika</a>
+      <a href="#arhiiv">Arhiiv</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= KAASLUGU ================= -->
+    <section class="lugu-pea" id="linn">
+      <div class="lugu-pea__tekst">
+        <p class="rubriik">Kaaslugu · linnaelu</p>
+
+        <!-- ✏️ MUUDA: kaasloo pealkiri -->
+        <h2>Linn, mis ei maga —<br><em>aga võiks vahel.</em></h2>
+
+        <p class="juht">
+          Tallinn ärkab enne päikest ja jääb magama pärast viimast trammi.
+          Käisime väljas kolmel ööl järjest, et aru saada, kes need inimesed
+          on, kes linna igavesti ärkvel hoiavad.
+        </p>
+
+        <p class="autor">Lugu: Mari Maasikas · Fotod: Jaan Kuusk · 12 min</p>
+      </div>
+
+      <figure class="lugu-pea__pilt">
+        <!-- 🖼️ MUUDA: kaasloo pilt -->
+        <img src="pildid/sadam.jpg" alt="Sadama kraanad ja laev õhtuses valguses">
+        <figcaption>Kell 3.17. Sadam ei ole kunagi päris tühi.</figcaption>
+      </figure>
+
+      <div class="lugu-pea__sisu">
+        <!-- ✏️ MUUDA: kaasloo tekst. Esimene lõik saab suure algustähe. -->
+        <p class="esimene-taht">
+          Kell kolm öösel on linn hoopis teine koht. Mitte hullem ega parem,
+          lihtsalt teine: tänavad on laiemad, helid kostavad kaugemale ja
+          iga vastutulija tundub teadvat midagi, mida sina ei tea.
+        </p>
+        <p>
+          Meie esimene peatus oli öine pagariäri, kus kolm inimest rullivad
+          tainast nii, nagu oleks kell pool kaheksa hommikul. „See on lihtsalt
+          harjumus,“ ütles perenaine ja ulatas meile kaks sooja saia. „Keegi
+          peab ju hommikuks leiva tegema.“
+        </p>
+        <p>
+          Edasi viis tee läbi vanalinna, kus iga teine maja tundus magavat.
+          Ainult ühes aknas põles tuli. Seal elas pensionil raamatukoguhoidja,
+          kes ladus põrandale raamatuid ja rääkis, kuidas linn on neljakümne
+          aasta jooksul muutunud valjemaks, kiiremaks ja veidi üksildasemaks.
+        </p>
+
+        <p class="tõstetud">
+          „Öö ei ole päeva vastand. Öö on lihtsalt teine viis samas linnas elada.“
+        </p>
+
+        <p>
+          Viimane peatus oli bussijaam. Kell pool kuus hakkasid saabuma
+          esimesed bussid, kohvik avas uksed ja keegi ostis kolm kohvi korraga.
+          Öö oli läbi nii vaikselt, et seda ei märganudki.
+        </p>
+        <p>
+          Kui päike tõusis, olid tänavad jälle täis kiirustavaid inimesi.
+          Keegi ei vaadanud üles. Aga me teadsime nüüd, et linn ei ole
+          vahepeal maganud — ta lihtsalt ootas, kuni me tagasi tuleme.
+        </p>
+      </div>
+
+      <aside class="sisukord">
+        <h3>Selles numbris</h3>
+
+        <ol>
+          <!-- ✏️ MUUDA: sisukord -->
+          <li>
+            <span class="sisukord__number">01</span>
+            <div>
+              <h4>Linn, mis ei maga</h4>
+              <p>lk 4 · kaaslugu</p>
+            </div>
+          </li>
+          <li>
+            <span class="sisukord__number">02</span>
+            <div>
+              <h4>Raamat, mis jäi pooleli</h4>
+              <p>lk 12 · essee</p>
+            </div>
+          </li>
+          <li>
+            <span class="sisukord__number">03</span>
+            <div>
+              <h4>Kolm plaati, mida kuulata</h4>
+              <p>lk 18 · muusika</p>
+            </div>
+          </li>
+          <li>
+            <span class="sisukord__number">04</span>
+            <div>
+              <h4>Intervjuu: kohvikupidaja</h4>
+              <p>lk 24 · inimene</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="tellimus">
+          <p class="tellimus__silt">Tellimus</p>
+          <p>Kaksteist numbrit aastas. Paberil, postkastis, ilma kiirustamata.</p>
+          <a href="#tellimus">Telli ajakiri →</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ================= ARTIKLID ================= -->
+    <section class="artiklid" id="inimesed">
+      <article class="artikkel artikkel--suur">
+        <figure class="artikkel__pilt">
+          <!-- 🖼️ MUUDA: esimese artikli pilt -->
+          <img src="pildid/automess.jpg" alt="Auto näitusel ja inimene selle kõrval" loading="lazy">
+        </figure>
+        <p class="rubriik">Inimene · intervjuu</p>
+        <h3>„Auto ei ole lihtsalt asi. See on mälestus.“</h3>
+        <p class="artikkel__juht">
+          Kolmkümmend aastat garaažis. Küsisime ühelt autohuviliselt, miks
+          kulub tal nädalavahetuseti rohkem aega mootori kallal kui perega.
+        </p>
+        <p class="autor">Kaisa Kask · 8 min</p>
+      </article>
+
+      <article class="artikkel artikkel--keskmine" id="raamatud">
+        <figure class="artikkel__pilt artikkel__pilt--ruut">
+          <!-- 🖼️ MUUDA: teise artikli pilt -->
+          <img src="pildid/raba-puud.jpg" alt="Puud rabas" loading="lazy">
+        </figure>
+        <p class="rubriik">Raamatud</p>
+        <h3>Raamat, mis jäi pooleli — ja miks see oli hea</h3>
+        <p class="artikkel__juht">
+          Mõned raamatud tuleb jätta pooleli. Võib-olla mitte igavikuliselt,
+          aga piisavalt kauaks, et nende juurde hiljem tagasi tulla.
+        </p>
+        <p class="autor">Tõnu Tamm · 5 min</p>
+      </article>
+
+      <article class="artikkel artikkel--vaike" id="muusika">
+        <p class="rubriik">Muusika · nimekiri</p>
+        <h3>Kolm plaati, mida sel sügisel kuulata</h3>
+        <ol class="nimekiri">
+          <li><span>01</span> Vaikne hommik — „Raudtee“</li>
+          <li><span>02</span> Pikk vari — „Teine tuba“</li>
+          <li><span>03</span> Klaasist linn — „Unenägu“</li>
+        </ol>
+        <p class="artikkel__juht">
+          Mitte ükski neist ei ole uus. Aga sügis ei olegi uute asjade jaoks.
+        </p>
+      </article>
+    </section>
+
+    <!-- ================= TSITAAT ================= -->
+    <section class="tsitaat-ajakiri">
+      <p class="tsitaat-ajakiri__mark" aria-hidden="true">“</p>
+      <blockquote>
+        Kõige huvitavamad lood ei ole need, mis juhtuvad suurel laval,
+        vaid need, mis juhtuvad kõrvaltänavas, kui keegi parasjagu ei vaata.
+      </blockquote>
+      <cite>Toimetuse veerg · november 2026</cite>
+    </section>
+
+    <!-- ================= VEEL NUMBRIS ================= -->
+    <section class="veel" id="arhiiv">
+      <h2 class="veel__pealkiri">Veel selles numbris</h2>
+
+      <div class="veel__vorgustik">
+        <!-- ✏️ MUUDA: väiksemad lood -->
+        <article class="vaike-lugu">
+          <p class="rubriik">Arhitektuur</p>
+          <h3>Maja, mille aknad vaatavad valele poole</h3>
+          <p>Ühe Kadrioru hoone lugu, mida keegi ei mäleta.</p>
+          <span class="vaike-lugu__lehekulg">lk 30</span>
+        </article>
+
+        <article class="vaike-lugu">
+          <p class="rubriik">Toit</p>
+          <h3>Supp, mida tehakse ainult siis, kui väljas sajab</h3>
+          <p>Retsept, mille mõõdud on „umbes“ ja „natuke“.</p>
+          <span class="vaike-lugu__lehekulg">lk 34</span>
+        </article>
+
+        <article class="vaike-lugu">
+          <p class="rubriik">Kiri</p>
+          <h3>Lugeja kirjutab: miks ma enam trammiga ei sõida</h3>
+          <p>Üks pikk, aus ja veidi nukker kiri toimetusele.</p>
+          <span class="vaike-lugu__lehekulg">lk 40</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= TELLIMUS ================= -->
+    <section class="tellimus-riba" id="tellimus">
+      <div>
+        <p class="rubriik rubriik--hele">Telli ajakiri</p>
+        <h2>Kaksteist numbrit.<br>Üks aasta. Ei mingeid rakendusi.</h2>
+      </div>
+      <div class="tellimus-riba__parem">
+        <p>Vormista tellimus ja saad järgmise numbri postkasti enne, kui see poes müügile jõuab.</p>
+        <!-- ✏️ MUUDA: tellimuse link või e-post -->
+        <a class="tellimus-riba__nupp" href="mailto:tere@kultuur.example">Telli 48 € / aasta</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: väljaande andmed -->
+    <p class="jalus__nimi">KULTUUR</p>
+    <p>Toimetus: Tallinn · tere@kultuur.example</p>
+    <p class="jalus__vaike">See on mall. Muuda teksti ja pilte — vaata kommentaare „MUUDA“.</p>
+  </footer>
+
+</body>
+</html>

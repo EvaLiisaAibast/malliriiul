@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mari Maasikas – fotograaf</title>
+  <meta name="description" content="Minimalistlik fotoportfoolio – mall, mida saab muuta piltide ja tekstiga.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       FOTOPORTFOOLIO – suured pildid, vähe sõnu.
+       Asenda pildid oma fotodega ja muuda allkirjad.
+       ============================================================ -->
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <!-- 🖼️ MUUDA: suur avafoto (soovitavalt lai, vähemalt 1600 px) -->
+      <img class="kangelane__foto" src="pildid/sugismets-droon.jpg" alt="Sügisene metsavaade droonilt">
+
+      <header class="pais">
+        <!-- ✏️ MUUDA: sinu nimi -->
+        <a class="pais__nimi" href="#">MARI MAASIKAS</a>
+
+        <nav class="pais__nav" aria-label="Menüü">
+          <a href="#tood">Tööd</a>
+          <a href="#minust">Minust</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <!-- ✏️ MUUDA: asukoht -->
+        <span class="pais__koht">Tallinn, EE</span>
+      </header>
+
+      <div class="kangelane__sisu">
+        <!-- ✏️ MUUDA: väike silt -->
+        <p class="kangelane__silt">Valitud tööd · 2024–2026</p>
+
+        <!-- ✏️ MUUDA: suur pealkiri -->
+        <h1>Valgus, mis<br><em>jääb alles.</em></h1>
+      </div>
+
+      <div class="kangelane__meta">
+        <p>Mari Maasikas</p>
+        <p>fotograaf</p>
+        <!-- ✏️ MUUDA: aasta või projekt -->
+        <p>loodus &amp; maastik</p>
+      </div>
+    </section>
+
+    <!-- ================= TUTVUSTUS ================= -->
+    <section class="tutvustus" id="minust">
+      <p class="tutvustus__number">01 / minust</p>
+
+      <!-- ✏️ MUUDA: suur tutvustav lause -->
+      <p class="tutvustus__suur">
+        Pildistan asju, mis kaovad hetkega: <em>hommikust udu,</em>
+        mööduvat valgust ja inimesi, kes ei tea, et neid vaadatakse.
+      </p>
+
+      <div class="tutvustus__vaike">
+        <!-- ✏️ MUUDA: lühike tekst endast -->
+        <p>
+          Olen Eestis tegutsev fotograaf. Teen loodus- ja maastikufotosid
+          ning vahel lihtsalt jalutan ringi, kui valgus on õige.
+        </p>
+        <p>
+          Minu jaoks ei ole hea pilt tehniliselt täiuslik. Hea pilt on see,
+          mille juurde tahad hiljem tagasi tulla.
+        </p>
+        <p class="tutvustus__allkiri">— Mari</p>
+      </div>
+    </section>
+
+    <!-- ================= TÖÖD ================= -->
+    <section class="tood" id="tood">
+      <div class="tood__pais">
+        <p class="tutvustus__number">02 / valitud tööd</p>
+        <p class="tood__aasta">2024 — 2026</p>
+      </div>
+
+      <!-- 🖼️ MUUDA: esimene, lai pilt -->
+      <figure class="pilt pilt--lai">
+        <div class="pilt__raam">
+          <img src="pildid/juga.jpg" alt="Juga metsas" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pilt__number">01</span>
+          <span class="pilt__nimi">Vesi, mis ei peatu</span>
+          <span class="pilt__koht">Põhja-Eesti, 2025</span>
+        </figcaption>
+      </figure>
+
+      <div class="piltide-paar">
+        <!-- 🖼️ MUUDA: teine pilt -->
+        <figure class="pilt pilt--portree">
+          <div class="pilt__raam">
+            <img src="pildid/raba-droon.jpg" alt="Raba hommikuses udus" loading="lazy">
+          </div>
+          <figcaption>
+            <span class="pilt__number">02</span>
+            <span class="pilt__nimi">Raba, mis hommikul hingab</span>
+            <span class="pilt__koht">Soomaa, 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- 🖼️ MUUDA: kolmas pilt -->
+        <figure class="pilt pilt--portree pilt--nihkes">
+          <div class="pilt__raam">
+            <img src="pildid/ookull-oksal.jpg" alt="Öökull oksal" loading="lazy">
+          </div>
+          <figcaption>
+            <span class="pilt__number">03</span>
+            <span class="pilt__nimi">Öökull, kes ei teinud häält</span>
+            <span class="pilt__koht">Eesti, 2024</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- 🖼️ MUUDA: neljas, lai pilt -->
+      <figure class="pilt pilt--lai pilt--laiem">
+        <div class="pilt__raam">
+          <img src="pildid/maantee-droon.jpg" alt="Maantee läbi sügise maastiku" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pilt__number">04</span>
+          <span class="pilt__nimi">Teel kuhugi, kuhu ei pea jõudma</span>
+          <span class="pilt__koht">Eesti, 2026</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= TSITAAT ================= -->
+    <section class="tsitaat">
+      <!-- ✏️ MUUDA: tsitaat -->
+      <blockquote>
+        „Kõige paremad pildid on need, mille jaoks sa ei jõudnud kaamerat
+        välja võtta — ja siis mõtled neile terve elu.“
+      </blockquote>
+      <p class="tsitaat__allkiri">Märkmikust, märts 2026</p>
+    </section>
+
+    <!-- ================= KONTAKT ================= -->
+    <section class="kontakt" id="kontakt">
+      <div>
+        <p class="tutvustus__number">03 / kontakt</p>
+        <!-- ✏️ MUUDA: kontaktpealkiri -->
+        <h2>Teeme midagi<br><em>koos.</em></h2>
+      </div>
+
+      <div class="kontakt__parem">
+        <p>
+          Loodus, sündmused, maastikud või midagi, mida sa ise veel päris
+          täpselt ei tea. Kirjuta ja mõtleme koos edasi.
+        </p>
+
+        <!-- ✏️ MUUDA: e-post -->
+        <a class="kontakt__meil" href="mailto:mari@example.com">mari@example.com</a>
+
+        <ul class="kontakt__lingid">
+          <!-- ✏️ MUUDA: sotsiaalmeedia lingid -->
+          <li><a href="#">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#">Behance <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#">Vimeo <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="jalus">
+    <!-- ✏️ MUUDA: jaluse tekst -->
+    <p>© 2026 Mari Maasikas</p>
+    <p class="jalus__vaike">Mall: muuda pildid ja tekstid. Vaata kommentaare „MUUDA“.</p>
+    <a class="jalus__ules" href="#">Üles ↑</a>
+  </footer>
+
+</body>
+</html>

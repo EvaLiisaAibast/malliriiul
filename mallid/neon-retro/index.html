@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEON ÖÖ – bändi leht</title>
+  <meta name="description" content="Retro-neoon stiilis bändi leht – mall, mida saab muuta tekstide ja piltidega.">
+  <link rel="stylesheet" href="stiil.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NEON ÖÖ – 80ndate stiilis bändi leht.
+       Muuda peamiselt teksti ja pilte. Värvid on stiil.css failis.
+       ============================================================ -->
+
+  <div class="taevas" aria-hidden="true">
+    <div class="päike"></div>
+    <div class="vorgustik"></div>
+  </div>
+
+  <header class="pais">
+    <!-- ✏️ MUUDA: bändi nimi -->
+    <a class="logo" href="#">NEON<span>ÖÖ</span></a>
+
+    <nav class="pais__nav" aria-label="Menüü">
+      <a href="#lugu">Lugu</a>
+      <a href="#kontserdid">Kontserdid</a>
+      <a href="#galerii">Galerii</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a class="pilet" href="#kontserdid">Piletid <span aria-hidden="true">→</span></a>
+  </header>
+
+  <main>
+
+    <!-- ================= KANGELANE ================= -->
+    <section class="kangelane">
+      <!-- ✏️ MUUDA: teadaanne -->
+      <p class="vibro">✦ uus singel „Kosmosetee“ on väljas ✦</p>
+
+      <!-- ✏️ MUUDA: bändi nimi (kaks tükki, et saaks eri värvi) -->
+      <h1><span class="neon">NEON</span><span class="öö">ÖÖ</span></h1>
+
+      <!-- ✏️ MUUDA: lühitutvustus -->
+      <p class="alus">Süntesaatorid · suured kõlarid · lõputu suvi</p>
+      <p class="asukoht">Tallinn, Eesti · tegutseme alates 1987</p>
+
+      <div class="kangelane__nupud">
+        <a class="nupp nupp--roosa" href="#kontserdid">Tule kontserdile</a>
+        <a class="nupp nupp--joon" href="#lugu">Kes me oleme?</a>
+      </div>
+
+      <p class="kangelane__jargmine">
+        <span class="punkt" aria-hidden="true"></span>
+        Järgmine peatus: 28. november · Tallinn
+      </p>
+    </section>
+
+    <!-- ================= LINT ================= -->
+    <div class="lint-koht" aria-hidden="true">
+      <div class="lint">
+        <div class="lint__rada">
+          <span>Uus album „Kosmosetee“</span><span>★</span>
+          <span>Kontsertidel mängime valjemalt kui kunagi varem</span><span>★</span>
+          <span>Piletid müügil</span><span>★</span>
+          <span>Uus album „Kosmosetee“</span><span>★</span>
+          <span>Kontsertidel mängime valjemalt kui kunagi varem</span><span>★</span>
+          <span>Piletid müügil</span><span>★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= LUGU ================= -->
+    <section class="sektsioon lugu" id="lugu">
+      <div class="lugu__pais">
+        <p class="silt">01 / lugu</p>
+        <h2>Kolm sõpra ja<br><em>üks liiga suur võimendi.</em></h2>
+      </div>
+
+      <div class="lugu__sisu">
+        <!-- ✏️ MUUDA: bändi lugu, kaks lõiku -->
+        <p class="lugu__juht">
+          Alustasime 1987. aasta suvel ühes Tallinna keldris, kus oli rohkem
+          pikendusjuhtmeid kui ruumi. Esimene kontsert oli kolmele inimesele,
+          kellest kaks olid meie naabrid.
+        </p>
+        <p>
+          Vahepeal läksime kõik oma teed, tegime “päris töid” ja lubasime, et
+          kunagi enam ei tule. 2024. aastal helistas Karl ja ütles, et leidis
+          garaažist vana süntesaatori. Ülejäänu on ajalugu — või vähemalt
+          uus peatükk selles.
+        </p>
+
+        <div class="numbrid">
+          <!-- ✏️ MUUDA: numbrid ja nende selgitused -->
+          <div class="number">
+            <span class="number__suur">12</span>
+            <span class="number__silt">linna tänavu</span>
+          </div>
+          <div class="number">
+            <span class="number__suur">03</span>
+            <span class="number__silt">albumit</span>
+          </div>
+          <div class="number">
+            <span class="number__suur">∞</span>
+            <span class="number__silt">ööd järjest</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KONTSERDID ================= -->
+    <section class="sektsioon kontserdid" id="kontserdid">
+      <div class="kontserdid__pais">
+        <p class="silt">02 / kontserdid</p>
+        <h2>Tule kuula</h2>
+      </div>
+
+      <ul class="ajakava">
+        <!-- ✏️ MUUDA: iga rea kuupäev, linn, koht ja piletistaatus -->
+        <li class="kontsert">
+          <time class="kontsert__kuupaev" datetime="2026-11-28">28.11</time>
+          <div class="kontsert__koht">
+            <h3>Tallinn</h3>
+            <p>Paavli Kultuurivabrik</p>
+          </div>
+          <span class="kontsert__margis">viimased piletid</span>
+          <a class="kontsert__link" href="#kontakt">Osta <span aria-hidden="true">↗</span></a>
+        </li>
+
+        <li class="kontsert">
+          <time class="kontsert__kuupaev" datetime="2026-12-05">05.12</time>
+          <div class="kontsert__koht">
+            <h3>Tartu</h3>
+            <p>Genialistide Klubi</p>
+          </div>
+          <span class="kontsert__margis">piletid müügil</span>
+          <a class="kontsert__link" href="#kontakt">Osta <span aria-hidden="true">↗</span></a>
+        </li>
+
+        <li class="kontsert">
+          <time class="kontsert__kuupaev" datetime="2026-12-13">13.12</time>
+          <div class="kontsert__koht">
+            <h3>Pärnu</h3>
+            <p>Pärnu Kontserdimaja kohvik</p>
+          </div>
+          <span class="kontsert__margis">piletid müügil</span>
+          <a class="kontsert__link" href="#kontakt">Osta <span aria-hidden="true">↗</span></a>
+        </li>
+
+        <li class="kontsert">
+          <time class="kontsert__kuupaev" datetime="2027-01-09">09.01</time>
+          <div class="kontsert__koht">
+            <h3>Narva</h3>
+            <p>Vaba Lava</p>
+          </div>
+          <span class="kontsert__margis">tulekul</span>
+          <a class="kontsert__link" href="#kontakt">Info <span aria-hidden="true">↗</span></a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= GALERII ================= -->
+    <section class="sektsioon galerii" id="galerii">
+      <p class="silt">03 / galerii</p>
+      <h2>Öö, mis jäi meelde</h2>
+
+      <div class="galerii__vorgustik">
+        <!-- 🖼️ MUUDA: galerii pildid ja allkirjad -->
+        <figure class="pilt pilt--suur">
+          <img src="pildid/ilutulestik.jpg" alt="Ilutulestik öises taevas">
+          <figcaption>Tallinn, 2025 · viimane lugu enne veelindu</figcaption>
+        </figure>
+
+        <figure class="pilt">
+          <img src="pildid/bensiinijaam-oo.jpg" alt="Bensiinijaam öösel" loading="lazy">
+          <figcaption>Pärast kontserti, tee peal järgmisse linna</figcaption>
+        </figure>
+
+        <figure class="pilt">
+          <img src="pildid/mootorratas.jpg" alt="Mootorratas liikumiskiirusel" loading="lazy">
+          <figcaption>Kiirus, mida pildile ei saanud</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= TSITAAT ================= -->
+    <section class="tsitaat">
+      <blockquote>„Kui bass on piisavalt vali, ei ole homset olemas.“</blockquote>
+      <cite>— Karl, trummid</cite>
+    </section>
+
+    <!-- ================= KONTAKT ================= -->
+    <section class="sektsioon kontakt" id="kontakt">
+      <div class="kontakt__tekst">
+        <p class="silt">04 / kontakt</p>
+        <h2>Kirjuta meile.<br><em>Me vastame.</em></h2>
+        <!-- ✏️ MUUDA: e-posti aadress -->
+        <a class="kontakt__meil" href="mailto:tere@neono.ee">tere@neono.ee</a>
+        <p class="kontakt__markus">
+          Broneeringud, intervjuud ja kassid, kes tahavad bändiga liituda.
+        </p>
+      </div>
+
+      <div class="kontakt__lingid">
+        <!-- ✏️ MUUDA: lingid sinu sotsiaalmeediasse -->
+        <a href="#">Instagram <span aria-hidden="true">↗</span></a>
+        <a href="#">Spotify <span aria-hidden="true">↗</span></a>
+        <a href="#">YouTube <span aria-hidden="true">↗</span></a>
+        <a href="#">Bandcamp <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="jalus">
+    <p>© 2026 NEON ÖÖ</p>
+    <p class="jalus__vaike">See on mall. Muuda teksti ja pilte julgelt — vaata kommentaare „MUUDA“.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,746 @@
+/* ============================================================
+   KOHVIK KIRSIPUU – stiil.css
+   Kõik värvid ja fondid on allpool plokis :root.
+   Muuda sealseid väärtusi ja terve leht muutub koos sinuga.
+   ============================================================ */
+
+:root {
+  /* 🎨 MUUDA: värvid */
+  --paber: #fbf4e6;        /* lehe taust */
+  --paber-tume: #f1e4cd;   /* kastide taust */
+  --tume: #2f2a24;         /* tekst ja tumedad alad */
+  --tuli: #c8552e;         /* telliskivi-orkaan: nupud ja esiletõst */
+  --roheline: #4f5d3a;     /* riba ja väikesed Detailid */
+  --kollane: #e9b64b;      /* kleeps */
+  --joon: rgba(47, 42, 36, 0.18);
+
+  /* ✍️ MUUDA: fondid. Kui arvuti fonti ei leia, kasutab brauser varuvarianti. */
+  --font-pealkiri: Georgia, "Times New Roman", serif;
+  --font-tekst: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --laius: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paber);
+  color: var(--tume);
+  font-family: var(--font-tekst);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-pealkiri);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+h1 em, h2 em {
+  font-style: italic;
+  color: var(--tuli);
+}
+
+p { margin: 0 0 1em; }
+
+/* ---------- Väikesed abiklassid ---------- */
+
+.silt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tuli);
+}
+
+.silt::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+}
+
+.silt--hele { color: var(--kollane); }
+
+.nupp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-tekst);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.nupp--tuli {
+  background: var(--tuli);
+  color: #fff6e8;
+}
+
+.nupp--tuli:hover { background: #a8431f; }
+
+.nupp--tume {
+  background: var(--tume);
+  color: var(--paber);
+}
+
+.nupp--tume:hover { background: #17130f; }
+
+.nupp--joon {
+  border-color: var(--joon);
+  color: var(--tume);
+}
+
+.nupp--joon:hover {
+  border-color: var(--tume);
+  background: rgba(47, 42, 36, 0.05);
+}
+
+.nupp--lai { width: 100%; margin-top: 20px; }
+
+/* ---------- Päis ---------- */
+
+.pais {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: var(--laius);
+  margin: 0 auto;
+  padding: 22px 28px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-pealkiri);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo__kirsid {
+  position: relative;
+  width: 24px;
+  height: 26px;
+}
+
+/* Kaks väikest kirssi logoks – joonistatud CSS-iga, pilti pole vaja */
+.logo__kirsid i {
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--tuli);
+}
+
+.logo__kirsid i:first-child { left: 0; }
+.logo__kirsid i:last-child { right: 0; bottom: 3px; }
+
+.logo__kirsid::before,
+.logo__kirsid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 11px;
+  background: var(--roheline);
+  transform-origin: bottom;
+}
+
+.logo__kirsid::before { left: 7px; transform: rotate(14deg); }
+.logo__kirsid::after  { right: 7px; transform: rotate(-14deg); }
+
+.pais__nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 15px;
+}
+
+.pais__nav a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.pais__nav a:hover { border-color: var(--tuli); }
+
+/* ---------- Kangelane ---------- */
+
+.kangelane {
+  display: grid;
+  grid-template-columns: 1.02fr 0.95fr;
+  align-items: center;
+  gap: 56px;
+  max-width: var(--laius);
+  margin: 0 auto;
+  padding: 44px 28px 88px;
+}
+
+.kangelane h1 {
+  font-size: clamp(2.9rem, 6.4vw, 5.1rem);
+  margin-bottom: 26px;
+}
+
+.kangelane__juht {
+  max-width: 40ch;
+  font-size: 18px;
+  color: #4d463c;
+}
+
+.kangelane__nupud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 26px;
+}
+
+.avatud {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: #5a5348;
+}
+
+.avatud__punkt {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5c8a4a;
+  box-shadow: 0 0 0 4px rgba(92, 138, 74, 0.18);
+}
+
+/* Piltide kompositsioon */
+.kangelane__pildid {
+  position: relative;
+  padding: 0 0 28px 34px;
+}
+
+.pilt-pohi {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 240px 240px 14px 14px;
+  background: var(--paber-tume);
+}
+
+.pilt-pohi img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.pilt-vaike {
+  position: absolute;
+  left: -6px;
+  bottom: 0;
+  width: 39%;
+  margin: 0;
+  padding: 8px 8px 26px;
+  background: #fffdf7;
+  border: 1px solid rgba(47, 42, 36, 0.12);
+  box-shadow: 0 14px 26px rgba(47, 42, 36, 0.16);
+  transform: rotate(-4deg);
+}
+
+.pilt-vaike img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.kleeps {
+  position: absolute;
+  top: 16px;
+  right: -4px;
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--kollane);
+  color: var(--tume);
+  font-family: var(--font-pealkiri);
+  font-size: 16px;
+  line-height: 1.1;
+  text-align: center;
+  transform: rotate(9deg);
+  box-shadow: 0 8px 20px rgba(47, 42, 36, 0.14);
+}
+
+.pildi-tekst {
+  position: absolute;
+  right: 8px;
+  bottom: 40px;
+  font-family: var(--font-pealkiri);
+  font-style: italic;
+  font-size: 18px;
+  color: #fdf7e6;
+  text-shadow: 0 1px 10px rgba(20, 17, 12, 0.55);
+  transform: rotate(-3deg);
+}
+
+/* ---------- Riba ---------- */
+
+.riba {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 26px;
+  padding: 15px 22px;
+  background: var(--roheline);
+  color: #f5ecd8;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.riba i {
+  font-style: normal;
+  opacity: 0.6;
+}
+
+/* ---------- Sektsioonid ---------- */
+
+.sektsioon {
+  max-width: var(--laius);
+  margin: 0 auto;
+  padding: 96px 28px;
+}
+
+.sektsioon h2 {
+  font-size: clamp(2.3rem, 4.6vw, 3.7rem);
+}
+
+/* ---------- Menüü ---------- */
+
+.menu__pais {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  align-items: end;
+  gap: 40px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--joon);
+  margin-bottom: 52px;
+}
+
+.menu__markus {
+  margin: 0;
+  font-size: 15px;
+  color: #5a5348;
+}
+
+.menu__sisu {
+  display: grid;
+  grid-template-columns: 1fr 352px;
+  gap: 72px;
+}
+
+.menu__veerg h3 {
+  font-family: var(--font-tekst);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--roheline);
+  margin: 40px 0 6px;
+}
+
+.menu__veerg h3:first-child { margin-top: 0; }
+
+.menuu-nimekiri {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuu-nimekiri li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px dashed var(--joon);
+}
+
+.menuu-nimekiri li > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuu-nimi {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.menuu-nimekiri small {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6c6355;
+}
+
+.menuu-hind {
+  margin-left: auto;
+  font-family: var(--font-pealkiri);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* Info-kaart */
+.info-kaart {
+  align-self: start;
+  padding: 34px 30px;
+  background: var(--paber-tume);
+  border: 1px solid rgba(47, 42, 36, 0.1);
+  border-radius: 6px;
+}
+
+.info-kaart h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.info-kaart dl {
+  margin: 0;
+  font-size: 15px;
+}
+
+.info-kaart dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-bottom: 1px dotted rgba(47, 42, 36, 0.2);
+}
+
+.info-kaart dd { margin: 0; font-weight: 600; }
+
+.info-kaart__joon {
+  height: 1px;
+  background: rgba(47, 42, 36, 0.16);
+  margin: 22px 0;
+}
+
+.info-kaart__silt {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tuli);
+}
+
+.info-kaart > p { margin-bottom: 18px; font-size: 15px; }
+
+.info-kaart__vaike {
+  margin: 12px 0 0 !important;
+  font-size: 13px;
+  color: #6c6355;
+}
+
+/* ---------- Meist ---------- */
+
+.lugu {
+  display: grid;
+  grid-template-columns: 0.94fr 1fr;
+  align-items: center;
+  gap: 64px;
+  border-top: 1px solid var(--joon);
+}
+
+.lugu__pilt { margin: 0; }
+
+.lugu__pilt img {
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: 8px 8px 220px 8px;
+}
+
+.lugu__pilt figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  font-style: italic;
+  color: #6c6355;
+}
+
+.lugu h2 { margin-bottom: 24px; }
+
+.lugu__juht {
+  font-family: var(--font-pealkiri);
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.lugu__tsitaat {
+  margin: 30px 0 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--tuli);
+  font-family: var(--font-pealkiri);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- Külasta ---------- */
+
+.tule {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: end;
+  padding: 88px max(28px, calc((100vw - var(--laius)) / 2 + 28px));
+  background: var(--tume);
+  color: #f3e8d4;
+}
+
+.tule h2 {
+  font-size: clamp(2.3rem, 4.6vw, 3.7rem);
+  color: #fbf4e6;
+}
+
+.tule h2 em { color: var(--kollane); }
+
+.tule__tekst > p:last-child {
+  max-width: 38ch;
+  margin-bottom: 0;
+  color: rgba(243, 232, 212, 0.75);
+}
+
+.tule__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  font-size: 15px;
+}
+
+.tule__info p { margin-bottom: 6px; }
+
+.tule__silt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kollane);
+}
+
+.tule__info a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(243, 232, 212, 0.35);
+}
+
+.tule__info a:hover { border-color: var(--kollane); }
+
+/* ---------- Jalus ---------- */
+
+.jalus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 26px 28px;
+  background: var(--tume);
+  border-top: 1px solid rgba(243, 232, 212, 0.18);
+  color: rgba(243, 232, 212, 0.7);
+  font-size: 13px;
+}
+
+.jalus p { margin: 0; }
+
+.jalus__vaike { opacity: 0.7; }
+
+/* ---------- Telefon ja tahvel ---------- */
+
+@media (max-width: 960px) {
+  .kangelane {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 24px;
+  }
+
+  .kangelane__pildid {
+    max-width: 470px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .kangelane__juht { max-width: 52ch; }
+
+  .menu__pais { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+
+  .menu__sisu { grid-template-columns: 1fr; gap: 44px; }
+
+  .info-kaart { max-width: 420px; }
+
+  .lugu {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .lugu__pilt img { aspect-ratio: 4 / 3; }
+
+  .tule { grid-template-columns: 1fr; gap: 40px; align-items: start; }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+
+  .pais { padding: 16px 20px; gap: 14px; }
+
+  .pais__nav { display: none; }
+
+  .pais .nupp { padding: 10px 16px; font-size: 14px; }
+
+  .kangelane, .sektsioon { padding-left: 20px; padding-right: 20px; }
+
+  .kangelane { padding-bottom: 64px; }
+
+  .kangelane h1 { font-size: clamp(2.5rem, 10vw, 3.4rem); }
+
+  .kangelane__pildid { padding: 0 0 24px 16px; }
+
+  .kleeps { width: 84px; height: 84px; font-size: 13px; right: 0; }
+
+  .pilt-vaike { width: 42%; padding: 6px 6px 20px; }
+
+  .pildi-tekst { display: none; }
+
+  .riba { justify-content: flex-start; font-size: 10px; gap: 8px 16px; padding: 12px 20px; }
+
+  .sektsioon { padding-top: 64px; padding-bottom: 64px; }
+
+  .menu__pais { padding-bottom: 32px; margin-bottom: 34px; }
+
+  .menu__veerg h3 { margin-top: 32px; }
+
+  .info-kaart { padding: 26px 22px; }
+
+  .tule {
+    padding: 64px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .tule__info { grid-template-columns: 1fr; gap: 22px; }
+
+  .jalus { padding: 22px 20px; }
+}
+
+/* ============================================================
+   KKK – kokkuklapitavad küsimused (ilma JavaScriptita)
+   Muudad ainult tekst: küsimus on <summary> sees, vastus all.
+   ============================================================ */
+
+.kkk__pais {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 34px;
+  margin-bottom: 24px;
+}
+
+.kkk__pais h2 {
+  margin: 0;
+}
+
+.kkk__markus {
+  max-width: 320px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--tume);
+  opacity: 0.7;
+}
+
+.kkk__nimekiri {
+  display: grid;
+  gap: 10px;
+  max-width: 880px;
+}
+
+.kkk__punkt {
+  background: var(--paber-tume);
+  border: 1.5px solid var(--joon);
+  border-radius: 14px;
+  padding: 0 20px;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.kkk__punkt[open] {
+  background: #fffdf7;
+  border-color: var(--tume);
+}
+
+.kkk__kysimus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-pealkiri);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.kkk__kysimus::-webkit-details-marker {
+  display: none;
+}
+
+.kkk__kysimus::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--tuli);
+  border-radius: 50%;
+  color: var(--tuli);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.kkk__punkt[open] .kkk__kysimus::after {
+  content: "–";
+  background: var(--tuli);
+  border-color: var(--tuli);
+  color: #fff;
+}
+
+.kkk__punkt p {
+  margin: 0;
+  padding: 0 0 18px;
+  max-width: 700px;
+}

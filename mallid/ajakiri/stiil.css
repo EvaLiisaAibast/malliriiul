@@ -1,0 +1,845 @@
+/* ==========================================================================
+   KULTUUR – ajakirja stiilis veebileht
+   🎨 MUUDA: paberi värv, tint ja aktsentvärv on :root plokis.
+   ========================================================================== */
+
+:root {
+  --paber: #f4efe4;
+  --paber-tume: #ebe4d5;
+  --tint: #171410;
+  --tekst: #38332b;
+  --hall: #6b6457;
+  --joon: #cfc6b4;
+  --punane: #c8401f;
+
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tint);
+  background-color: var(--paber);
+  background-image: radial-gradient(rgba(23, 20, 16, 0.045) 0.7px, transparent 0.7px);
+  background-size: 17px 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4, p, figure, blockquote, ol, ul {
+  margin: 0;
+}
+
+ol, ul {
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--punane);
+  color: var(--paber);
+}
+
+:focus-visible {
+  outline: 2px solid var(--punane);
+  outline-offset: 3px;
+}
+
+/* ---------- Väljaande päis ---------- */
+
+.masthead {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 26px 0;
+}
+
+.masthead__riba {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-top: 2px solid var(--tint);
+  border-bottom: 1px solid var(--tint);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hall);
+}
+
+.masthead__keskel {
+  color: var(--tint);
+}
+
+.masthead__pealkiri {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0 18px;
+}
+
+.masthead__pealkiri h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  line-height: 0.8;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.masthead__number {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.masthead__number span {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: var(--hall);
+}
+
+.masthead__devise {
+  justify-self: end;
+  max-width: 180px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--hall);
+}
+
+.masthead__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 34px;
+  padding: 10px 0;
+  border-top: 1px solid var(--tint);
+  border-bottom: 4px double var(--tint);
+}
+
+.masthead__nav a {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.masthead__nav a:hover {
+  color: var(--punane);
+}
+
+/* ---------- Sisemine laius ---------- */
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 26px;
+}
+
+/* ---------- Kaaslugu ---------- */
+
+.lugu-pea {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px 30px;
+  padding: 38px 0 48px;
+}
+
+.lugu-pea__tekst {
+  grid-column: span 5;
+  align-self: start;
+}
+
+.rubriik {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rubriik::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--punane);
+  flex: 0 0 auto;
+}
+
+.rubriik--hele {
+  color: rgba(244, 239, 228, 0.75);
+}
+
+.rubriik--hele::before {
+  background: var(--paber);
+}
+
+.lugu-pea h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4.8vw, 4.05rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.lugu-pea h2 em {
+  font-style: italic;
+  color: var(--punane);
+}
+
+.juht {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.04rem;
+  line-height: 1.6;
+  color: #3e382f;
+}
+
+.autor {
+  margin-top: 18px;
+  padding-top: 10px;
+  border-top: 1px solid var(--tint);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--hall);
+}
+
+/* Kaasloo pilt */
+
+.lugu-pea__pilt {
+  grid-column: span 7;
+  align-self: start;
+}
+
+.lugu-pea__pilt img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: contrast(1.03) saturate(0.9);
+}
+
+.lugu-pea__pilt figcaption,
+.artikkel__pilt figcaption {
+  margin-top: 7px;
+  padding-left: 8px;
+  border-left: 2px solid var(--punane);
+  font-size: 0.64rem;
+  line-height: 1.5;
+  color: var(--hall);
+}
+
+/* Kaasloo tekst kahes veerus */
+
+.lugu-pea__sisu {
+  grid-column: span 8;
+  column-count: 2;
+  column-gap: 34px;
+  column-rule: 1px solid var(--joon);
+  margin-top: 6px;
+  font-size: 0.92rem;
+  line-height: 1.78;
+  color: var(--tekst);
+}
+
+.lugu-pea__sisu p {
+  margin: 0 0 14px;
+}
+
+.lugu-pea__sisu p:last-child {
+  margin-bottom: 0;
+}
+
+.esimene-taht::first-letter {
+  float: left;
+  padding: 7px 8px 0 0;
+  font-family: var(--serif);
+  font-size: 4.1rem;
+  line-height: 0.68;
+  color: var(--punane);
+}
+
+.tõstetud {
+  column-span: all;
+  margin: 18px 0 !important;
+  padding: 12px 0;
+  border-top: 1px solid var(--tint);
+  border-bottom: 1px solid var(--tint);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.24rem;
+  line-height: 1.4;
+  color: var(--tint);
+}
+
+/* Sisukord */
+
+.sisukord {
+  grid-column: span 4;
+  align-self: start;
+  padding-left: 24px;
+  border-left: 1px solid var(--tint);
+}
+
+.sisukord h3 {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--tint);
+  margin-bottom: 6px;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sisukord li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--joon);
+}
+
+.sisukord__number {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--punane);
+}
+
+.sisukord h4 {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sisukord li p {
+  margin-top: 2px;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hall);
+}
+
+.tellimus {
+  margin-top: 22px;
+  padding: 18px;
+  background: var(--tint);
+  color: var(--paber);
+}
+
+.tellimus__silt {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.55);
+}
+
+.tellimus p:not(.tellimus__silt) {
+  margin: 7px 0 12px;
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tellimus a {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffb59f;
+  text-decoration: none;
+}
+
+.tellimus a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Artiklid ---------- */
+
+.artiklid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px 30px;
+  padding: 34px 0 26px;
+  border-top: 1px solid var(--tint);
+}
+
+.artikkel {
+  align-self: start;
+}
+
+.artikkel--suur {
+  grid-column: span 6;
+}
+
+.artikkel--keskmine {
+  grid-column: span 3;
+}
+
+.artikkel--vaike {
+  grid-column: span 3;
+  padding: 20px;
+  background: var(--paber-tume);
+  border: 1px solid var(--joon);
+}
+
+.artikkel__pilt {
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.artikkel__pilt img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.artikkel__pilt--ruut img {
+  aspect-ratio: 1 / 1;
+}
+
+.artikkel:hover .artikkel__pilt img {
+  transform: scale(1.035);
+}
+
+.artikkel h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 9px;
+}
+
+.artikkel--suur h3 {
+  font-size: 2rem;
+}
+
+.artikkel--vaike h3 {
+  font-size: 1.3rem;
+}
+
+.artikkel__juht {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #4b453a;
+}
+
+.artikkel .autor {
+  margin-top: 12px;
+  padding-top: 8px;
+}
+
+.nimekiri {
+  margin: 8px 0 12px;
+}
+
+.nimekiri li {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+  border-top: 1px solid var(--joon);
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.nimekiri li:last-child {
+  border-bottom: 1px solid var(--joon);
+}
+
+.nimekiri span {
+  font-style: italic;
+  color: var(--punane);
+}
+
+/* ---------- Suur tsitaat ---------- */
+
+.tsitaat-ajakiri {
+  margin-top: 24px;
+  padding: 40px 0 36px;
+  border-top: 4px double var(--tint);
+  border-bottom: 1px solid var(--tint);
+  text-align: center;
+}
+
+.tsitaat-ajakiri__mark {
+  font-family: var(--serif);
+  font-size: 5rem;
+  line-height: 0.55;
+  color: var(--punane);
+}
+
+.tsitaat-ajakiri blockquote {
+  max-width: 800px;
+  margin: 10px auto 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.36;
+  letter-spacing: -0.01em;
+}
+
+.tsitaat-ajakiri cite {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hall);
+}
+
+/* ---------- Veel numbris ---------- */
+
+.veel {
+  padding: 36px 0 30px;
+}
+
+.veel__pealkiri {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--tint);
+  margin-bottom: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.8rem;
+  letter-spacing: -0.01em;
+}
+
+.veel__vorgustik {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.vaike-lugu {
+  padding: 16px 0 0 20px;
+  border-left: 1px solid var(--joon);
+}
+
+.vaike-lugu:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.vaike-lugu h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.16rem;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.vaike-lugu > p:not(.rubriik) {
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: #4b453a;
+}
+
+.vaike-lugu__lehekulg {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--punane);
+}
+
+/* ---------- Tellimuse riba ---------- */
+
+.tellimus-riba {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  margin: 30px 0 56px;
+  padding: 38px 40px;
+  background: var(--tint);
+  color: var(--paber);
+}
+
+.tellimus-riba h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.tellimus-riba__parem p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(244, 239, 228, 0.65);
+}
+
+.tellimus-riba__nupp {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 20px;
+  border: 1px solid var(--paber);
+  background: var(--paber);
+  color: var(--tint);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.tellimus-riba__nupp:hover {
+  background: var(--punane);
+  border-color: var(--punane);
+  color: var(--paber);
+}
+
+/* ---------- Jalus ---------- */
+
+.jalus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 26px 40px;
+  border-top: 1px solid var(--tint);
+  font-size: 0.7rem;
+  color: var(--hall);
+}
+
+.jalus__nimi {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--tint);
+}
+
+.jalus__vaike {
+  flex-basis: 100%;
+  padding-top: 8px;
+  border-top: 1px solid var(--joon);
+  font-size: 0.64rem;
+}
+
+/* ---------- Kohanduvus ---------- */
+
+@media (max-width: 1000px) {
+  .lugu-pea__tekst {
+    grid-column: span 6;
+  }
+
+  .lugu-pea__pilt {
+    grid-column: span 6;
+  }
+
+  .lugu-pea__sisu {
+    grid-column: span 8;
+    column-count: 1;
+  }
+
+  .sisukord {
+    grid-column: span 4;
+  }
+
+  .artikkel--suur {
+    grid-column: span 6;
+  }
+
+  .artikkel--keskmine,
+  .artikkel--vaike {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 820px) {
+  .lugu-pea__tekst,
+  .lugu-pea__pilt,
+  .lugu-pea__sisu,
+  .sisukord {
+    grid-column: span 12;
+  }
+
+  .lugu-pea__pilt {
+    order: 2;
+  }
+
+  .lugu-pea__sisu {
+    order: 3;
+  }
+
+  .sisukord {
+    order: 4;
+    padding: 22px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--tint);
+  }
+
+  .sisukord ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  .artikkel--suur,
+  .artikkel--keskmine,
+  .artikkel--vaike {
+    grid-column: span 12;
+  }
+
+  .artikkel--keskmine {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 20px;
+  }
+
+  .artikkel--keskmine .artikkel__pilt {
+    grid-row: span 4;
+  }
+
+  .artikkel--keskmine .artikkel__pilt img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .veel__vorgustik {
+    grid-template-columns: 1fr;
+  }
+
+  .vaike-lugu {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--joon);
+  }
+
+  .vaike-lugu:first-child {
+    border-top: 0;
+  }
+
+  .tellimus-riba {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .masthead {
+    padding: 14px 18px 0;
+  }
+
+  .masthead__riba {
+    font-size: 0.55rem;
+  }
+
+  .masthead__keskel {
+    display: none;
+  }
+
+  .masthead__pealkiri {
+    display: block;
+    padding: 18px 0 14px;
+    text-align: center;
+  }
+
+  .masthead__number,
+  .masthead__devise {
+    display: none;
+  }
+
+  .masthead__pealkiri h1 {
+    font-size: clamp(2.9rem, 15vw, 4.2rem);
+  }
+
+  .masthead__nav {
+    gap: 10px 18px;
+  }
+
+  .masthead__nav a {
+    font-size: 0.58rem;
+  }
+
+  main {
+    padding: 0 18px;
+  }
+
+  .lugu-pea {
+    padding: 26px 0 36px;
+  }
+
+  .esimene-taht::first-letter {
+    font-size: 3.4rem;
+  }
+
+  .sisukord ol {
+    grid-template-columns: 1fr;
+  }
+
+  .artikkel--keskmine {
+    display: block;
+  }
+
+  .artikkel--keskmine .artikkel__pilt {
+    margin-bottom: 14px;
+  }
+
+  .tsitaat-ajakiri__mark {
+    font-size: 4rem;
+  }
+
+  .veel {
+    padding-top: 26px;
+  }
+
+  .tellimus-riba {
+    margin-bottom: 40px;
+    padding: 24px 20px;
+  }
+
+  .jalus {
+    padding: 18px 18px 32px;
+  }
+}

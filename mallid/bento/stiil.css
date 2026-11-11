@@ -1,0 +1,778 @@
+/* ==========================================================================
+   BENTO – isiklik linkide leht kaartide mosaiigina
+   🎨 MUUDA: kaartide värvid on :root plokis.
+   ========================================================================== */
+
+:root {
+  --paber: #f2ede2;
+  --kreem: #fbf8ef;
+  --tint: #171611;
+  --hall: #6f6a5e;
+  --laim: #d8f24a;
+  --lilla: #bda9ff;
+  --korall: #ff8265;
+  --sinine: #b8dcff;
+  --või: #ffe6a8;
+
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --mono: Consolas, "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--tint);
+  background-color: var(--paber);
+  background-image:
+    radial-gradient(700px at 88% -8%, rgba(189, 169, 255, 0.35), transparent 70%),
+    radial-gradient(620px at -5% 32%, rgba(216, 242, 74, 0.32), transparent 68%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, p, ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--tint);
+  color: var(--laim);
+}
+
+:focus-visible {
+  outline: 2px solid var(--tint);
+  outline-offset: 4px;
+}
+
+.taust {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(23, 22, 17, 0.055) 0.7px, transparent 0.7px);
+  background-size: 19px 19px;
+}
+
+.pais,
+.vorgustik,
+.jalus {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Päis ---------- */
+
+.pais {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 26px 24px 20px;
+}
+
+.pais__mina {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 0.88rem;
+}
+
+.pais__mina strong {
+  font-weight: 800;
+}
+
+.pais__mina span {
+  color: #8a7a1f;
+}
+
+.pais__pilt {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--tint);
+}
+
+.pais__staatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(23, 22, 17, 0.2);
+  border-radius: 999px;
+  background: rgba(251, 248, 239, 0.7);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.pais__punkt {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6cc24a;
+  border: 1px solid var(--tint);
+  animation: tuksub 2.4s ease-in-out infinite;
+}
+
+@keyframes tuksub {
+  50% { opacity: 0.4; }
+}
+
+/* ---------- Võrgustik ---------- */
+
+.vorgustik {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(170px, auto);
+  gap: 16px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px 26px;
+}
+
+/* ---------- Kaartide ühine stiil ---------- */
+
+.kaart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 24px;
+  border: 1.5px solid var(--tint);
+  border-radius: 26px;
+  background: var(--kreem);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.kaart:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--tint);
+}
+
+.silt {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(23, 22, 17, 0.55);
+}
+
+.silt--hele {
+  color: rgba(251, 248, 239, 0.55);
+}
+
+.kaart h2 {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.kaart__vaike {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: rgba(23, 22, 17, 0.52);
+}
+
+/* ---------- Tutvustus ---------- */
+
+.kaart--tutvustus {
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: 30px;
+  background: var(--laim);
+}
+
+.kaart--tutvustus h1 {
+  position: relative;
+  z-index: 1;
+  margin: 4px 0 16px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 5.6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.kaart--tutvustus h1 em {
+  font-style: italic;
+}
+
+.tutvustus {
+  position: relative;
+  z-index: 1;
+  max-width: 430px;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: rgba(23, 22, 17, 0.78);
+}
+
+.tutvustus__nool {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(23, 22, 17, 0.35);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tutvustus__nool span {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.tutvustus__nool:hover span {
+  transform: translateY(3px);
+}
+
+.kaart__taht {
+  position: absolute;
+  right: 12px;
+  bottom: -48px;
+  z-index: 0;
+  font-size: 11rem;
+  line-height: 1;
+  color: rgba(23, 22, 17, 0.1);
+  pointer-events: none;
+}
+
+/* ---------- Pilt ---------- */
+
+.kaart--pilt {
+  grid-row: span 2;
+  padding: 0;
+}
+
+.kaart--pilt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pildi-silt {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 7px 13px;
+  border: 1px solid var(--tint);
+  border-radius: 999px;
+  background: var(--kreem);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+/* ---------- Praegu ---------- */
+
+.kaart--praegu {
+  background: var(--lilla);
+}
+
+.praegu-nimekiri li {
+  display: flex;
+  gap: 8px;
+  padding: 7px 0;
+  border-top: 1px solid rgba(23, 22, 17, 0.16);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.praegu-nimekiri li:last-child {
+  border-bottom: 1px solid rgba(23, 22, 17, 0.16);
+}
+
+.praegu-nimekiri span {
+  flex: 0 0 50px;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: 2px;
+  color: rgba(23, 22, 17, 0.5);
+}
+
+.kaart--praegu .kaart__vaike {
+  color: rgba(23, 22, 17, 0.5);
+}
+
+/* ---------- Lingid ---------- */
+
+.lingid {
+  margin-top: 2px;
+}
+
+.lingid a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(23, 22, 17, 0.14);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: padding-left 0.2s ease;
+}
+
+.lingid a:last-child {
+  border-bottom: 1px solid rgba(23, 22, 17, 0.14);
+}
+
+.lingid a:hover {
+  padding-left: 5px;
+}
+
+/* ---------- Autod ---------- */
+
+.kaart--autod {
+  grid-column: span 4;
+  padding: 20px;
+}
+
+.autod__rida {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.autod__pais {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 12px;
+}
+
+.autod__pais .silt {
+  margin-bottom: 0;
+}
+
+.autod__pais h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.autod__rida figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--tint);
+  border-radius: 14px;
+  background: #ddd6c9;
+}
+
+.autod__rida img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.autod__rida figure:hover img {
+  transform: scale(1.04);
+}
+
+.autod__rida figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px 11px;
+  border: 1px solid var(--tint);
+  border-radius: 999px;
+  background: var(--kreem);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+/* ---------- Tsitaat ---------- */
+
+.kaart--tsitaat {
+  justify-content: space-between;
+  background: var(--korall);
+}
+
+.tsitaat__mark {
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  line-height: 0.55;
+  color: rgba(23, 22, 17, 0.3);
+}
+
+.tsitaat__tekst {
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+.kaart--tsitaat .kaart__vaike {
+  color: rgba(23, 22, 17, 0.55);
+}
+
+/* ---------- Projekt ---------- */
+
+.kaart--projekt {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  background: var(--tint);
+  color: var(--kreem);
+}
+
+.projekt__tekst {
+  position: relative;
+  z-index: 1;
+}
+
+.kaart--projekt h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin-bottom: 8px;
+}
+
+.kaart--projekt p:not(.silt) {
+  max-width: 380px;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: rgba(251, 248, 239, 0.68);
+}
+
+.projekt__link {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(216, 242, 74, 0.4);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--laim);
+}
+
+.projekt__link:hover {
+  border-color: var(--laim);
+}
+
+/* Väike brauseriaknas projektist */
+.projekt__aken {
+  overflow: hidden;
+  min-height: 148px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(251, 248, 239, 0.22);
+  border-radius: 10px;
+  background: #242219;
+  transform: rotate(-1.5deg);
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.28);
+}
+
+.projekt__riba {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(251, 248, 239, 0.14);
+}
+
+.projekt__riba i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(251, 248, 239, 0.3);
+}
+
+.projekt__riba span {
+  margin-left: 6px;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  color: rgba(251, 248, 239, 0.4);
+}
+
+.projekt__sisu {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  padding: 12px;
+}
+
+.plokk {
+  display: block;
+  border-radius: 4px;
+}
+
+.plokk--laim {
+  grid-row: span 2;
+  background: var(--laim);
+}
+
+.plokk--lilla {
+  background: var(--lilla);
+}
+
+.plokk--hele {
+  background: rgba(251, 248, 239, 0.75);
+}
+
+/* ---------- Kontakt ---------- */
+
+.kaart--kontakt {
+  grid-column: span 2;
+  background: var(--sinine);
+}
+
+.kontakt__meil {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.2;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--tint);
+  padding-bottom: 3px;
+  word-break: break-word;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.kontakt__meil:hover {
+  color: #2d46c9;
+  border-color: #2d46c9;
+}
+
+/* ---------- Asukoht ---------- */
+
+.kaart--asukoht {
+  background: var(--kreem);
+}
+
+.asukoht__linn {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 2px 0 10px;
+}
+
+/* ---------- Väike fakt ---------- */
+
+.kaart--fakt {
+  background: var(--või);
+}
+
+.fakt__number {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.fakt__tekst {
+  margin-top: 10px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: rgba(23, 22, 17, 0.68);
+}
+
+.fakt__taht {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  font-size: 2rem;
+  color: rgba(23, 22, 17, 0.18);
+}
+
+/* ---------- Jalus ---------- */
+
+.jalus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 16px 24px 46px;
+  border-top: 1px dashed rgba(23, 22, 17, 0.22);
+  font-size: 0.68rem;
+  color: var(--hall);
+}
+
+.jalus__vaike {
+  flex: 1;
+  font-size: 0.62rem;
+  text-align: right;
+}
+
+/* ---------- Kohanduvus ---------- */
+
+@media (max-width: 1020px) {
+  .vorgustik {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+  }
+
+  .kaart--tutvustus {
+    grid-column: span 2;
+    grid-row: auto;
+    min-height: 360px;
+  }
+
+  .kaart--pilt {
+    grid-row: span 2;
+    min-height: 360px;
+  }
+
+  .kaart--projekt {
+    grid-column: span 2;
+  }
+
+  .kaart--kontakt {
+    grid-column: span 1;
+  }
+
+  .kaart--autod {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .pais {
+    padding: 18px 18px 16px;
+  }
+
+  .pais__staatus {
+    font-size: 0.64rem;
+    padding: 7px 11px;
+  }
+
+  .vorgustik {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 12px;
+    padding: 0 18px 22px;
+  }
+
+  .kaart {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    min-height: 0;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .kaart--tutvustus {
+    min-height: 340px;
+    padding: 26px;
+  }
+
+  .kaart--pilt {
+    min-height: 330px;
+  }
+
+  .kaart--projekt {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .autod__rida {
+    grid-template-columns: 1fr;
+  }
+
+  .autod__rida img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .projekt__aken {
+    min-height: 130px;
+    transform: rotate(-1deg);
+  }
+
+  .kaart__taht {
+    font-size: 8rem;
+    bottom: -34px;
+  }
+
+  .jalus {
+    padding: 14px 18px 34px;
+  }
+
+  .jalus__vaike {
+    flex-basis: 100%;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .pais__punkt {
+    animation: none;
+  }
+
+  .kaart {
+    transition: none;
+  }
+}
