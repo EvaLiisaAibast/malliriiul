@@ -168,6 +168,7 @@ Riistad ripuvad paremal seinal kapil. Vali riist ja seejärel klõpsa objektidel
 | Nupp | Tegevus |
 | --- | --- |
 | **Läbi kõik ↓** | kerib toa lõppu |
+| **Kell · Riiul · Kapp · Klaver** | hüppab kohe selle eseme juurde keskele (tuba on pikk horisontaalne riba) |
 | **Klaver** | avab klaveripaneeli |
 | **Tänud** | autorid ja piltide päritolu |
 | **Juhend** | lühike kasutusjuhend |

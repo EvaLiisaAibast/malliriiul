@@ -171,6 +171,7 @@ The tools hang on the right wall above the cabinet. Pick a tool, then click obje
 | Button | Action |
 | --- | --- |
 | **Läbi kõik ↓** | scrolls to the end of the room |
+| **Kell · Riiul · Kapp · Klaver** | jumps straight to that object (the room is a long horizontal strip) |
 | **Klaver** | opens the piano panel |
 | **Tänud** | authors and image credits |
 | **Juhend** | short usage guide |
