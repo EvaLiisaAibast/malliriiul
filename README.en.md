@@ -133,7 +133,7 @@ The tools hang on the right wall above the cabinet. Pick a tool, then click obje
 | `⤢` | opens the board on the **large workbench** (separate panel, Esc closes) |
 | `✍` | opens the guestbook |
 | Pins, postcards, cut-outs, photos | **drag** freely; `×` deletes; positions are saved |
-| **Large workbench: click an item** | the item enters drawing mode (dashed gold outline + ✎ badge) — you then draw **on that item** with the same tools (pencil, brush, marker, airbrush, eraser, line, rectangle, ellipse). Click it again or press `Esc` to go back to drawing on the board. The drawing is stored with the item |
+| **Click a board item** | the item enters drawing mode (clicking an item on the small board opens the large workbench with that item already selected) (dashed gold outline + ✎ badge) — you then draw **on that item** with the same tools (pencil, brush, marker, airbrush, eraser, line, rectangle, ellipse). Click it again or press `Esc` to go back to drawing on the board. The drawing is stored with the item |
 | Below the workbench: **Fotod mallidest** | 47 pictures from all ten templates — click to pin the chosen photo to the board (sepia-toned like the cut-outs). Click it again if you want to draw on the photo itself |
 | Cut-out strip | 13 period images (Chaplin, Pickford, Houdini, Wallace Reid, E. M. Favor, lady 1905, Victor Records 1909, Excelsior bicycle, biplane, rose, "Lavine" cat, The Great Arrow 1908, Fiat) — click to pin one to the board |
 | Drawing (large workbench) | 11 tools: pencil, brush, marker, airbrush, eraser, fill, line, rectangle, ellipse, text, stamp; 13 colours; size slider; filters (negative, sepia, mirror, spray); undo/redo (`Ctrl+Z`); clear; **PNG export**; layer "on top"/"under" |

@@ -130,7 +130,7 @@ Riistad ripuvad paremal seinal kapil. Vali riist ja seejärel klõpsa objektidel
 | `⤢` | avab tahvli **suurel töölaual** (eraldi paneel, Esc sulgeb) |
 | `✍` | avab külalisteraamatu |
 | Nööpnõelad, postkaardid, väljalõiked, fotod | **lohista** vabalt ringi; `×` kustutab; asukohad salvestuvad |
-| **Suur töölaud: klõps esemel** | ese läheb joonistusrežiimi (katkendlik kollane äär + ✎ märk) — edasi joonistad **selle eseme peal** samade riistadega (pliiats, pintsel, marker, aerograaf, kustukumm, joon, ristkülik, ellips). Teine klõps või `Esc` toob sind tahvli juurde tagasi. Joonistus salvestub eseme külge |
+| **Klõps tahvli esemel** | ese läheb joonistusrežiimi (kui klõpsad esemel väiksel tahvlil, avaneb suur töölaud ja ese on juba valitud) (katkendlik kollane äär + ✎ märk) — edasi joonistad **selle eseme peal** samade riistadega (pliiats, pintsel, marker, aerograaf, kustukumm, joon, ristkülik, ellips). Teine klõps või `Esc` toob sind tahvli juurde tagasi. Joonistus salvestub eseme külge |
 | Töölaua all: **Fotod mallidest** | 47 pilti kõigist kümnest mallist — klõps kleebib valitud foto tahvlile (ajastu toonis, nagu väljalõiked). Klõpsa sellel uuesti, kui tahad fotole midagi juurde joonistada |
 | Väljalõigete riba | 13 ajastu pilti (Chaplin, Pickford, Houdini, Wallace Reid, E. M. Favor, daam 1905, grammofonikuulutus 1909, Excelsiori jalgratas, biplaan, roos, kass „Lavine", Great Arrow 1908, Fiat) — klõps kleebib tahvlile |
 | Joonistamine (suur töölaud) | 11 riista: pliiats, pintsel, marker, aerograaf, kustukumm, täitevärv, joon, ristkülik, ellips, tekst, tempel; 13 värvi; suuruse liugur; filtrid (negatiiv, seepia, peegel, pritse); undo/redo (`Ctrl+Z`); tühjenda; **PNG-eksport**; kiht „peal"/„all" |
