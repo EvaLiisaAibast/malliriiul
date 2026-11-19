@@ -821,7 +821,7 @@ body{background:#120905;overflow:hidden}
 @media (pointer:coarse){.tub-hud__rida{margin:0 6px 6px}}
 /* --- korktahvel: suur töölaud, joonistamine, väljalõiked --- */
 #kork-joonis,#kork-joonis-eel{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;pointer-events:none}
-#kork-pind.joonistus #kork-joonis{pointer-events:auto;cursor:crosshair;touch-action:none}
+#kork-joonis{pointer-events:auto;cursor:crosshair;touch-action:none}
 #kork-pind.kiht-peal #kork-joonis,#kork-pind.kiht-peal #kork-joonis-eel{z-index:4}
 #kork-pind.joonistus .tub-kork__loik,#kork-pind.joonistus .tub-kork__leht,#kork-pind.joonistus .tub-postkaart{cursor:grab}
 .kork-x{position:absolute;right:calc(-7px / var(--fk,1));top:calc(-7px / var(--fk,1));width:calc(16px / var(--fk,1));height:calc(16px / var(--fk,1));padding:0;display:grid;place-items:center;font:700 calc(.66rem / var(--fk,1))/1 system-ui,sans-serif;color:#3a1c04;background:radial-gradient(circle at 34% 30%,#ffeec2,#d9b45a 60%,#8a5a18);border:1px solid #4a2a0c;border-radius:50%;cursor:pointer;opacity:0;transform:scale(.6);transition:opacity .16s,transform .16s;z-index:6;box-shadow:0 2px 4px rgba(0,0,0,.55)}
@@ -1722,7 +1722,7 @@ body{background:#120905;overflow:hidden}
   function riisVali(v){
     RIIS=v; document.body.dataset.riist=v;
     riisaNupud.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.riist===v))});
-    vihjeEl.textContent=RIIS_VIHJED[v]||'';
+    vihjeEl.textContent=RIIS_VIHJED[v]||''; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     var pr=v==='prillid';
     luup.classList.toggle('on',pr);
     if(pr){ if(!luupKoopia)luupEhita(); luupAseta(); }
@@ -1746,7 +1746,7 @@ body{background:#120905;overflow:hidden}
   if(pausPaevades>=1){
     setTimeout(function(){
       if(typeof vihjeEl!=='undefined'&&vihjeEl){
-        vihjeEl.textContent='Tuba on oodanud '+Math.round(pausPaevades)+' päeva — tolm on paks ja koid lendavad. Võta tolmuhiivuti.';
+        vihjeEl.textContent='Tuba on oodanud '+Math.round(pausPaevades)+' päeva — tolm on paks ja koid lendavad. Võta tolmuhiivuti.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
       }
     },2400);
   }
@@ -1772,7 +1772,7 @@ body{background:#120905;overflow:hidden}
     if(!tabatud)return;
     if(TOLM>0.001){
       TOLM=Math.max(0,TOLM-0.04); tolmKuva(); pahv(e.clientX,e.clientY);
-      if(TOLM<=0.001)vihjeEl.textContent='Riiul läigib. Preili Ashworth on rahul. (Kuni järgmise tolmukihini.)';
+      if(TOLM<=0.001)vihjeEl.textContent='Riiul läigib. Preili Ashworth on rahul. (Kuni järgmise tolmukihini.)'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     }
   });
 
@@ -1909,7 +1909,7 @@ body{background:#120905;overflow:hidden}
         if(POMO.töö){
           pomoHeli(880);
           POMO.töö=false; POMO.jaanud=5*60;
-          vihjeEl.textContent='Tööaeg sai läbi — kell helises. Viis minutit pausi.';
+          vihjeEl.textContent='Tööaeg sai läbi — kell helises. Viis minutit pausi.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
         }else{
           pomoHeli(660);
           clearInterval(POMO.taimer); POMO.taimer=null;
@@ -1917,7 +1917,7 @@ body{background:#120905;overflow:hidden}
           pomoAeg.textContent=pomoNumbrid(); pomoIkoon.textContent='⏱';
           pomoNupp.setAttribute('aria-pressed','false'); pomoNull.hidden=true;
           kellKuva();
-          vihjeEl.textContent='Paus läbi. Taimer on valmis — kell näitab jälle oma aega.';
+          vihjeEl.textContent='Paus läbi. Taimer on valmis — kell näitab jälle oma aega.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
           return;
         }
       }
@@ -1928,15 +1928,15 @@ body{background:#120905;overflow:hidden}
   pomoNupp.addEventListener('click',function(){
     if(!POMO.sees){
       POMO.sees=true; POMO.töö=true; POMO.jaanud=25*60; pomoTikib();
-      vihjeEl.textContent='Pomodoro käib: 25 minutit tööd. Kell näitab järelejäänud aega.';
+      vihjeEl.textContent='Pomodoro käib: 25 minutit tööd. Kell näitab järelejäänud aega.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
       return;
     }
     if(POMO.taimer){
       clearInterval(POMO.taimer); POMO.taimer=null; pomoKuva();
-      vihjeEl.textContent='Taimer peatatud. Klõpsa uuesti, et jätkata.';
+      vihjeEl.textContent='Taimer peatatud. Klõpsa uuesti, et jätkata.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     }else{
       pomoTikib();
-      vihjeEl.textContent='Taimer jätkub.';
+      vihjeEl.textContent='Taimer jätkub.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     }
   });
   pomoNull.addEventListener('click',function(){
@@ -1945,7 +1945,7 @@ body{background:#120905;overflow:hidden}
     pomoNull.hidden=true; pomoNupp.setAttribute('aria-pressed','false');
     pomoIkoon.textContent='⏱'; pomoAeg.textContent='25:00';
     kellKuva();
-    vihjeEl.textContent='Taimer lähtestatud. Kell näitab jälle oma aega.';
+    vihjeEl.textContent='Taimer lähtestatud. Kell näitab jälle oma aega.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   });
   pomoAeg.textContent='25:00';
 
@@ -1963,11 +1963,11 @@ body{background:#120905;overflow:hidden}
     document.getElementById('seif-paneel').setAttribute('aria-expanded','true');
     var kast=document.getElementById('seif-kast');
     kast.innerHTML='<button class="tub-seif__voti" id="seif-voti" type="button" aria-label="Võta vaskvõti">'+VOTI_SVG+'</button><p class="tub-seif__vihje">Vaskvõti!</p>';
-    vihjeEl.textContent='Seinapaneel libises kõrvale. Seifis on vaskvõti.';
+    vihjeEl.textContent='Seinapaneel libises kõrvale. Seifis on vaskvõti.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     document.getElementById('seif-voti').addEventListener('click',function(){
       voti=true; try{localStorage.setItem('malliriiul-voti','1')}catch(e){}
       kast.innerHTML='<p class="tub-seif__vihje">Võti on taskus.<br>Klõpsa kapi lukul.</p>';
-      vihjeEl.textContent='Võti käes. Mine kapi juurde ja klõpsa lukul.';
+      vihjeEl.textContent='Võti käes. Mine kapi juurde ja klõpsa lukul.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     });
   }
 
@@ -1983,7 +1983,7 @@ body{background:#120905;overflow:hidden}
       var s=document.querySelector('.tub-kapp__valmis');
       if(!s){s=document.createElement('span');s.className='tub-kapp__valmis';document.getElementById('kapp').appendChild(s)}
       s.textContent='Klõps! Mehhanism liikus. Sa leidsid 1926. aasta plaani.';
-      vihjeEl.textContent='Hammasrattad klõpsatasid paika. Kapi taga on vana mehaaniline joonis.';
+      vihjeEl.textContent='Hammasrattad klõpsatasid paika. Kapi taga on vana mehaaniline joonis.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
       lsKirjuta('malliriiul-hammas',true);
       kappNupud();
       if(joonisSeis==='peidus'){ joonisSeis='laual'; lsKirjuta(JOONIS_KEY,joonisSeis); joonisSeisUuenda(); }
@@ -2003,7 +2003,7 @@ body{background:#120905;overflow:hidden}
   function kappSulge(){
     if(!kappLahti)return;
     if(!lsLoe('malliriiul-hammas',false)){
-      vihjeEl.textContent='Kõigepealt keri hammasrattad paika, siis saab kapi sulgeda.';
+      vihjeEl.textContent='Kõigepealt keri hammasrattad paika, siis saab kapi sulgeda.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
       return;
     }
     /* kui joonis on veel kapi taga, võetakse see sulgemisel automaatselt kätte,
@@ -2024,7 +2024,7 @@ body{background:#120905;overflow:hidden}
     if(!kappLahti||kappAuto.disabled)return;
     var algus=hammasA.slice(), siht=algus.map(function(a){return Math.ceil((a+1)/360)*360});
     kappAuto.disabled=true;
-    vihjeEl.textContent='Mehhanism kerib ise — oota hetk.';
+    vihjeEl.textContent='Mehhanism kerib ise — oota hetk.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     hammasEls.forEach(function(g){g.style.transition='none'});
     function sea(p){
       hammasEls.forEach(function(g,i){
@@ -2054,7 +2054,7 @@ body{background:#120905;overflow:hidden}
     kappLahti=true; kappUks.classList.add('lahti');
     document.getElementById('kapp-silt').innerHTML=''; kappLukk.style.display='none';
     kappNupud();
-    vihjeEl.textContent='Kapp on lahti. Keera hammasrattaid, kuni märgid on ülal.';
+    vihjeEl.textContent='Kapp on lahti. Keera hammasrattaid, kuni märgid on ülal.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   });
   if(lsLoe('malliriiul-kapp',false)){
     kappLahti=true; kappUks.classList.add('lahti');
@@ -2092,7 +2092,7 @@ body{background:#120905;overflow:hidden}
     joonisSeis='kaes'; lsKirjuta(JOONIS_KEY,joonisSeis);
     joonisSeisUuenda();
     kappNupud();
-    vihjeEl.textContent='Joonis on käes. Klõpsa korktahvlil, et see sinna kinnitada.';
+    vihjeEl.textContent='Joonis on käes. Klõpsa korktahvlil, et see sinna kinnitada.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     if(korkEl&&korkEl.scrollIntoView)korkEl.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
   }
   function joonisKinnita(){
@@ -2104,7 +2104,7 @@ body{background:#120905;overflow:hidden}
       var arr=[]; korkPind.querySelectorAll('.tub-kork__leht img').forEach(function(im){arr.push(im.src)});
       localStorage.setItem('malliriiul-kylalised',JSON.stringify(arr));
     }catch(e){}
-    vihjeEl.textContent='Joonis on korktahvlil. Preili Ashworth tahaks teada, kes selle tegi.';
+    vihjeEl.textContent='Joonis on korktahvlil. Preili Ashworth tahaks teada, kes selle tegi.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   if(joonisEl){
     joonisEl.addEventListener('click',joonisV6ta);
@@ -2114,7 +2114,7 @@ body{background:#120905;overflow:hidden}
     korkEl.style.cursor='pointer';
     korkEl.addEventListener('click',function(e){
       if(joonisSeis==='kaes'){ e.stopPropagation(); joonisKinnita(); return; }
-      vihjeEl.textContent='Korktahvel: siia kinnitatakse külaliste lehed.';
+      vihjeEl.textContent='Korktahvel: siia kinnitatakse külaliste lehed.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     });
     korkEl.setAttribute('tabindex','0');
     korkEl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();if(joonisSeis==='kaes')joonisKinnita()}});
@@ -2218,7 +2218,7 @@ body{background:#120905;overflow:hidden}
   grammoNupp.addEventListener('click',function(){ plaatMangib(heli.valik<0?0:heli.valik); });
   function plaatJargmine(){
     plaatMangib((heli.valik+1)%PLAADID.length);
-    if(heli.valik>=0)vihjeEl.textContent='Plaat vahetatud: „'+PLAADID[heli.valik][0]+'”. Klõpsa grammofonil uuesti, et järgmine peale panna.';
+    if(heli.valik>=0)vihjeEl.textContent='Plaat vahetatud: „'+PLAADID[heli.valik][0]+'”. Klõpsa grammofonil uuesti, et järgmine peale panna.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   var grammoKorpus=document.querySelector('.tub-grammo__korpus');
   [grammoKorpus,grammoSilt].forEach(function(el){
@@ -2333,7 +2333,7 @@ body{background:#120905;overflow:hidden}
       heli.master.gain.setTargetAtTime(0,heli.ctx.currentTime,0.2);
       grammo.classList.remove('mangib'); grammoSilt.textContent='Grammofon seisab';
       spinStop(); raadioPeida();
-      vihjeEl.textContent='Plaat peatatud. Vali uus plaat või kleebi grammofoni ⋯ paneeli YouTube’i või Spotify link.';
+      vihjeEl.textContent='Plaat peatatud. Vali uus plaat või kleebi grammofoni ⋯ paneeli YouTube’i või Spotify link.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
       nuppKuva(); return;
     }
     heli.master.gain.setTargetAtTime(HELI_TASE,heli.ctx.currentTime,0.3);
@@ -2346,7 +2346,7 @@ body{background:#120905;overflow:hidden}
     plaatToon(heli.valik);
     spinAlgus();
     nuppKuva();
-    vihjeEl.textContent='Plaat käib: „'+PLAADID[heli.valik][0]+'” ('+PLAADID[heli.valik][1]+'). Klõpsa uuesti, et peatada.';
+    vihjeEl.textContent='Plaat käib: „'+PLAADID[heli.valik][0]+'” ('+PLAADID[heli.valik][1]+'). Klõpsa uuesti, et peatada.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
 
   /* --- voog: mis mängib grammofonil (YouTube / Spotify) --- */
@@ -2437,17 +2437,17 @@ body{background:#120905;overflow:hidden}
     spinAlgus();
     voogKustuta.hidden=false;
     voogViga.textContent='';
-    if(info.tyyp==='otsing') vihjeEl.textContent='Avasin YouTube Musicu otsingu „'+pealkiri+'” uues vahelehes. Vali lugu ja kleebi selle link siia — mängib kohe.';
-    else if(yt&&info.id) vihjeEl.textContent='„'+pealkiri+'” mängib nüüd grammofoni kõlarist. Vajuta uuesti ⋯, et mängija peita.';
-    else if(sp&&info.id) vihjeEl.textContent='Spotify mängija on grammofoni all — vajuta Spotifys ▶ ja grammofon näitab, mida kuulad.';
-    else vihjeEl.textContent='Avasin lingi uues vahelehes — grammofon jääb mängima.';
+    if(info.tyyp==='otsing') vihjeEl.textContent='Avasin YouTube Musicu otsingu „'+pealkiri+'” uues vahelehes. Vali lugu ja kleebi selle link siia — mängib kohe.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
+    else if(yt&&info.id) vihjeEl.textContent='„'+pealkiri+'” mängib nüüd grammofoni kõlarist. Vajuta uuesti ⋯, et mängija peita.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
+    else if(sp&&info.id) vihjeEl.textContent='Spotify mängija on grammofoni all — vajuta Spotifys ▶ ja grammofon näitab, mida kuulad.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
+    else vihjeEl.textContent='Avasin lingi uues vahelehes — grammofon jääb mängima.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   function voogEemalda(){
     mangijaPeata();
     voogKustuta.hidden=true; if(voogSisend)voogSisend.value='';
     grammo.classList.remove('mangib'); grammoSilt.textContent='Grammofon seisab'; spinStop();
     plaatToon(heli.valik>=0?heli.valik:0);
-    vihjeEl.textContent='Voog eemaldatud. Grammofon on jälle oma plaatide juures.';
+    vihjeEl.textContent='Voog eemaldatud. Grammofon on jälle oma plaatide juures.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   function voogOtsi(){
     var info=voogTuvasta(voogSisend?voogSisend.value:'');
@@ -2655,7 +2655,7 @@ body{background:#120905;overflow:hidden}
   setInterval(function(){NIIKSUS=Math.max(0,NIIKSUS-0.035);niiskusKuva()},22000);
   function kasta(){
     NIIKSUS=Math.min(1,NIIKSUS+0.16); niiskusKuva();
-    vihjeEl.textContent='Kastsin. Niiskus '+Math.round(NIIKSUS*100)+'%.';
+    vihjeEl.textContent='Kastsin. Niiskus '+Math.round(NIIKSUS*100)+'%.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     for(var i=0;i<6;i++)pahv(innerWidth*0.6+Math.random()*80,innerHeight*0.55+Math.random()*60);
   }
   pott.addEventListener('click',function(){
@@ -2677,7 +2677,7 @@ body{background:#120905;overflow:hidden}
       l.style.cssText='position:fixed;z-index:30;width:7px;height:10px;border-radius:0 60% 0 60%;background:linear-gradient(140deg,#c9a24a,#7a5a1a);pointer-events:none;left:'+(r.left+r.width*0.6+Math.random()*16)+'px;top:'+(r.top+8)+'px;--lx:'+((Math.random()*70-20)|0)+'px;animation:lehtLangeb '+(1.5+Math.random()*1.2).toFixed(2)+'s ease-in forwards';
       document.body.appendChild(l); setTimeout(function(){l.remove()},2800);
     }
-    vihjeEl.textContent='Kass virutas."Mяu," ütles kass ja pööras selja.';
+    vihjeEl.textContent='Kass virutas."Mяu," ütles kass ja pööras selja.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   });
 
   /* --- tindiplekid --- */
@@ -2695,13 +2695,13 @@ body{background:#120905;overflow:hidden}
     var kand=new Date().toISOString()+'|'+Math.random();
     var i=Math.floor(Math.random()*P.length), path='pildid/'+P[i][0]+'/'+P[i][1];
     PLEKID[path]=liik; plekidSalvesta(); draw();
-    vihjeEl.textContent=(liik==='tee'?'Tee loksatas':'Tint valgus')+' pildile „'+P[i][2]+'”. Puhasta taskurätikuga.';
+    vihjeEl.textContent=(liik==='tee'?'Tee loksatas':'Tint valgus')+' pildile „'+P[i][2]+'”. Puhasta taskurätikuga.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   document.getElementById('tint').addEventListener('click',function(){plekkTee('tint')});
   document.getElementById('teetass').addEventListener('click',function(){plekkTee('tee')});
   document.getElementById('puhasta').addEventListener('click',function(){
     var n=Object.keys(PLEKID).length; PLEKID={}; plekidSalvesta(); draw();
-    vihjeEl.textContent=n?('Pühkisid '+n+' plekki ära. Paber on jälle puhas.'):'Plekke ei olegi.';
+    vihjeEl.textContent=n?('Pühkisid '+n+' plekki ära. Paber on jälle puhas.'):'Plekke ei olegi.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   });
 
   /* --- külalisteraamat --- */
@@ -2754,7 +2754,7 @@ body{background:#120905;overflow:hidden}
       localStorage.setItem('malliriiul-kylalised',JSON.stringify(arr));
     }catch(e){}
     lx.clearRect(0,0,lõuend.width,lõuend.height);
-    vihjeEl.textContent='Leht on korktahvlil. Aitäh, et tulid!';
+    vihjeEl.textContent='Leht on korktahvlil. Aitäh, et tulid!'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   });
   document.getElementById('uus-leht').addEventListener('click',function(){lx.clearRect(0,0,lõuend.width,lõuend.height)});
   document.getElementById('sulge-raamat').addEventListener('click',function(){raamat.classList.remove('on')});
@@ -2974,10 +2974,10 @@ body{background:#120905;overflow:hidden}
         koiHost.appendChild(m);
         (function(el){setTimeout(function(){el.classList.add('on')},60)})(m);
       }
-      if(!vaikselt)vihjeEl.textContent='Koid lendavad tule poole. Klõpsa, et nad püüda.';
+      if(!vaikselt)vihjeEl.textContent='Koid lendavad tule poole. Klõpsa, et nad püüda.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     } else {
       koiHost.querySelectorAll('.koi').forEach(function(el){el.remove()});
-      if(!vaikselt)vihjeEl.textContent='Koid kadusid kappi tagasi.';
+      if(!vaikselt)vihjeEl.textContent='Koid kadusid kappi tagasi.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     }
   }
   document.getElementById('koi-luliti').addEventListener('click',function(){koiSea(!koidOn)});
@@ -3377,7 +3377,7 @@ body{background:#120905;overflow:hidden}
     lsKirjuta(SALV_KEY,salvestused);
     salvJoonista();
     if(salvOlek)salvOlek.textContent='Salvestatud '+arr.length+' nooti — „'+nimi+'”.';
-    vihjeEl.textContent='Klaver salvestas sinu pala. Vajuta „Mängi noodid”, et see üle kuulata.';
+    vihjeEl.textContent='Klaver salvestas sinu pala. Vajuta „Mängi noodid”, et see üle kuulata.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
   }
   if(salvestusNupp){
     salvestusNupp.addEventListener('click',function(){
@@ -3386,7 +3386,7 @@ body{background:#120905;overflow:hidden}
       salvestusNupp.setAttribute('aria-pressed','true');
       salvestusNupp.textContent='■ Lõpeta';
       if(salvOlek)salvOlek.textContent='Salvestan… mängi klahvidel.';
-      vihjeEl.textContent='Salvestan. Mängi klahvidel ja vajuta „Lõpeta”, kui valmis.';
+      vihjeEl.textContent='Salvestan. Mängi klahvidel ja vajuta „Lõpeta”, kui valmis.'; if(window.klaverJoonda)setTimeout(window.klaverJoonda,0);
     });
   }
   salvJoonista();
@@ -3830,8 +3830,8 @@ body{background:#120905;overflow:hidden}
     jx.restore();
   }
   joonis.addEventListener('pointerdown',function(e){
-    if(!lahti)return;
     e.preventDefault(); e.stopPropagation();
+    if(!lahti)vihje('Joonistad tahvlil — rohkem riistu ja värve saad ⤢ ateljeest.');
     var p=koht(e); algP={x:p.x,y:p.y}; viimaneP=algP;
     lukusta();
     if(riist==='vala'){ täida(p.x,p.y); joonisSalvesta(); return; }
@@ -3850,11 +3850,11 @@ body{background:#120905;overflow:hidden}
     try{ joonis.setPointerCapture(e.pointerId); }catch(err){}
     jx.save(); stiil(jx, riist==='marker'?0.3:1);
     jx.beginPath(); jx.moveTo(p.x,p.y);
-    if(riist==='aerograaf'){ aerograaf(p); }
-    else { jx.lineTo(p.x+0.01,p.y); jx.stroke(); jx.beginPath(); jx.moveTo(p.x,p.y); }
+    if(riist==='aerograaf'){ if(lahti)aerograaf(p); }
+    else if(lahti){ jx.lineTo(p.x+0.01,p.y); jx.stroke(); jx.beginPath(); jx.moveTo(p.x,p.y); }
   });
   joonis.addEventListener('pointermove',function(e){
-    if(!tõmme||!lahti)return;
+    if(!tõmme)return;
     var p=koht(e); viimaneP=p;
     if(Math.abs(p.x-algP.x)+Math.abs(p.y-algP.y)<0.7)return;
     if(riist==='joon'||riist==='ristkülik'||riist==='ellips'){
@@ -3891,7 +3891,7 @@ body{background:#120905;overflow:hidden}
     try{ localStorage.setItem(PIND_KEY,JSON.stringify(o)); }catch(e){}
   }
   var valitudItem=null;
-  function vihje(tekst){ var v=document.getElementById('tub-vihje'); if(v)v.textContent=tekst; }
+  function vihje(tekst){ var v=document.getElementById('tub-vihje'); if(v){ v.textContent=tekst; } }
   function itemLouend(el){
     var c=el.querySelector('canvas.kork-edit');
     if(c)return c;
@@ -3955,8 +3955,13 @@ body{background:#120905;overflow:hidden}
       if(pin&&saved[pin])itemLouend(el);
     });
   }
+  var viimaneValik=0, viimaneEl=null;
   window.korkValiItem=function(el){
     if(!el)return;
+    /* pointerup + click võivad mõlemad tulla — teine kutse ei tohi valikut kohe maha võtta */
+    var nüüd=Date.now();
+    if(el===viimaneEl&&nüüd-viimaneValik<350)return;
+    viimaneEl=el; viimaneValik=nüüd;
     /* kui töölaud on kinni (klõps väikesel tahvlil), ava see ja vali ese seal */
     var avaEl=document.getElementById('kork-ava');
     if(avaEl&&avaEl.hidden&&typeof avaTahvel==='function'){
@@ -4138,6 +4143,42 @@ body{background:#120905;overflow:hidden}
     e.preventDefault(); e.stopPropagation(); sea(l,b,true);
   });
   window.addEventListener("resize",function(){ sea(parseFloat(kleit.style.left)||0,parseFloat(kleit.style.bottom)||0,false); });
+})();
+</script>
+
+<script>
+/* --- klaver: jalgade alumine serv nav-riba (HUD) ülemise servaga ühel joonel --- */
+(function(){
+  var klaver=document.querySelector('.tub-klaver');
+  if(!klaver)return;
+  var img=klaver.querySelector('img');
+  var hud=document.querySelector('.tub-hud__rida');
+  var lava=document.querySelector('.tub__lava')||document.querySelector('.tub__ruum');
+  if(!img||!hud||!lava)return;
+  var JALAD=534/616;                     /* jalgade alumine serv pildi kõrgusest */
+  function joonda(){
+    var ir=img.getBoundingClientRect(), hr=hud.getBoundingClientRect(), lr=lava.getBoundingClientRect();
+    if(!ir.height||!lr.height)return;
+    var cssH=klaver.offsetHeight||1;      /* elemendi paigutuskõrgus (ilma skaala) */
+    var k=ir.height/cssH;                 /* CSS px -> ekraani px */
+    var jalgKorgus=ir.height*(1-JALAD);   /* pildi alumisest servast jalgadeni */
+    klaver.style.bottom=((lr.bottom-hr.top-jalgKorgus)/k).toFixed(1)+'px';
+  }
+  window.klaverJoonda=joonda;
+  joonda();
+  /* navigatsiooniriba kõrgus muutub (vihje murdub reale) -> jalgade joon järgi.
+     ResizeObserver ei reageeri sellele ribale, seega vaatame kergelt kaadri kaupa serva. */
+  var viimaneServ='';
+  setInterval(function(){
+    var hr=hud.getBoundingClientRect();
+    var serv=Math.round(hr.top)+':'+Math.round(hr.height);
+    if(serv!==viimaneServ){ viimaneServ=serv; joonda(); }
+  },200);
+  window.addEventListener('resize',joonda);
+  window.addEventListener('load',joonda);
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden)joonda(); });
+  ['pointerup','keyup','click'].forEach(function(t){ document.addEventListener(t,function(){ setTimeout(joonda,60); },true); });
+  setTimeout(joonda,300); setTimeout(joonda,900); setTimeout(joonda,2000);
 })();
 </script>
 
