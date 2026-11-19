@@ -129,7 +129,9 @@ Riistad ripuvad paremal seinal kapil. Vali riist ja seejärel klõpsa objektidel
 | `−` / `%` / `+` / `⟲` | suum 100% → 108%, lähtestamine |
 | `⤢` | avab tahvli **suurel töölaual** (eraldi paneel, Esc sulgeb) |
 | `✍` | avab külalisteraamatu |
-| Nööpnõelad, postkaardid, väljalõiked | **lohista** vabalt ringi; `×` kustutab; asukohad salvestuvad |
+| Nööpnõelad, postkaardid, väljalõiked, fotod | **lohista** vabalt ringi; `×` kustutab; asukohad salvestuvad |
+| **Suur töölaud: klõps esemel** | ese läheb joonistusrežiimi (katkendlik kollane äär + ✎ märk) — edasi joonistad **selle eseme peal** samade riistadega (pliiats, pintsel, marker, aerograaf, kustukumm, joon, ristkülik, ellips). Teine klõps või `Esc` toob sind tahvli juurde tagasi. Joonistus salvestub eseme külge |
+| Töölaua all: **Fotod mallidest** | 47 pilti kõigist kümnest mallist — klõps kleebib valitud foto tahvlile (ajastu toonis, nagu väljalõiked). Klõpsa sellel uuesti, kui tahad fotole midagi juurde joonistada |
 | Väljalõigete riba | 13 ajastu pilti (Chaplin, Pickford, Houdini, Wallace Reid, E. M. Favor, daam 1905, grammofonikuulutus 1909, Excelsiori jalgratas, biplaan, roos, kass „Lavine", Great Arrow 1908, Fiat) — klõps kleebib tahvlile |
 | Joonistamine (suur töölaud) | 11 riista: pliiats, pintsel, marker, aerograaf, kustukumm, täitevärv, joon, ristkülik, ellips, tekst, tempel; 13 värvi; suuruse liugur; filtrid (negatiiv, seepia, peegel, pritse); undo/redo (`Ctrl+Z`); tühjenda; **PNG-eksport**; kiht „peal"/„all" |
 | Joonistus salvestub | automaatselt (`malliriiul-korkjoonis`) ja taastub laadimisel |
@@ -268,6 +270,7 @@ Kõik, mis on „meeles", on brauseri `localStorage`-s. Võtme eesliide on `mall
 | `malliriiul-korkkust` | kustutatud nõelte ID-d |
 | `malliriiul-korkloiked` | tahvlile kleebitud väljalõiked |
 | `malliriiul-korkjoonis` | korktahvli joonistus (PNG data-URL) |
+| `malliriiul-korkpildid` | esemete peale joonistatud kihid (PNG data-URL iga nööpnõela ID järgi) |
 | `malliriiul-kylalised` | külaliste lehed tahvlil |
 | `malliriiul-kylastus` | külastuste arv |
 | `malliriiul-lamp` | riiulitulede toon |

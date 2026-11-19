@@ -826,6 +826,10 @@ body{background:#120905;overflow:hidden}
 .kork-x{position:absolute;right:calc(-7px / var(--fk,1));top:calc(-7px / var(--fk,1));width:calc(16px / var(--fk,1));height:calc(16px / var(--fk,1));padding:0;display:grid;place-items:center;font:700 calc(.66rem / var(--fk,1))/1 system-ui,sans-serif;color:#3a1c04;background:radial-gradient(circle at 34% 30%,#ffeec2,#d9b45a 60%,#8a5a18);border:1px solid #4a2a0c;border-radius:50%;cursor:pointer;opacity:0;transform:scale(.6);transition:opacity .16s,transform .16s;z-index:6;box-shadow:0 2px 4px rgba(0,0,0,.55)}
 [data-pin]:hover>.kork-x,[data-pin]:focus-within>.kork-x,body.kork-ava .kork-x{opacity:1;transform:scale(1)}
 .kork-x:hover,.kork-x:focus-visible{background:#5a1620;color:#ffe9a8;outline:1px solid #ffe9a8}
+.kork-edit{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;touch-action:none;border-radius:1px}
+[data-pin].on-joonistus{outline:2px dashed #ffe9a8;outline-offset:2px;box-shadow:0 0 0 4px rgba(255,233,168,.22),0 10px 18px rgba(0,0,0,.55);z-index:12}
+[data-pin].on-joonistus .kork-edit{pointer-events:auto;cursor:crosshair}
+[data-pin].on-joonistus::after{content:"✎";position:absolute;left:-9px;bottom:-9px;z-index:7;width:17px;height:17px;display:grid;place-items:center;font:700 10px/1 system-ui,sans-serif;color:#2b1a10;background:radial-gradient(circle at 34% 30%,#fff3cf,#d9b45a 62%,#8a5a18);border:1px solid #4a2a0c;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.5);pointer-events:none}
 #kork-pind .tub-kork__loik{position:absolute;left:8px;top:8px;width:50px;padding:2px;background:linear-gradient(#f8f0d8,#e6d5ac);box-shadow:0 3px 7px rgba(0,0,0,.45);cursor:grab;touch-action:none;z-index:2;rotate:var(--r,-2deg)}
 #kork-pind .tub-kork__loik svg,#kork-pind .tub-kork__loik img{display:block;width:100%;height:auto}
 #kork-pind .tub-kork__loik img{filter:sepia(.34) contrast(1.05) brightness(.98);border:1px solid rgba(90,58,28,.35)}
@@ -859,6 +863,7 @@ body{background:#120905;overflow:hidden}
 .paint__nupp:disabled{opacity:.4;cursor:default}
 .paint__nupp--tuhi{background:#e8d9ad;color:#5a1620;border-color:#b8a273}
 .loiked{display:flex;flex-wrap:wrap;gap:6px}
+#kork-mallifotod{max-height:118px;overflow-y:auto;overscroll-behavior:contain;padding:2px 4px 2px 2px;border:1px solid rgba(217,180,90,.22);border-radius:3px;background:rgba(0,0,0,.18)}
 .loik{width:44px;height:52px;padding:2px;display:grid;place-items:center;background:linear-gradient(#f6ecd2,#e2cfa4);border:1px solid #b08a48;border-radius:2px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.45)}
 .loik svg{display:block;width:32px;height:40px}
 .loik img{display:block;width:30px;height:38px;object-fit:cover;filter:sepia(.4) contrast(1.05)}
@@ -1347,6 +1352,8 @@ body{background:#120905;overflow:hidden}
  <div class="kork-ava__jalad">
   <p class="paint__ryhm">Ajastu väljalõiked — klõpsa, et tahvlile kleepida</p>
   <div class="loiked" id="kork-loiked" role="group" aria-label="Paberist väljalõiked"></div>
+  <p class="paint__ryhm">Fotod mallidest — klõpsa, et tahvlile kleepida</p>
+  <div class="loiked" id="kork-mallifotod" role="group" aria-label="Fotod mallidest"></div>
   <div class="paint__tegurid">
    <button class="paint__nupp" type="button" id="kork-ava-signeeri">✍ Kirjuta nimi külalisteraamatusse</button>
   </div>
@@ -2816,7 +2823,7 @@ body{background:#120905;overflow:hidden}
       if(e.target.closest&&e.target.closest('.kork-x'))return;
       if(e.button!==undefined&&e.button!==0)return;
       algus={el:el,id:el.dataset.pin,x:e.clientX,y:e.clientY,
-             l:parseFloat(el.style.left)||0,t:parseFloat(el.style.top)||0,sk:skaala()};
+             l:parseFloat(el.style.left)||0,t:parseFloat(el.style.top)||0,sk:skaala(),liikus:false};
       el.classList.add('on-liikvel');
       el.style.zIndex=String(20+(++zLoend));
       try{ el.setPointerCapture(e.pointerId); }catch(err){}
@@ -2825,13 +2832,16 @@ body{background:#120905;overflow:hidden}
     pind.addEventListener('pointermove',function(e){
       if(!algus)return;
       var sk=algus.sk||1;
+      if(Math.abs(e.clientX-algus.x)+Math.abs(e.clientY-algus.y)>5)algus.liikus=true;
       sea(algus.id,algus.el,algus.l+(e.clientX-algus.x)/sk,algus.t+(e.clientY-algus.y)/sk);
       e.stopPropagation();
     });
     function lopp(){
       if(!algus)return;
-      algus.el.classList.remove('on-liikvel');
+      var el=algus.el, liikus=!!algus.liikus;
+      el.classList.remove('on-liikvel');
       algus=null; salvesta();
+      if(!liikus&&document.body.classList.contains('kork-ava')&&window.korkValiItem)window.korkValiItem(el);
     }
     pind.addEventListener('pointerup',lopp);
     pind.addEventListener('pointercancel',lopp);
@@ -3487,6 +3497,7 @@ body{background:#120905;overflow:hidden}
   function koikX(){ [].forEach.call(pind.querySelectorAll('[data-pin]'),lisaX); }
   function eemalda(el){
     var id=el.dataset.pin, i;
+    if(id)pindPiltSalvesta(id,null);
     if(el.classList.contains('tub-kork__leht')){
       var im=el.querySelector('img'), arr=loe('malliriiul-kylalised',[]);
       if(im&&arr){ i=arr.indexOf(im.getAttribute('src')); if(i>-1){arr.splice(i,1);kirjuta('malliriiul-kylalised',arr);} }
@@ -3535,8 +3546,61 @@ body{background:#120905;overflow:hidden}
    {k:'houdini',n:'Harry Houdini · u. 1910',img:'pildid/tuba/valjaloiked/houdini.jpg'},
    {k:'arrow',n:'Kuulutus „The Great Arrow“ · 1908',img:'pildid/tuba/valjaloiked/auto1908.jpg'}
   ];
+  /* fotod, mida mallides kasutatakse — need saab ka korktahvlile kleepida */
+  var MALLIFOTOD=[
+   {n:"Ajakiri · Automess",p:"mallid/ajakiri/pildid/automess.jpg"},
+   {n:"Ajakiri · Raba Puud",p:"mallid/ajakiri/pildid/raba-puud.jpg"},
+   {n:"Ajakiri · Sadam",p:"mallid/ajakiri/pildid/sadam.jpg"},
+   {n:"Bento · Hobedane Klassikaline",p:"mallid/bento/pildid/hobedane-klassikaline.jpg"},
+   {n:"Bento · Hobedane Skyline",p:"mallid/bento/pildid/hobedane-skyline.jpg"},
+   {n:"Bento · Must Auto Lumes",p:"mallid/bento/pildid/must-auto-lumes.jpg"},
+   {n:"Bento · Punane Ferrari",p:"mallid/bento/pildid/punane-ferrari.jpg"},
+   {n:"Bento · Punane Mini",p:"mallid/bento/pildid/punane-mini.jpg"},
+   {n:"Bento · Punane Sportauto",p:"mallid/bento/pildid/punane-sportauto.jpg"},
+   {n:"Bento · Roosad Bmw D",p:"mallid/bento/pildid/roosad-bmw-d.jpg"},
+   {n:"Bento · Sinine Ralliauto",p:"mallid/bento/pildid/sinine-ralliauto.jpg"},
+   {n:"Fotoportfoolio · Juga",p:"mallid/fotoportfoolio/pildid/juga.jpg"},
+   {n:"Fotoportfoolio · Maantee Droon",p:"mallid/fotoportfoolio/pildid/maantee-droon.jpg"},
+   {n:"Fotoportfoolio · Ookull Oksal",p:"mallid/fotoportfoolio/pildid/ookull-oksal.jpg"},
+   {n:"Fotoportfoolio · Raba Droon",p:"mallid/fotoportfoolio/pildid/raba-droon.jpg"},
+   {n:"Fotoportfoolio · Sugismets Droon",p:"mallid/fotoportfoolio/pildid/sugismets-droon.jpg"},
+   {n:"Kohvik · Mesilased Lahedalt",p:"mallid/kohvik/pildid/mesilased-lahedalt.jpg"},
+   {n:"Kohvik · Roosa Lill Mesilasega",p:"mallid/kohvik/pildid/roosa-lill-mesilasega.jpg"},
+   {n:"Kohvik · Vaarikas",p:"mallid/kohvik/pildid/vaarikas.jpg"},
+   {n:"Kollaaž · Klassikaline Auto",p:"mallid/kollaaz/pildid/klassikaline-auto.jpg"},
+   {n:"Kollaaž · Mootorpaat",p:"mallid/kollaaz/pildid/mootorpaat.jpg"},
+   {n:"Kollaaž · Sugislehed",p:"mallid/kollaaz/pildid/sugislehed.jpg"},
+   {n:"Matkapäevik · Inimene Metsas",p:"mallid/matkapaevik/pildid/inimene-metsas.jpg"},
+   {n:"Matkapäevik · Jalgratturid",p:"mallid/matkapaevik/pildid/jalgratturid.jpg"},
+   {n:"Matkapäevik · Kivised Astmed",p:"mallid/matkapaevik/pildid/kivised-astmed.jpg"},
+   {n:"Matkapäevik · Lehmad Karjamaal",p:"mallid/matkapaevik/pildid/lehmad-karjamaal.jpg"},
+   {n:"Matkapäevik · Merepromenaad",p:"mallid/matkapaevik/pildid/merepromenaad.jpg"},
+   {n:"Matkapäevik · Valged Lilled",p:"mallid/matkapaevik/pildid/valged-lilled.jpg"},
+   {n:"Neon Retro · Bensiinijaam Oo",p:"mallid/neon-retro/pildid/bensiinijaam-oo.jpg"},
+   {n:"Neon Retro · Ilutulestik",p:"mallid/neon-retro/pildid/ilutulestik.jpg"},
+   {n:"Neon Retro · Mootorratas",p:"mallid/neon-retro/pildid/mootorratas.jpg"},
+   {n:"Pastelne päevik · Kass Must Valgel",p:"mallid/pastelne-paevik/pildid/kass-must-valgel.jpg"},
+   {n:"Pastelne päevik · Kass Portree",p:"mallid/pastelne-paevik/pildid/kass-portree.jpg"},
+   {n:"Pastelne päevik · Rebane Heinamaal",p:"mallid/pastelne-paevik/pildid/rebane-heinamaal.jpg"},
+   {n:"Pastelne päevik · Tuhkur Lahedalt",p:"mallid/pastelne-paevik/pildid/tuhkur-lahedalt.jpg"},
+   {n:"Pastelne päevik · Vaike Lind",p:"mallid/pastelne-paevik/pildid/vaike-lind.jpg"},
+   {n:"Pood · Kummelid",p:"mallid/pood/pildid/kummelid.jpg"},
+   {n:"Pood · Lill Pall",p:"mallid/pood/pildid/lill-pall.jpg"},
+   {n:"Pood · Mesilased Tarul",p:"mallid/pood/pildid/mesilased-tarul.jpg"},
+   {n:"Pood · Mesinik Rohus",p:"mallid/pood/pildid/mesinik-rohus.jpg"},
+   {n:"Pood · Pihlakamarjad",p:"mallid/pood/pildid/pihlakamarjad.jpg"},
+   {n:"Pood · Seen Samblal",p:"mallid/pood/pildid/seen-samblal.jpg"},
+   {n:"Pood · Seened",p:"mallid/pood/pildid/seened.jpg"},
+   {n:"Terminal · Kabel",p:"mallid/terminal/pildid/kabel.jpg"},
+   {n:"Terminal · Kopter Taevas",p:"mallid/terminal/pildid/kopter-taevas.jpg"},
+   {n:"Terminal · Lennuk Siluett",p:"mallid/terminal/pildid/lennuk-siluett.jpg"},
+   {n:"Terminal · Tuhi Maantee",p:"mallid/terminal/pildid/tuhi-maantee.jpg"}
+  ];
   var loikN=1;
-  function loikPilt(id){ var f=LOIKED.filter(function(o){return o.k===id})[0]; return f?f:null; }
+  function loikPilt(id){
+    if(String(id).indexOf('foto:')===0){ var fp=String(id).slice(5); return {k:id,n:'Foto mallist',img:fp}; }
+    var f=LOIKED.filter(function(o){return o.k===id})[0]; return f?f:null;
+  }
   function loikLoo(id,pin){
     var f=loikPilt(id); if(!f)return null;
     var el=document.createElement('span');
@@ -3567,6 +3631,14 @@ body{background:#120905;overflow:hidden}
     b.innerHTML=o.img?('<img src="'+o.img+'" alt="" loading="lazy">'):o.svg;
     b.addEventListener('click',function(){loikLisa(o.k);});
     loikedEl.appendChild(b);
+  });
+  var fotodEl=document.getElementById('kork-mallifotod');
+  if(fotodEl)MALLIFOTOD.forEach(function(f){
+    var b=document.createElement('button');
+    b.type='button'; b.className='loik'; b.title=f.n; b.setAttribute('aria-label','Kleebi tahvlile: '+f.n);
+    b.innerHTML='<img src="'+f.p+'" alt="" loading="lazy">';
+    b.addEventListener('click',function(){loikLisa('foto:'+f.p)});
+    fotodEl.appendChild(b);
   });
   loe('malliriiul-korkloiked',[]).forEach(function(o){
     var m=/^loik-(\d+)$/.exec(o.p||''); if(m)loikN=Math.max(loikN,parseInt(m[1],10)+1);
@@ -3807,6 +3879,100 @@ body{background:#120905;overflow:hidden}
   joonis.addEventListener('pointerup',lõpeta);
   joonis.addEventListener('pointercancel',lõpeta);
   window.addEventListener('pointerup',function(){ if(tõmme)lõpeta(); });
+
+  /* ---------- joonistamine korktahvli esemetel ---------- */
+  var PIND_KEY='malliriiul-korkpildid';
+  function pindPildid(){ try{return JSON.parse(localStorage.getItem(PIND_KEY)||'{}')||{}}catch(e){return {}} }
+  function pindPiltSalvesta(pin,url){
+    if(!pin)return;
+    var o=pindPildid();
+    if(url)o[pin]=url; else delete o[pin];
+    try{ localStorage.setItem(PIND_KEY,JSON.stringify(o)); }catch(e){}
+  }
+  var valitudItem=null;
+  function itemLouend(el){
+    var c=el.querySelector('canvas.kork-edit');
+    if(c)return c;
+    c=document.createElement('canvas'); c.className='kork-edit';
+    c.width=Math.max(24,Math.round(el.offsetWidth||60));
+    c.height=Math.max(24,Math.round(el.offsetHeight||48));
+    el.appendChild(c);
+    var g=c.getContext('2d'), pin=el.dataset.pin;
+    if(pin){
+      var saved=pindPildid()[pin];
+      if(saved){
+        var im=new Image();
+        im.onload=function(){ try{ g.clearRect(0,0,c.width,c.height); g.drawImage(im,0,0,c.width,c.height); }catch(e){} };
+        im.src=saved;
+      }
+    }
+    var t6mm=false, a0=null, v0=null;
+    function kp(e){ var r=c.getBoundingClientRect(); return {x:(e.clientX-r.left)*c.width/(r.width||1), y:(e.clientY-r.top)*c.height/(r.height||1)}; }
+    function kujuOn(){ return riist==='joon'||riist==='ristkülik'||riist==='ellips'; }
+    c.addEventListener('pointerdown',function(e){
+      if(!el.classList.contains('on-joonistus'))return;
+      e.preventDefault(); e.stopPropagation();
+      var p=kp(e); a0=p; v0=p; t6mm=true;
+      try{ c.setPointerCapture(e.pointerId); }catch(err){}
+      if(kujuOn())return;
+      g.save(); stiil(g, riist==='marker'?0.3:1);
+      if(riist==='aerograaf'){
+        for(var i=0;i<14;i++){ var an=Math.random()*6.2832, rr=Math.random()*suurus; g.globalAlpha=0.12+Math.random()*0.4; g.fillRect(p.x+Math.cos(an)*rr,p.y+Math.sin(an)*rr,1.5,1.5); }
+        g.globalAlpha=1;
+      }else{
+        g.beginPath(); g.moveTo(p.x,p.y); g.lineTo(p.x+0.01,p.y); g.stroke();
+        g.beginPath(); g.moveTo(p.x,p.y);
+      }
+    });
+    c.addEventListener('pointermove',function(e){
+      if(!t6mm)return; e.stopPropagation();
+      var p=kp(e); v0=p;
+      if(kujuOn())return;
+      if(riist==='aerograaf'){
+        for(var i=0;i<6;i++){ var an=Math.random()*6.2832, rr=Math.random()*suurus; g.globalAlpha=0.1+Math.random()*0.35; g.fillRect(p.x+Math.cos(an)*rr,p.y+Math.sin(an)*rr,1.5,1.5); }
+        g.globalAlpha=1;
+      }else{ g.lineTo(p.x,p.y); g.stroke(); g.beginPath(); g.moveTo(p.x,p.y); }
+    });
+    function l6pp(){
+      if(!t6mm)return;
+      t6mm=false;
+      if(kujuOn()){
+        if(a0&&v0){ g.save(); stiil(g,1); kuju(g,a0,v0); g.restore(); }
+      } else { try{ g.restore(); }catch(err){} }
+      try{ pindPiltSalvesta(el.dataset.pin,c.toDataURL('image/png')); }catch(err){}
+    }
+    c.addEventListener('pointerup',l6pp);
+    c.addEventListener('pointercancel',l6pp);
+    c.addEventListener('pointerleave',function(){ if(t6mm)l6pp(); });
+    return c;
+  }
+  function pindPildidTaasta(){
+    var saved=pindPildid();
+    [].forEach.call(pind.querySelectorAll('[data-pin]'),function(el){
+      var pin=el.dataset.pin;
+      if(pin&&saved[pin])itemLouend(el);
+    });
+  }
+  window.korkValiItem=function(el){
+    if(!el)return;
+    if(valitudItem===el){
+      el.classList.remove('on-joonistus');
+      valitudItem=null;
+      if(vihjeEl)vihjeEl.textContent='Esemelt väljas — joonistad jälle tahvlile.';
+      return;
+    }
+    if(valitudItem)valitudItem.classList.remove('on-joonistus');
+    valitudItem=el; el.classList.add('on-joonistus');
+    itemLouend(el);
+    /* tahvli enda klõpsukäsitleja kirjutab vihje üle — seega veidi hiljem */
+    window.setTimeout(function(){
+      if(vihjeEl&&valitudItem===el)vihjeEl.textContent='Joonistad esemel. Klõpsa esemel uuesti või vajuta Esc — siis joonistad jälle tahvlile.';
+    },40);
+  };
+  window.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&valitudItem){ valitudItem.classList.remove('on-joonistus'); valitudItem=null; }
+  },true);
+  pindPildidTaasta();
 
   function efekt(nimi){
     if(!nimi)return;
