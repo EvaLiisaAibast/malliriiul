@@ -198,9 +198,9 @@ The tools hang on the right wall above the cabinet. Pick a tool, then click obje
 4. When the mechanism clicks, the **1926 mechanical drawing** appears behind the cabinet.
 5. Click the drawing → it is **in hand**; click the corkboard → it is pinned to the board
    (it joins the guest leaves, `malliriiul-joonis`).
-6. **The cabinet can only be closed again** once the gears are solved **and** the drawing
-   has been taken out. The "Sulge kapp" (close cabinet) button is visible as soon as the
-   door is open; if something is still missing, the hint bar says what.
+6. **The cabinet can be closed again** once the gears are solved. If the drawing is still
+   behind the cabinet, it is picked up automatically when you close it — so it can never
+   be locked away out of reach. Before the gears are solved the hint bar says what is missing.
 
 ### 5.3 Guestbook and guests
 

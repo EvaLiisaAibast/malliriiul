@@ -195,9 +195,9 @@ Riistad ripuvad paremal seinal kapil. Vali riist ja seejärel klõpsa objektidel
 4. Kui mehhanism klõpsatab, ilmub kapi taha **1926. aasta mehaaniline joonis**.
 5. Klõpsa joonisel → see on **käes**; klõpsa korktahvlil → joonis kinnitatakse tahvlile
    (läheb külaliste lehtede hulka, `malliriiul-joonis`).
-6. **Kapi saab uuesti kinni panna** alles siis, kui hammasrattad on lahendatud **ja**
-   joonis on kapi tagant ära võetud. Sulgemisnupp „Sulge kapp" on nähtav kohe, kui uks
-   on lahti; kui midagi on veel tegemata, ütleb vihjeriba, mida puudu on.
+6. **Kapi saad uuesti kinni panna**, kui hammasrattad on lahendatud. Kui joonis on
+   veel kapi taga, võetakse see sulgemisel automaatselt kätte — nii ei jää see suletud
+   ukse taha kätte saamatuks. Enne hammasrataste lahendamist ütleb vihjeriba, mida puudu on.
 
 ### 5.3 Külalisteraamat ja külalised
 
