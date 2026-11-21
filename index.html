@@ -929,6 +929,10 @@ body.ilm-p2ike #aja-toon{box-shadow:inset 0 0 220px 40px rgba(255,232,176,.16)}
 @keyframes raadioLaige{0%,100%{opacity:.25;translate:-12% 0}50%{opacity:.65;translate:14% 0}}
 .raadio__keer{width:34px;height:34px;border-radius:50%;border:2px solid #6b4a22;background:radial-gradient(circle at 34% 30%,#e6d3a4,#a9803a);cursor:pointer}
 .raadio__olek{font:700 .6rem 'Cinzel',serif;color:#5a1620;min-height:1.2em}
+.raadio__jaam{border:0;background:transparent;padding:3px 5px;border-radius:3px;cursor:pointer;pointer-events:auto;font-family:inherit}
+.raadio__jaam:hover,.raadio__jaam:focus-visible{background:#5a1620;color:#ffe9a8;outline:none}
+.raadio__tugevus{position:relative;height:7px;margin:2px 0 8px;border:1px solid #5a3a12;border-radius:3px;background:#2a1a0c;overflow:hidden}
+.raadio__tugevus i{position:absolute;left:0;top:0;bottom:0;width:4%;background:linear-gradient(90deg,#8a6a24,#e8c268);transition:width .12s ease-out}
 .tel__kast{display:flex;gap:14px;align-items:center}
 .tel__ketas{position:relative;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,#2b1a10 0 27%,#e8d9ad 28% 100%);border:3px solid #6b4a22;flex:none}
 .tel__auk{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#f9f0da;border:2px solid #6b4a22;font:700 .62rem/1 'Cinzel',serif;color:#5a1620;cursor:pointer;display:grid;place-items:center;translate:0 -46px}
@@ -4374,19 +4378,20 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
 <!-- ajastu-elu paneelid: body tasemel, et keritav tuba neid ei lõikaks -->
 <div class="aja-paneel" id="raadio-paneel" role="dialog" aria-label="Raadio" hidden>
       <h3>Raadio</h3>
-      <p>Keera skaala peale — kolm jaama tulevad sisse, vahepeal ainult krõbin.</p>
+      <p>Keera skaala peale või klõpsa jaama nimel — jaam haakub ka siis, kui oled paar sammu mööda.</p>
       <div class="raadio__kast">
        <div class="raadio__skaala">
         <div class="raadio__numbrid"><span>200</span><span>300</span><span>400</span><span>500</span></div>
         <div class="raadio__osuti" id="raadio-osuti"></div>
-        <span class="raadio__jaam" style="left:18%">Tallinna</span>
-        <span class="raadio__jaam" style="left:52%">Öine</span>
-        <span class="raadio__jaam" style="left:84%">Kaug</span>
+        <button class="raadio__jaam" type="button" data-s="18" style="left:18%" title="Häälesta Tallinna Raadio">Tallinna</button>
+        <button class="raadio__jaam" type="button" data-s="52" style="left:52%" title="Häälesta Öine saade">Öine</button>
+        <button class="raadio__jaam" type="button" data-s="84" style="left:84%" title="Häälesta Kaugjaam">Kaug</button>
         <div class="raadio__klaas"></div>
        </div>
        <button class="raadio__keer" id="raadio-keer" type="button" aria-label="Raadio sisse või välja"></button>
       </div>
       <input id="raadio-skaala" type="range" min="0" max="100" value="18" step="1" style="width:100%" aria-label="Raadio skaala">
+      <div class="raadio__tugevus" aria-hidden="true"><i id="raadio-tugevus"></i></div>
       <p class="raadio__olek" id="raadio-olek" role="status">Raadio on väljas.</p>
       <div class="aja-rivi">
        <button class="aja-nupp aja-nupp--tume" id="raadio-mangima" type="button">Lülita sisse</button>
@@ -4636,19 +4641,40 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
     if(!raadio.sees)return;
     var parim=null, vahe=999;
     JAAMAD.forEach(function(j){var d=Math.abs(j.s-v); if(d<vahe){vahe=d;parim=j;}});
-    var o=$('raadio-olek');
-    if(parim&&vahe<=2.5){
+    var o=$('raadio-olek'), tugevus=$('raadio-tugevus');
+    if(tugevus)tugevus.style.width=Math.max(4, Math.min(100, 100-(vahe-2)*8))+'%';
+    if(parim&&vahe<=6){
       if(raadio.voim)raadio.voim.gain.value=.018;
       if(raadio.jaam!==parim.s){raadio.jaam=parim.s;raadioJaam(parim);}
       if(o)o.textContent='Häälestatud · '+parim.n;
+    }else if(parim&&vahe<=13){
+      if(raadio.loend){clearInterval(raadio.loend);raadio.loend=null;}
+      raadio.jaam=-1;
+      if(raadio.voim)raadio.voim.gain.value=.06;
+      if(o)o.textContent='Peaaegu · '+parim.n+' — keera natuke '+(parim.s>v?'paremale':'vasakule')+'.';
     }else{
       if(raadio.loend){clearInterval(raadio.loend);raadio.loend=null;}
       raadio.jaam=-1;
-      if(raadio.voim)raadio.voim.gain.value=.14;
-      if(o)o.textContent='Krõbin… keera skaalat.';
+      if(raadio.voim)raadio.voim.gain.value=.12;
+      if(o)o.textContent='Krõbin… keera skaalat või klõpsa jaama nimel.';
     }
   }
-  var sk=$('raadio-skaala'); if(sk)sk.addEventListener('input',h2alesta);
+  var sk=$('raadio-skaala');
+  if(sk){
+    sk.addEventListener('input',h2alesta);
+    sk.addEventListener('change',function(){
+      var v=+sk.value, parim=null, vahe=999;
+      JAAMAD.forEach(function(j){var d=Math.abs(j.s-v); if(d<vahe){vahe=d;parim=j;}});
+      if(parim&&vahe<=7){sk.value=parim.s;h2alesta();}
+    });
+  }
+  document.querySelectorAll('.raadio__jaam').forEach(function(b){
+    b.addEventListener('click',function(){
+      var siht=+b.getAttribute('data-s');
+      if(sk)sk.value=siht;
+      if(!raadio.sees)raadioLylita(true); else h2alesta();
+    });
+  });
   var rk=$('raadio-keer'); if(rk)rk.addEventListener('click',function(){raadioLylita(!raadio.sees);});
   var rm=$('raadio-mangima'); if(rm)rm.addEventListener('click',function(){raadioLylita(!raadio.sees);});
 
