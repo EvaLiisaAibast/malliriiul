@@ -4752,7 +4752,19 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
     ['Kevadine laat toob kokku käsitöölised','Laadal saab näha pitsi, klaasi ja nahatööd. Korraldajad lubavad, et kohvikud on avatud hilisema tunnini kui mullu.'],
     ['Koolilapsed korjasid metsast lilli','Loodusõpetuse tund viis kolmanda klassi metsa. Õpetaja sõnul leiti kaheksa liiki kevadlilli ja üks väga rahulik siil.'],
     ['Uus plaat grammofonile','Plaadifirma saatis välja shellaki, millel on kaks valssi. Arvustaja kiidab eriti teist poolt, kus viiul mängib nagu oleks tuppa astunud.'],
-    ['Kellassepp hoiatab: kerige kellasid','Sepp soovitab kellasid iga päev samal ajal kerida. Muidu jääb kell seisma täpselt siis, kui külalised tulevad.']
+    ['Kellassepp hoiatab: kerige kellasid','Sepp soovitab kellasid iga päev samal ajal kerida. Muidu jääb kell seisma täpselt siis, kui külalised tulevad.'],
+    ['Tramm number 3 hakkab sõitma hiljem','Linna trammiamet pikendas õhtust sõidugraafikut tunni võrra. Ümberistumine kesklinnas on nüüd mugavam ka neile, kes tulevad teatrist.'],
+    ['Uus tänavalamp Vanalinna nurgal','Elektrivõrk paigaldas nurga peale lambi, mis põleb kogu öö. Lähedal elavad inimesed ütlevad, et tänav on nüüd nagu päev.'],
+    ['Pagar avab hommikul kell viis','Värske sai lõhnab tänavale juba enne seitset. Pagari sõnul on saladus aeglane kääritamine ja kannatlikkus.'],
+    ['Vihm rikkus heinategu','Maamehed kurdavad niiske ilma üle. Kuivatid töötavad ööd ja päevad, et hein hallitama ei läheks.'],
+    ['Raamatukogu pikendab laenutähtaega','Lugejate palvel saab raamatuid nüüd hoida kuu aega. Raamatukoguhoidja ütleb, et kõige rohkem küsitakse ikka reisikirju.'],
+    ['Koor otsib uusi hääli','Meestekoor proovib teisipäeviti koolimajas. Uusi lauljaid oodatakse eriti teise bassi ridadesse.'],
+    ['Kohvik paneb suveks terrassi','Vanalinna kohvik paigaldab kolm lauda tänavale. Müra tõttu lubati muusika maha keerata pärast kella kümmet.'],
+    ['Kassipoeg kadus ja leiti kirikust','Väike kass oli veetnud öö altarilaua all. Koguduse liikmed viisid ta koju, kus ta magas terve päeva.'],
+    ['Puu langetas tuul ära, keegi viga ei saanud','Torm murdis väikese pärna keset õue. Linn lubab istutada asemele kaks noort puud.'],
+    ['Lasteaed sai uued aknad','Uued aknad peavad sooja paremini. Lasteaia juhataja ütleb, et hommikuti on tuba nüüd soojem kui õues.'],
+    ['Pianist annab tasuta kontserdi','Noored muusikud mängivad pühapäeval rahvamajas. Sissepääs on vaba, kohvi müüb kohalik selts.'],
+    ['Postkontor avab laupäeval lühemalt','Uus graafik jõustub esmaspäevast. Pakid saab kätte ka naabervallas, kui need sinna ümber suunata.']
   ];
   function kuuNimi(i){return ['jaanuar','veebruar','märts','aprill','mai','juuni','juuli','august','september','oktoober','november','detsember'][i];}
   function nadalapaev(i){return ['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'][i];}
@@ -4771,8 +4783,9 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
     if(uudised&&uudised.length){
       uudised.slice(0,3).forEach(function(u){sisu.push({p:lyhend(u.t,120),t:lyhend(u.l,260),lk:u.lk});});
     } else {
-      var seeme=nuud.getMonth()*31+nuud.getDate();
-      [seeme,seeme*3+2,seeme*5+5].forEach(function(i){var x=PEALKIRJAD[i%PEALKIRJAD.length];sisu.push({p:x[0],t:x[1],lk:null});});
+      var pakk=PEALKIRJAD.slice();
+      for(var j=pakk.length-1;j>0;j--){var k=Math.floor(Math.random()*(j+1));var tmp=pakk[j];pakk[j]=pakk[k];pakk[k]=tmp;}
+      pakk.slice(0,3).forEach(function(x){sisu.push({p:x[0],t:x[1],lk:null});});
     }
     var html='<div class="ajaleht__pea"><div class="ajaleht__nimi">PÄEVALEHT</div>'+
       '<div class="ajaleht__kuup">'+nuud.getDate()+'. '+kuuNimi(nuud.getMonth())+' '+(uudised?aastak+100:1926)+' · '+nadalapaev(nuud.getDay())+'</div></div>';
@@ -4781,7 +4794,7 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
       if(i<sisu.length-1)html+='<hr class="ajaleht__vahk">';
     });
     html+='<hr class="ajaleht__vahk"><p class="ajaleht__tekst" style="font-size:.74rem;text-align:center;letter-spacing:.06em">ILM · '+ilmRida()+'<br>TELEFON · Tallinna 2-45</p>';
-    html+='<p class="ajaleht__allikas">'+(uudised?'Uudised · ERR (<a href="https://www.err.ee/" target="_blank" rel="noopener noreferrer">err.ee</a>)':'Tänane number on trükitud 1926. aasta ladinast')+'</p>';
+    html+='<p class="ajaleht__allikas">'+(uudised?'Uudised · ERR (<a href="https://www.err.ee/" target="_blank" rel="noopener noreferrer">err.ee</a>)':'Ajastutruu varunumber · iga laadimine toob uued pealkirjad')+'</p>';
     leht.innerHTML=html;
   }
   function uudisedLae(){
