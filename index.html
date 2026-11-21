@@ -882,9 +882,11 @@ body{background:#120905;overflow:hidden}
 .loik img{display:block;width:30px;height:38px;object-fit:cover;filter:sepia(.4) contrast(1.05)}
 .loik:hover,.loik:focus-visible{background:#fff8e0;box-shadow:0 3px 9px rgba(0,0,0,.55)}
 .kork-ava__jalad{display:flex;flex-direction:column;gap:5px;padding-top:8px;border-top:1px solid rgba(217,180,90,.3)}
-.aja-riul{position:absolute;left:34px;top:355px;z-index:9;display:grid;grid-template-columns:auto auto;justify-items:center;align-items:end;gap:44px 28px;padding:0 16px 14px}
+.aja-riul{position:absolute;left:8px;top:352px;z-index:9;display:grid;grid-template-columns:auto auto;justify-items:center;align-items:end;gap:44px 28px;padding:0 16px 14px}
 .aja-riul .aja-obj{width:auto;filter:none}
 .aja-riul .aja-obj img{height:104px;width:auto;filter:drop-shadow(0 5px 6px rgba(0,0,0,.55))}
+.aja-riul #raadio img{height:84px}
+.aja-riul #kirjutus img{height:100px}
 .aja-riul .aja-obj:hover,.aja-riul .aja-obj:focus-visible{filter:none}
 .aja-riul .aja-obj__silt{bottom:-14px;font-size:.36rem;padding:1px 4px;opacity:.92}
 .aja-riul .aja-obj:hover .aja-obj__silt,.aja-riul .aja-obj:focus-visible .aja-obj__silt{opacity:1;background:#5a1620;color:#ffe9a8}
@@ -1172,8 +1174,8 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
     <div class="tiib tiib--r">
         <div class="tub-vaip" aria-hidden="true"></div>
         <div class="aja-riul" role="group" aria-label="Väike nurgake: raadio, telefon, kirjutusmasin, päevaleht">
-      <button class="aja-obj aja-obj--raadio" id="raadio" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="raadio-paneel" title="Kristallraadio — keera skaala peale">
-       <img src="pildid/tuba/kristallraadio.png" alt="Marconi tüüp 106 kristallraadio" width="608" height="420" loading="lazy" draggable="false">
+      <button class="aja-obj aja-obj--raadio" id="raadio" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="raadio-paneel" title="Raadio — keera skaala peale">
+       <img src="pildid/tuba/kristallraadio.png" alt="1925. aasta raadiovastuvõtja Freshman Masterpiece" width="1218" height="440" loading="lazy" draggable="false">
        <span class="aja-obj__silt">Raadio</span>
       </button>
       <button class="aja-obj" id="telefon" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="telefon-paneel" title="Telefon — vali number">
@@ -1181,7 +1183,7 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
        <span class="aja-obj__silt">Telefon</span>
       </button>
       <button class="aja-obj" id="kirjutus" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="kirjutus-paneel" title="Kirjutusmasin — kirjuta kiri">
-       <img src="pildid/tuba/underwood.png" alt="Underwood Standard nr 5 kirjutusmasin" width="484" height="420" loading="lazy" draggable="false">
+       <img src="pildid/tuba/underwood.png" alt="Underwood Standard kirjutusmasin, otsevaade" width="660" height="440" loading="lazy" draggable="false">
        <span class="aja-obj__silt">Kirjutusmasin</span>
       </button>
       <button class="aja-obj" id="ajaleht" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ajaleht-paneel" title="Päevaleht — tänane number">
@@ -4370,8 +4372,8 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
 </script>
 
 <!-- ajastu-elu paneelid: body tasemel, et keritav tuba neid ei lõikaks -->
-<div class="aja-paneel" id="raadio-paneel" role="dialog" aria-label="Kristallraadio" hidden>
-      <h3>Kristallraadio</h3>
+<div class="aja-paneel" id="raadio-paneel" role="dialog" aria-label="Raadio" hidden>
+      <h3>Raadio</h3>
       <p>Keera skaala peale — kolm jaama tulevad sisse, vahepeal ainult krõbin.</p>
       <div class="raadio__kast">
        <div class="raadio__skaala">
