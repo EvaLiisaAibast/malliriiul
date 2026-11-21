@@ -1091,6 +1091,7 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
      <button class="tub-grammo__nupp" id="grammo-nupp" type="button" aria-pressed="false" aria-label="Mängi või peata plaat">▶ Mängi</button>
      <div class="tub-grammo__kast" id="grammo-plaadid"></div>
      <span class="tub-grammo__heli">Heli<button class="tub-grammo__keer" id="grammo-keer" type="button" role="slider" aria-label="Grammofoni helitugevus" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><i></i></button></span>
+     <button class="tub-grammo__nupp" id="grammo-krabin" type="button" aria-pressed="true" title="Vinüüli krõbin ja summutus sisse või välja">Krõbin</button>
      <button class="tub-grammo__lisa-nupp" id="grammo-lisa-nupp" type="button" aria-expanded="false" aria-controls="grammo-lisa" title="Lingid ja voog" aria-label="Ava lingid ja voog">⋯</button>
      <div class="tub-grammo__lisa" id="grammo-lisa" hidden>
      <p class="tub-grammo__vood" id="grammo-vood"><b>Kuula ka:</b><a data-voog="spotify" href="https://open.spotify.com/search/" target="_blank" rel="noopener noreferrer">Spotify</a><a data-voog="ytm" href="https://music.youtube.com/search" target="_blank" rel="noopener noreferrer">YouTube</a></p>
@@ -2432,6 +2433,28 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
       if(!d)return; e.preventDefault(); mahtSea(HELI_TASE+d);
     });
   }
+
+  /* --- krõbin / puhas heli --- */
+  var KRABIN_ON=(function(){try{var v=localStorage.getItem('malliriiul-krabin');return v==null?true:JSON.parse(v);}catch(e){return true;}})();
+  var krabinNupp=document.getElementById('grammo-krabin');
+  function krabinKuva(){
+    if(!krabinNupp)return;
+    krabinNupp.setAttribute('aria-pressed',String(KRABIN_ON));
+    krabinNupp.textContent=KRABIN_ON?'Krõbin':'Puhas';
+    krabinNupp.title=KRABIN_ON?'Krõbin sees — shellak, tolm ja nõel':'Puhas heli — krõbin ja summutus väljas';
+  }
+  krabinKuva();
+  if(krabinNupp)krabinNupp.addEventListener('click',function(){
+    KRABIN_ON=!KRABIN_ON;
+    try{localStorage.setItem('malliriiul-krabin',JSON.stringify(KRABIN_ON));}catch(e){}
+    krabinKuva();
+    if(heli.ctx){
+      var c=heli.ctx;
+      if(heli.krabin)heli.krabin.gain.setTargetAtTime(KRABIN_ON?0.32:0,c.currentTime,0.12);
+      if(heli.filtre)heli.filtre.frequency.setTargetAtTime(KRABIN_ON?5200:15000,c.currentTime,0.12);
+    }
+    vihjeEl.textContent=KRABIN_ON?'Grammofon krõbiseb nagu vana shellak: nõel, tolm ja 1926. aasta sarv.':'Puhas heli: krõbin ja summutus on väljas.';
+  });
   mahtKuva();
   if(window.gsap&&window.Draggable){
     gsap.registerPlugin(Draggable);
@@ -2491,8 +2514,10 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
     var src=c.createBufferSource(); src.buffer=buf; src.loop=true;
     var hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=700;
     var lp=c.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=5200;
-    var g=c.createGain(); g.gain.value=0.32;
+    var g=c.createGain(); g.gain.value=(KRABIN_ON===false?0:0.32);
+    if(KRABIN_ON===false)lp.frequency.value=15000;
     src.connect(hp); hp.connect(lp); lp.connect(g); g.connect(heli.master); src.start();
+    heli.krabin=g; heli.filtre=lp;
   }
   function noot(f,t,kest,tyy,tugevus){
     var c=heli.ctx, o=c.createOscillator(), g=c.createGain(), f2=c.createBiquadFilter();
@@ -4753,13 +4778,15 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
 
   /* ---------- tuur ---------- */
   var TUUR=[
-    {sel:'.tiib--l .tub-kell',p:'Seinakell',j:'See on maja vanim asi. Preili Ashworth kerib seda iga hommik enne hommikukohvi — ja kui teda majas ei ole, kerib keegi teine. Kella all on väike taimer, kui tahad töötada nagu 1926. aastal: kakskümmend viis minutit ja siis puhkus.'},
-    {sel:'.tub-grammo',p:'Grammofon',j:'Shellakplaat, terav nõel ja üks väga kannatlik vedru. Klõpsa korpusel, et plaati vahetada, ja keera väikest nuppu — see on helitugevus. Kui muusika hakkab, keerleb ketas ja haar liigub ise.'},
-    {sel:'#raadio',p:'Kristallraadio',j:'Raadio ei vaja elektrit, ainult pikka antenni ja kannatust. Keera skaalat: kolm jaama tulevad sisse, vahepeal on ainult krõbin. Öine saade on minu lemmik — see räägib linnast, mis magab.'},
-    {sel:'.tub-aken',p:'Aken',j:'Aken näitab päris ilma. Kui väljas sajab, sajab ka siin, ja tuba läheb pisut hämaramaks. Vaadet võib lohistada — tänav on pikem, kui raam lubab.'},
-    {sel:'#pildid',p:'Pildipank',j:'Siin on kõik need fotod, mida ma aastaid kogusin. Vajuta „Ilmuta fotod" ja vaata, kuidas sepiast saab värv — nii nagu vanasti pimedas toast.'},
-    {sel:'#telefon',p:'Telefon',j:'Number on ajalehe viimase lehekülje servas: 2-45. Kui helistad, vastan mina. Vahel räägin kaua.'},
-    {sel:'#kirjutus',p:'Kirjutusmasin',j:'Kirjuta kiri ja masin trükib selle tähehaaval. Hea kiri lõpeb alati korktahvliga — nii ei lähe ta kunagi kaotsi.'}
+    {sel:'.tiib--l .tub-kell',p:'Seinakell',j:'The Metropolitan Museum of Art, CC0. Kõrge pähklipuust korpus, üks pikk kaal ja kaks osutit, mis käivad päris ajaga — keri teda iga hommik, nagu preili Ashworth. Kella all on ka väike taimer: kakskümmend viis minutit tööd, viis puhkust.'},
+    {sel:'.tub-grammo',p:'Grammofon',j:'Takkk / Wikimedia Commons, CC BY-SA 3.0. Suur messingist sarv, vedruajam ja üks terav nõel. Vali plaadikarbist shellak; krõbin tuleb tasuta kaasa — „Krõbin“ nupp lülitab tolmuse kõla välja, kui tahad puhast heli.'},
+    {sel:'#klaver',p:'Klaver',j:'Steinway & Sons / Wikimedia Commons, CC BY-SA 3.0. Vertikaalklaver, mille klaviatuur on täies pikkuses olemas — mängi noote või lase plaadil endale saata. Preili Ashworth ütleb, et selle klaveri häälendus on ainus asi toas, mis ei ole kunagi vananenud.'},
+    {sel:'.tiib--r .tub-kapp',p:'Kapp ja pruudikleit',j:'Kleit — Livrustkammaren / Erik Lernestål, avalik omand. Siid, pits ja sada väikest nööpi; kapp ise on The Metropolitan Museum of Art, CC0. Ava uks ja vaata, kuidas kangas liigub — 1926. aastal ei olnud see kleit muuseumieksponaat, vaid pühapäevane.'},
+    {sel:'#raadio',p:'Kristallraadio',j:'Kristalldetektor, pikk antenn ja lõpmatu kannatlikkus. Skaalal on kolm jaama: Tallinna Raadio, Öine saade ja Kaugjaam. Öine saade räägib linnast, mis magab — krõbin vahepeal on loomulik, mitte viga.'},
+    {sel:'#telefon',p:'Telefon',j:'Pöördkettaga laudtelefon. Ajalehe viimase lehekülje servas on number 2-45 — kui valid, vastab preili Ashworth ise. Vahel räägib ta kaua ja vahel ei ütle midagi; mõlemal juhul on see tasuta.'},
+    {sel:'.tub-aken',p:'Aken',j:'Aknavaade — Pearson Scott Foresman, Tiffany Studios, Félix Leblanc ja Fuzheado, CC0; ilm — Open-Meteo (CC BY 4.0). Klaas näitab päris ilma: vihm, lumi ja pilved tulevad taevast, mitte failist. Vaadet võib lohistada, sest tänav on pikem kui raam.'},
+    {sel:'#pildid',p:'Pildipank',j:'85 fotot — Jaak Aibast. Sahtlist saab kõik pildid korraga; nupp „Ilmuta fotod“ teeb sepiast värvi, nagu pimedas toas happevannist välja tulles.'},
+    {sel:'#kirjutus',p:'Kirjutusmasin',j:'Kiri trükitakse tähehaaval ja iga täht klõpsab. Kui kiri on valmis, kinnita see korktahvlile — nii ei lähe ta kunagi kaotsi ja järgmine külaline loeb seda.'}
   ];
   var tuur={i:0,lahti:false};
   function tuurAva(){
