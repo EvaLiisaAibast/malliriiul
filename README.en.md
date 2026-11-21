@@ -210,6 +210,8 @@ The tools hang on the right wall above the cabinet. Pick a tool, then click obje
 2. Write a name and a message; a leaf appears on the corkboard.
 3. Leaves can be dragged on the board and deleted with `×`; deleted ones do not come back
    (`malliriiul-korkkust`).
+4. Below the signature line there are tools: **quill · pencil · brush · line · rectangle · ellipse · eraser**,
+   10 colour swatches, a size slider, **↶ Undo** (up to 14 steps) and **⇋ Mirror** (flips the whole signature).
 
 ### 5.4 Dust and the loupe
 

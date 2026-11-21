@@ -697,6 +697,18 @@ body[data-riist=prillid] .wrap{cursor:zoom-in}
 .tub-raamat__silt{font:700 .54rem 'Cinzel Decorative',serif;letter-spacing:.2em;text-transform:uppercase;color:#8a6420}
 .tub-raamat h3{margin:4px 0 8px;font:900 1.1rem 'Cinzel Decorative',serif;color:#5a1620}
 .tub-raamat canvas{display:block;width:100%;height:190px;background:linear-gradient(#fdf8e6,#f2e6c6);border:1px solid #c9b98e;box-shadow:inset 0 0 26px rgba(120,90,40,.16);touch-action:none;cursor:crosshair}
+.sig-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:8px 0 10px}
+.sig-tools__row{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.sig-b{width:27px;height:25px;padding:0;display:grid;place-items:center;font:600 .84rem/1 system-ui,sans-serif;color:#f0d9a8;background:linear-gradient(#48281a,#28130d);border:1px solid #7a5a2a;border-radius:3px;cursor:pointer}
+.sig-b:hover{border-color:#d9b45a}
+.sig-b.on{background:linear-gradient(#d9b45a,#a9803a);color:#2b1a10;border-color:#ffe9a8}
+.sig-b:focus-visible{outline:2px solid #5a1620;outline-offset:1px}
+.sig-varv{width:19px;height:19px;padding:0;border:1px solid #6a4a1a;border-radius:50%;cursor:pointer}
+.sig-varv.on{box-shadow:0 0 0 2px #fff3d0,0 0 0 3px #8a5a20}
+.sig-suurus{display:flex;align-items:center;gap:6px;font:500 .62rem 'Cinzel',serif;color:#5a1620}
+.sig-suurus input{width:88px}
+.sig-nupp{font:700 .56rem 'Cinzel Decorative',serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;background:#e8d9ad;color:#5a1620;border:1px solid #b8a273;border-radius:2px;cursor:pointer}
+.sig-nupp:hover{background:#f5e9c8}
 .tub-raamat__nupud{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .tub-raamat__nupp{font:700 .66rem 'Cinzel Decorative',serif;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border:2px solid #d9b45a;background:#5a1620;color:#ffe9a8;cursor:pointer;box-shadow:0 3px 0 #2c1808}
 .tub-raamat__nupp:hover{background:#7a2433}
@@ -1206,6 +1218,23 @@ body{background:#120905;overflow:hidden}
       <p class="tub-raamat__silt">Külalisteraamat · 1926</p>
       <h3>Kirjuta nimi sulgedega</h3>
       <canvas id="raamatu-louend" width="900" height="380"></canvas>
+      <div class="sig-tools" aria-label="Allkirja riistad">
+       <div class="sig-tools__row" id="sig-riistad" role="group" aria-label="Riistad">
+        <button class="sig-b on" type="button" data-riist="sulg" title="Sulg" aria-label="Sulg">✒</button>
+        <button class="sig-b" type="button" data-riist="pliiats" title="Pliiats" aria-label="Pliiats">✎</button>
+        <button class="sig-b" type="button" data-riist="pintsel" title="Pintsel" aria-label="Pintsel">▬</button>
+        <button class="sig-b" type="button" data-riist="joon" title="Joon" aria-label="Joon">╱</button>
+        <button class="sig-b" type="button" data-riist="ristkülik" title="Ristkülik" aria-label="Ristkülik">▭</button>
+        <button class="sig-b" type="button" data-riist="ellips" title="Ellips" aria-label="Ellips">◯</button>
+        <button class="sig-b" type="button" data-riist="kustukumm" title="Kustukumm" aria-label="Kustukumm">▨</button>
+       </div>
+       <div class="sig-tools__row" id="sig-varvid" role="group" aria-label="Värvid"></div>
+       <label class="sig-suurus">Suurus <input id="sig-suurus" type="range" min="1" max="16" value="5"></label>
+       <div class="sig-tools__row">
+        <button class="sig-nupp" type="button" id="sig-tagasi" data-sig="tagasi" title="Võta tagasi" onclick="window.sigTagasi&&window.sigTagasi()">↶ Tagasi</button>
+        <button class="sig-nupp" type="button" id="sig-peegel" data-sig="peegel" title="Peegelda allkiri" onclick="window.sigPeegel&&window.sigPeegel()">⇋ Peegelda</button>
+       </div>
+      </div>
       <div class="tub-raamat__nupud">
        <button class="tub-raamat__nupp" type="button" id="rebi-leht">Rebi leht välja ja kinnita →</button>
        <button class="tub-raamat__nupp tub-raamat__nupp--tuhi" type="button" id="uus-leht">Uus tühi leht</button>
@@ -2700,28 +2729,94 @@ body{background:#120905;overflow:hidden}
   var lõuend=document.getElementById('raamatu-louend'), lx=lõuend.getContext('2d');
   var joonistamine=false, sX=0, sY=0, pX=0, pY=0;
   function lPos(e){var r=lõuend.getBoundingClientRect();return {x:(e.clientX-r.left)*lõuend.width/r.width,y:(e.clientY-r.top)*lõuend.height/r.height}}
+  /* --- allkirja riistad: sulg, pliiats, pintsel, joon, ristkülik, ellips, kustukumm --- */
+  var sigRiist='sulg', sigVarv='#2b1a10', sigSuurus=5, sigUndo=[], sigAlg=null;
+  var SIG_VARVID=['#2b1a10','#5a1620','#8a2432','#c4622a','#c9a24a','#6b4a22','#2f5a3a','#2f6b6b','#274b7a','#5a2f6b'];
+  function sigLukusta(){
+    try{ var d=lx.getImageData(0,0,lõuend.width,lõuend.height); sigUndo.push(d); if(sigUndo.length>14)sigUndo.shift(); }catch(e){}
+  }
+  function sigKujuOn(){ return sigRiist==='joon'||sigRiist==='ristkülik'||sigRiist==='ellips'; }
+  function sigStiil(){
+    lx.globalCompositeOperation=(sigRiist==='kustukumm')?'destination-out':'source-over';
+    lx.globalAlpha=1; lx.strokeStyle=sigVarv; lx.fillStyle=sigVarv;
+    lx.lineCap='round'; lx.lineJoin='round';
+    lx.lineWidth=sigRiist==='pintsel'?sigSuurus*2.4:(sigRiist==='sulg'?Math.max(1.2,sigSuurus*0.85):Math.max(1,sigSuurus));
+  }
+  function sigKuju(a,b){
+    lx.beginPath();
+    if(sigRiist==='joon'){ lx.moveTo(a.x,a.y); lx.lineTo(b.x,b.y); lx.stroke(); return; }
+    if(sigRiist==='ristkülik'){ lx.strokeRect(Math.min(a.x,b.x),Math.min(a.y,b.y),Math.abs(b.x-a.x),Math.abs(b.y-a.y)); return; }
+    lx.ellipse((a.x+b.x)/2,(a.y+b.y)/2,Math.abs(b.x-a.x)/2,Math.abs(b.y-a.y)/2,0,0,6.2832); lx.stroke();
+  }
   lõuend.addEventListener('pointerdown',function(e){
-    var p=lPos(e); joonistamine=true; sX=pX=p.x; sY=pY=p.y;
+    var p=lPos(e); joonistamine=true; sX=pX=p.x; sY=pY=p.y; sigAlg={x:p.x,y:p.y};
     try{lõuend.setPointerCapture(e.pointerId)}catch(err){}
-    lx.strokeStyle='#2b1a10'; lx.lineCap='round'; lx.lineJoin='round';
+    sigLukusta();
+    if(sigKujuOn()){ e.preventDefault(); return; }
+    sigStiil();
+    lx.beginPath(); lx.moveTo(p.x,p.y); lx.lineTo(p.x+0.01,p.y); lx.stroke(); lx.beginPath(); lx.moveTo(p.x,p.y);
     e.preventDefault();
   });
   lõuend.addEventListener('pointermove',function(e){
     if(!joonistamine)return;
     var p=lPos(e);
-    sX+=(p.x-sX)*0.45; sY+=(p.y-sY)*0.45;
-    var kiirus=Math.abs(p.x-pX)+Math.abs(p.y-pY);
-    lx.lineWidth=Math.max(1.2,Math.min(6.5,4.4-kiirus*0.05));
-    lx.globalAlpha=0.55+Math.random()*0.35;
-    lx.beginPath(); lx.moveTo(pX,pY);
-    lx.quadraticCurveTo(sX+(Math.random()*2-1),sY+(Math.random()*2-1),(sX+p.x)/2,(sY+p.y)/2);
-    lx.stroke();
-    pX=sX; pY=sY;
+    if(sigKujuOn()){
+      if(sigUndo.length)lx.putImageData(sigUndo[sigUndo.length-1],0,0);
+      sigStiil(); sigKuju(sigAlg,p); pX=p.x; pY=p.y; return;
+    }
+    if(sigRiist==='sulg'){
+      sX+=(p.x-sX)*0.45; sY+=(p.y-sY)*0.45;
+      var kiirus=Math.abs(p.x-pX)+Math.abs(p.y-pY);
+      lx.lineWidth=Math.max(1.2,Math.min(6.5,4.4-kiirus*0.05));
+      lx.globalAlpha=0.55+Math.random()*0.35;
+      lx.beginPath(); lx.moveTo(pX,pY);
+      lx.quadraticCurveTo(sX+(Math.random()*2-1),sY+(Math.random()*2-1),(sX+p.x)/2,(sY+p.y)/2);
+      lx.stroke();
+      pX=sX; pY=sY;
+    } else {
+      lx.lineTo(p.x,p.y); lx.stroke(); lx.beginPath(); lx.moveTo(p.x,p.y);
+      pX=p.x; pY=p.y;
+    }
   });
-  function joonistusLõpp(){joonistamine=false;lx.globalAlpha=1}
+  function joonistusLõpp(){
+    if(!joonistamine)return;
+    joonistamine=false; lx.globalAlpha=1;
+    if(sigKujuOn()&&sigAlg){ sigStiil(); sigKuju(sigAlg,{x:pX,y:pY}); }
+    sigAlg=null;
+  }
   lõuend.addEventListener('pointerup',joonistusLõpp);
   lõuend.addEventListener('pointercancel',joonistusLõpp);
   lõuend.addEventListener('pointerleave',joonistusLõpp);
+  (function(){
+    var ristad=document.getElementById('sig-riistad');
+    if(ristad)[].forEach.call(ristad.querySelectorAll('.sig-b'),function(b){
+      b.addEventListener('click',function(){
+        sigRiist=b.dataset.riist;
+        [].forEach.call(ristad.querySelectorAll('.sig-b'),function(x){ x.classList.toggle('on',x===b); });
+      });
+    });
+    var vEl=document.getElementById('sig-varvid');
+    if(vEl)SIG_VARVID.forEach(function(v,i){
+      var b=document.createElement('button');
+      b.type='button'; b.className='sig-varv'+(i===0?' on':''); b.style.background=v;
+      b.title=v; b.setAttribute('aria-label','Värv '+v);
+      b.addEventListener('click',function(){
+        sigVarv=v;
+        [].forEach.call(vEl.children,function(c){ c.classList.remove('on'); });
+        b.classList.add('on');
+      });
+      vEl.appendChild(b);
+    });
+    var sEl=document.getElementById('sig-suurus');
+    if(sEl)sEl.addEventListener('input',function(){ sigSuurus=parseInt(sEl.value,10)||5; });
+    window.sigTagasi=function(){ if(sigUndo.length)lx.putImageData(sigUndo.pop(),0,0); };
+    window.sigPeegel=function(){
+      var c=document.createElement('canvas'); c.width=lõuend.width; c.height=lõuend.height;
+      var g=c.getContext('2d'); g.translate(c.width,0); g.scale(-1,1); g.drawImage(lõuend,0,0);
+      sigLukusta(); lx.clearRect(0,0,lõuend.width,lõuend.height); lx.drawImage(c,0,0);
+    };
+
+  })();
   var korkPind=document.getElementById('kork-pind');
   try{
     var kl2=JSON.parse(localStorage.getItem('malliriiul-kylalised')||'[]');

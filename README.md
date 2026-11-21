@@ -207,6 +207,8 @@ Riistad ripuvad paremal seinal kapil. Vali riist ja seejärel klõpsa objektidel
 2. Kirjuta nimi ja sõnum; leht tekib korktahvlile.
 3. Lehti saab tahvlil lohistada ja `×`-iga kustutada; kustutatud ei tule tagasi
    (`malliriiul-korkkust`).
+4. Allkirja all on riistad: **sulg · pliiats · pintsel · joon · ristkülik · ellips · kustukumm**,
+   10 värviproovi, suuruse liugur, **↶ Tagasi** (kuni 14 sammu) ja **⇋ Peegelda** (peegeldab kogu allkirja).
 
 ### 5.4 Tolm ja luup
 
