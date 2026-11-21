@@ -838,6 +838,8 @@ body{background:#120905;overflow:hidden}
 #kork-pind.joonistus .tub-kork__loik,#kork-pind.joonistus .tub-kork__leht,#kork-pind.joonistus .tub-postkaart{cursor:grab}
 .kork-x{position:absolute;right:calc(-7px / var(--fk,1));top:calc(-7px / var(--fk,1));width:calc(16px / var(--fk,1));height:calc(16px / var(--fk,1));padding:0;display:grid;place-items:center;font:700 calc(.66rem / var(--fk,1))/1 system-ui,sans-serif;color:#3a1c04;background:radial-gradient(circle at 34% 30%,#ffeec2,#d9b45a 60%,#8a5a18);border:1px solid #4a2a0c;border-radius:50%;cursor:pointer;opacity:0;transform:scale(.6);transition:opacity .16s,transform .16s;z-index:6;box-shadow:0 2px 4px rgba(0,0,0,.55)}
 [data-pin]:hover>.kork-x,[data-pin]:focus-within>.kork-x,body.kork-ava .kork-x{opacity:1;transform:scale(1)}
+.kork-kiri .kiri-x{position:absolute;right:-6px;top:-6px;width:16px;height:16px;padding:0;display:grid;place-items:center;font:700 .66rem/1 system-ui,sans-serif;color:#3a1c04;background:radial-gradient(circle at 34% 30%,#ffeec2,#d9b45a 60%,#8a5a18);border:1px solid #4a2a0c;border-radius:50%;cursor:pointer;opacity:.9;z-index:6;box-shadow:0 2px 4px rgba(0,0,0,.55)}
+.kork-kiri .kiri-x:hover,.kork-kiri .kiri-x:focus-visible{background:#5a1620;color:#ffe9a8;outline:1px solid #ffe9a8;opacity:1}
 .kork-x:hover,.kork-x:focus-visible{background:#5a1620;color:#ffe9a8;outline:1px solid #ffe9a8}
 .kork-edit{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;touch-action:none;border-radius:1px}
 [data-pin].on-joonistus{outline:2px dashed #ffe9a8;outline-offset:2px;box-shadow:0 0 0 4px rgba(255,233,168,.22),0 10px 18px rgba(0,0,0,.55);z-index:12}
@@ -886,7 +888,7 @@ body{background:#120905;overflow:hidden}
 .aja-riul .aja-obj{width:auto;filter:none}
 .aja-riul .aja-obj img{height:104px;width:auto;filter:drop-shadow(0 5px 6px rgba(0,0,0,.55))}
 .aja-riul #raadio img{height:84px}
-.aja-riul #kirjutus img{height:100px}
+.aja-riul #kirjutus img{height:104px}
 .aja-riul .aja-obj:hover,.aja-riul .aja-obj:focus-visible{filter:none}
 .aja-riul .aja-obj__silt{bottom:-14px;font-size:.36rem;padding:1px 4px;opacity:.92}
 .aja-riul .aja-obj:hover .aja-obj__silt,.aja-riul .aja-obj:focus-visible .aja-obj__silt{opacity:1;background:#5a1620;color:#ffe9a8}
@@ -1187,7 +1189,7 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
        <span class="aja-obj__silt">Telefon</span>
       </button>
       <button class="aja-obj" id="kirjutus" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="kirjutus-paneel" title="Kirjutusmasin — kirjuta kiri">
-       <img src="pildid/tuba/underwood.png" alt="Underwood Standard kirjutusmasin, otsevaade" width="660" height="440" loading="lazy" draggable="false">
+       <img src="pildid/tuba/underwood.png" alt="Underwood Standard nr 5 kirjutusmasin, otsevaade" width="455" height="520" loading="lazy" draggable="false">
        <span class="aja-obj__silt">Kirjutusmasin</span>
       </button>
       <button class="aja-obj" id="ajaleht" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ajaleht-paneel" title="Päevaleht — tänane number">
@@ -4806,6 +4808,17 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
         vihje(k.t);
         d.style.zIndex='9';
       });
+      var x=document.createElement('button');
+      x.type='button'; x.className='kiri-x'; x.textContent='×';
+      x.title='Eemalda kiri tahvlilt'; x.setAttribute('aria-label','Eemalda kiri tahvlilt');
+      x.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        var jarg=loe(LS+'kirjad',[]).filter(function(o){return o.d!==k.d;});
+        salvesta(LS+'kirjad',jarg);
+        tahvelJoonista();
+        vihje('Kiri eemaldatud tahvlilt.');
+      });
+      d.appendChild(x);
       pind.appendChild(d);
     });
   }
