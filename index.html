@@ -882,18 +882,18 @@ body{background:#120905;overflow:hidden}
 .loik img{display:block;width:30px;height:38px;object-fit:cover;filter:sepia(.4) contrast(1.05)}
 .loik:hover,.loik:focus-visible{background:#fff8e0;box-shadow:0 3px 9px rgba(0,0,0,.55)}
 .kork-ava__jalad{display:flex;flex-direction:column;gap:5px;padding-top:8px;border-top:1px solid rgba(217,180,90,.3)}
-.aja-riul{position:absolute;left:calc(100% - 258px);bottom:calc(100% + 14px);z-index:9;display:grid;grid-template-columns:repeat(4,54px);gap:6px;width:240px;padding:0 6px 10px;align-items:end}
-.aja-riul .aja-obj{width:54px;filter:none}
+.aja-riul{position:absolute;left:48px;bottom:auto;top:586px;translate:0 0;z-index:5;display:flex;align-items:flex-end;justify-content:center;gap:12px;padding:0 10px 11px}
+.aja-riul .aja-obj{width:auto;filter:none}
+.aja-riul .aja-obj img{height:72px;width:auto;filter:drop-shadow(0 5px 6px rgba(0,0,0,.55))}
 .aja-riul .aja-obj:hover,.aja-riul .aja-obj:focus-visible{filter:none}
-.aja-riul .aja-obj__silt{bottom:-13px;font-size:.34rem;padding:1px 3px;opacity:0;transition:opacity .15s}
+.aja-riul .aja-obj__silt{bottom:-13px;font-size:.42rem;padding:1px 5px;opacity:0;transition:opacity .15s}
 .aja-riul .aja-obj:hover .aja-obj__silt,.aja-riul .aja-obj:focus-visible .aja-obj__silt{opacity:1}
-.aja-riul::after{content:"";position:absolute;left:-9px;right:-9px;bottom:0;height:10px;background:linear-gradient(#c08b3e,#8a5525 45%,#4a2a12);border-radius:2px;box-shadow:0 7px 12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,225,160,.5)}
-.aja-riul::before{content:"";position:absolute;left:14px;bottom:-14px;width:9px;height:14px;background:linear-gradient(#5a3418,#2b1708);box-shadow:170px 0 0 #2b1708}
+.aja-riul::after{content:"";position:absolute;left:-8px;right:-8px;bottom:0;height:11px;background:linear-gradient(#c08b3e,#8a5525 45%,#4a2a12);border-radius:2px;box-shadow:0 8px 14px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,225,160,.5)}
+.aja-riul::before{content:"";position:absolute;left:14px;bottom:-16px;width:10px;height:16px;background:linear-gradient(#5a3418,#2b1708);box-shadow:412px 0 0 #2b1708}
 body.ilm-halb #aja-toon{box-shadow:inset 0 0 260px 70px rgba(12,18,34,.40)}
 body.ilm-p2ike #aja-toon{box-shadow:inset 0 0 220px 40px rgba(255,232,176,.16)}
-.aja-obj img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:contrast(1.06) brightness(1.04)}
-.aja-obj--raadio img{height:54px;width:54px;object-fit:cover;object-position:50% 56%;-webkit-mask-image:radial-gradient(ellipse 92% 88% at 50% 52%,#000 76%,transparent 100%);mask-image:radial-gradient(ellipse 92% 88% at 50% 52%,#000 76%,transparent 100%)}
-.aja-leht{display:block;position:relative;width:62%;height:40px;margin:0 auto;overflow:hidden;border-radius:38% 38% 38% 38% / 22%;box-shadow:0 5px 9px rgba(0,0,0,.5);transform:rotate(-8deg)}
+.aja-obj img{display:block;width:100%;height:auto}
+.aja-leht{display:block;position:relative;width:46px;height:66px;border-radius:14% / 8%;box-shadow:0 6px 10px rgba(0,0,0,.55);transform:rotate(-6deg)}
 .aja-leht img{width:100%;height:100%;object-fit:cover;mix-blend-mode:normal;filter:sepia(.3) contrast(.92) brightness(1.02)}
 .aja-leht::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,10,4,.78),rgba(255,250,235,.34) 17%,rgba(30,15,6,.12) 44%,rgba(255,250,235,.26) 71%,rgba(20,10,4,.72))}
 .ajaleht__allikas{margin-top:8px;font:700 .46rem "Cinzel Decorative",serif;letter-spacing:.14em;text-transform:uppercase;color:#8a6420}
@@ -1049,25 +1049,7 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
     </div>
      <div class="tub-laud">
      <div class="tub-laud__pind"></div>
-     <div class="aja-riul" role="group" aria-label="Väike nurgake: raadio, telefon, kirjutusmasin, päevaleht">
-      <button class="aja-obj aja-obj--raadio" id="raadio" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="raadio-paneel" title="Kristallraadio — keera skaala peale">
-       <img src="pildid/tuba/kristallraadio.jpg" alt="Kristallraadio: pool, kassivunts ja kõrvaklapid" width="960" height="784" loading="lazy" draggable="false">
-       <span class="aja-obj__silt">Raadio</span>
-      </button>
-      <button class="aja-obj" id="telefon" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="telefon-paneel" title="Telefon — vali number">
-       <img src="pildid/tuba/telefon.png" alt="Pöördkettaga telefon" width="493" height="574" loading="lazy" draggable="false">
-       <span class="aja-obj__silt">Telefon</span>
-      </button>
-      <button class="aja-obj" id="kirjutus" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="kirjutus-paneel" title="Kirjutusmasin — kirjuta kiri">
-       <img src="pildid/tuba/underwood.jpg" alt="Underwood Standard nr 5 kirjutusmasin" width="960" height="762" loading="lazy" draggable="false">
-       <span class="aja-obj__silt">Kirjutusmasin</span>
-      </button>
-      <button class="aja-obj" id="ajaleht" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ajaleht-paneel" title="Päevaleht — tänane number">
-       <span class="aja-leht"><img src="pildid/tuba/ajaleht-1926.png" alt="Rulli keeratud ajaleht" width="330" height="506" loading="lazy" draggable="false"></span>
-       <span class="aja-obj__silt">Päevaleht</span>
-      </button>
-      </div>
-    <div class="tub-laud__asjad">
+     <div class="tub-laud__asjad">
       
 
       <span class="tub-teetass" id="teetass" role="button" tabindex="0" aria-label="Teetass — klõpsa, et teed valada"><span class="tub-teetass__aur"></span><img src="pildid/tuba/tass.png" alt="Tassi tee" width="150" height="88"></span>
@@ -1184,7 +1166,25 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
 
     <div class="tiib tiib--r">
         <div class="tub-vaip" aria-hidden="true"></div>
-        <div class="tub-klaver" id="klaver" role="button" tabindex="0" aria-label="Tiibklaver — klõpsa, et klahve mängida">
+        <div class="aja-riul" role="group" aria-label="Väike nurgake: raadio, telefon, kirjutusmasin, päevaleht">
+      <button class="aja-obj aja-obj--raadio" id="raadio" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="raadio-paneel" title="Kristallraadio — keera skaala peale">
+       <img src="pildid/tuba/kristallraadio.png" alt="Marconi tüüp 106 kristallraadio" width="608" height="420" loading="lazy" draggable="false">
+       <span class="aja-obj__silt">Raadio</span>
+      </button>
+      <button class="aja-obj" id="telefon" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="telefon-paneel" title="Telefon — vali number">
+       <img src="pildid/tuba/telefon.png" alt="Pöördkettaga telefon" width="366" height="420" loading="lazy" draggable="false">
+       <span class="aja-obj__silt">Telefon</span>
+      </button>
+      <button class="aja-obj" id="kirjutus" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="kirjutus-paneel" title="Kirjutusmasin — kirjuta kiri">
+       <img src="pildid/tuba/underwood.png" alt="Underwood Standard nr 5 kirjutusmasin" width="484" height="420" loading="lazy" draggable="false">
+       <span class="aja-obj__silt">Kirjutusmasin</span>
+      </button>
+      <button class="aja-obj" id="ajaleht" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ajaleht-paneel" title="Päevaleht — tänane number">
+       <span class="aja-leht"><img src="pildid/tuba/ajaleht-1926.png" alt="Rulli keeratud ajaleht" width="330" height="506" loading="lazy" draggable="false"></span>
+       <span class="aja-obj__silt">Päevaleht</span>
+      </button>
+      </div>
+    <div class="tub-klaver" id="klaver" role="button" tabindex="0" aria-label="Tiibklaver — klõpsa, et klahve mängida">
      <img class="tub-klaver__pilt" src="pildid/tuba/klaver.png?v=4" alt="Must tiibklaver, kaas lahti" width="640" height="616" loading="lazy">
      <span class="tub-klaver__klahvid" aria-hidden="true"></span>
     </div>
@@ -1342,7 +1342,7 @@ body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
      </div>
      <div class="tub-hud__paneel" id="tanud-paneel" hidden>
       <p><b>Tänud:</b> Mallid — Eva-Liisa Aibast · Fotod — Jaak Aibast (85 pilti) · Kass — Wikimedia Commons (Bengal, CC BY 3.0) · Pruudikleit — Livrustkammaren / Erik Lernestål (avalik omand) · Kell ja sahtelkapp — The Metropolitan Museum of Art (CC0) · Riistad ja aknavaade — Pearson Scott Foresman (avalik omand), Tiffany Studios ja Félix Leblanc (CC0), Fuzheado (CC0).</p>
-      <span class="tub-hud__viide">Tapeet: „Japanese Passion Flower“ friis (u. 1880, avalik omand) · Puit: MHaensel73 / Wikimedia Commons (CC0) · Taimemotiivid: Wellcome Collection (CC BY 4.0) ja Susan Fereday (avalik omand) · Büst: Caracalla, Houston Museum (CC0) · Küünal ja tindipott: Wikimedia Commons (CC BY-SA) · Taim: iStockphoto/Chansom Pantip · Maalid: Museum Het Valkhof (CC BY-SA 4.0), Charlier Museum (avalik omand) · Sahtli ehted, nööbid ja võtmed: Wikimedia Commons (CC0/CC BY-SA) · Toa esemed (kell, sahtlikapp, teetass, tindipott): The Metropolitan Museum of Art (CC0) · Grammofon: Takkk / Wikimedia Commons (CC BY-SA 3.0) · Kristallraadio — Alvesgaspar (CC BY-SA 3.0), Underwood Standard nr 5 kirjutusmasin, pöördkettaga telefon ja „Perno Postimees” nr 1: Wikimedia Commons (avalik omand) · Uudised: ERR (err.ee/rss) · Klaver: Steinway & Sons / Wikimedia Commons (CC BY-SA 3.0) · Postkaardid seinal: Wikimedia Commons (avalik omand, u. 1900) · Korktahvli väljalõiked: Charlie Chaplin (Witzel), Mary Pickford, Harry Houdini (LaPine), Wallace Reid, Edward M. Favor ja Fred C. Palmeri portree, „New Victor Records“ kuulutus 1909, „The Great Arrow“ kuulutus 1908 ja Fiati autokuulutus — Wikimedia Commons (avalik omand); Excelsiori jalgrattaplakat 1900 ja Curtis’s Botanical Magazine’i roos — Wikimedia Commons (avalik omand); „Lavine“ kassiillustratsioon — rawpixel (CC0) · GSAP + Draggable: gsap.com (lokaalne koopia) · Ilm: Open-Meteo (CC BY 4.0)</span>
+      <span class="tub-hud__viide">Tapeet: „Japanese Passion Flower“ friis (u. 1880, avalik omand) · Puit: MHaensel73 / Wikimedia Commons (CC0) · Taimemotiivid: Wellcome Collection (CC BY 4.0) ja Susan Fereday (avalik omand) · Büst: Caracalla, Houston Museum (CC0) · Küünal ja tindipott: Wikimedia Commons (CC BY-SA) · Taim: iStockphoto/Chansom Pantip · Maalid: Museum Het Valkhof (CC BY-SA 4.0), Charlier Museum (avalik omand) · Sahtli ehted, nööbid ja võtmed: Wikimedia Commons (CC0/CC BY-SA) · Toa esemed (kell, sahtlikapp, teetass, tindipott): The Metropolitan Museum of Art (CC0) · Grammofon: Takkk / Wikimedia Commons (CC BY-SA 3.0) · Kristallraadio (Marconi Type 106), Underwood Standard nr 5 kirjutusmasin, pöördkettaga telefon ja „Perno Postimees” nr 1: Wikimedia Commons (avalik omand) · Uudised: ERR (err.ee/rss) · Klaver: Steinway & Sons / Wikimedia Commons (CC BY-SA 3.0) · Postkaardid seinal: Wikimedia Commons (avalik omand, u. 1900) · Korktahvli väljalõiked: Charlie Chaplin (Witzel), Mary Pickford, Harry Houdini (LaPine), Wallace Reid, Edward M. Favor ja Fred C. Palmeri portree, „New Victor Records“ kuulutus 1909, „The Great Arrow“ kuulutus 1908 ja Fiati autokuulutus — Wikimedia Commons (avalik omand); Excelsiori jalgrattaplakat 1900 ja Curtis’s Botanical Magazine’i roos — Wikimedia Commons (avalik omand); „Lavine“ kassiillustratsioon — rawpixel (CC0) · GSAP + Draggable: gsap.com (lokaalne koopia) · Ilm: Open-Meteo (CC BY 4.0)</span>
      </div>
      <div class="aja-paneel" id="raadio-paneel" role="dialog" aria-label="Kristallraadio" hidden>
       <h3>Kristallraadio</h3>
