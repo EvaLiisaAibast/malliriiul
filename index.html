@@ -269,16 +269,16 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 4px rgba(0,0,0,.55)}
 .cap{padding-top:9px;text-align:center;color:#3b2a1a;font:600 1.05rem 'Cormorant Garamond',serif;max-height:2.5em;overflow:hidden;line-height:1.2}
 .stage{position:fixed;inset:0;z-index:100;display:grid;place-items:center;perspective:2000px;perspective-origin:calc(50% + var(--mx,0)*18%) calc(50% + var(--my,0)*18%);transition:perspective-origin .2s;padding:calc(env(safe-area-inset-top,0px) + 54px) 10px 18px}
 .stage[hidden]{display:none}
-.scrim{position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(40,16,10,.72),rgba(4,2,2,.96));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;transition:opacity .6s}
+.scrim{position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(40,16,10,.72),rgba(4,2,2,.96));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;transition:opacity .65s cubic-bezier(.4,0,.2,1)}
 .stage.on .scrim{opacity:1}
 .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;z-index:5;font:700 .8rem 'Cinzel Decorative',serif;letter-spacing:.12em;color:#ffe9a8;background:#3a1a0e;border:2px solid #d9b45a;padding:8px 14px;cursor:pointer}
 .x:focus-visible{outline:3px solid #ffe9a8}
-.bk{position:relative;width:min(92vw,1120px);height:min(76vh,640px);transform-style:preserve-3d;transform:translateX(-25%) translate3d(var(--fx,0px),calc(var(--fy,0px) + 150px),-980px) rotateX(30deg) rotateZ(-3deg) scale(.72);opacity:0;transition:transform .92s cubic-bezier(.16,.86,.24,1),opacity .4s ease-out;will-change:transform,opacity}
-.stage.on .bk{opacity:1;transform:translateX(-25%) translate3d(0,0,0) rotateX(0) rotateZ(0) scale(1)}
-.stage.on.op .bk{transform:translateX(0);transition:transform 1.05s cubic-bezier(.32,.72,.14,1) .16s,opacity .26s}
-.bk::before{content:"";position:absolute;top:-10px;bottom:-10px;left:50%;right:-10px;background:var(--bc,#5a1620);border:2px solid #d9b45a;border-radius:4px 10px 10px 4px;box-shadow:0 34px 60px rgba(0,0,0,.8);transform:translateZ(-2px);transition:left 1.2s cubic-bezier(.5,0,.2,1) .22s}
+.bk{position:relative;width:min(92vw,1120px);height:min(76vh,640px);transform-style:preserve-3d;transform:translate3d(calc(var(--fx,0px) - 12%),calc(var(--fy,0px) + 80px),-520px) rotateX(16deg) rotateZ(-1.4deg) scale(.84);opacity:0;transition:transform .55s cubic-bezier(.55,0,.85,.4),opacity .32s ease-in;will-change:transform,opacity}
+.stage.on .bk{opacity:1;transform:translate3d(calc(var(--fx,0px) - 12%),0,0) rotateX(0) rotateZ(0) scale(1);transition:transform .62s cubic-bezier(.2,.9,.25,1),opacity .5s cubic-bezier(.33,1,.68,1)}
+.stage.on.op .bk{transform:translate3d(0,0,0) rotateX(0) rotateZ(0) scale(1);transition:transform 1.15s cubic-bezier(.32,.72,.16,1) .02s,opacity .3s}
+.bk::before{content:"";position:absolute;top:-10px;bottom:-10px;left:50%;right:-10px;background:var(--bc,#5a1620);border:2px solid #d9b45a;border-radius:4px 10px 10px 4px;box-shadow:0 34px 60px rgba(0,0,0,.8);transform:translateZ(-2px);transition:left 1.2s cubic-bezier(.4,0,.2,1) .1s}
 .stage.op .bk::before{left:-10px}
-.cover{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.4,.02,.2,1) .3s,opacity .35s;z-index:3}
+.cover{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.25s cubic-bezier(.4,.05,.16,1) .28s,opacity .4s;z-index:3}
 .stage.op .cover{transform:rotateY(-180deg)}
 .cf,.cb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .cf{background:linear-gradient(90deg,rgba(0,0,0,.5),rgba(255,255,255,.12) 5%,transparent 40%),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 4px),var(--bc,#5a1620);border:3px solid #d9b45a;outline:2px solid var(--bc,#5a1620);outline-offset:-14px;box-shadow:inset 0 0 0 14px transparent;border-radius:3px 9px 9px 3px;display:grid;place-content:center;text-align:center;gap:14px;padding:0 20px}
@@ -308,7 +308,7 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 4px rgba(0,0,0,.55)}
 .stage .pg li{font-size:1.02rem;padding:6px 0}
 @media(max-width:720px){.bk{height:min(80vh,700px)}.pg{padding:16px 14px}.pg h2{font-size:1.2rem}.stage .pv{padding:6px}}
 .cam{transform-style:preserve-3d;transform:rotateY(calc(var(--mx,0)*5deg)) rotateX(calc(var(--my,0)*-3deg));transition:transform .25s ease-out}
-@media(prefers-reduced-motion:reduce){.book,.inner,.f,.ph,.cover,.bk,.bk::before{transition:none}.stage.on .bk{animation:none}.cam,.inner.out{transform:none}.bank,.stage{perspective-origin:50% 50%}.tuled i,.tolm i{animation:none}}
+@media(prefers-reduced-motion:reduce){.book,.inner,.f,.ph,.cover,.bk,.bk::before,.stage.on .bk,.stage.on.op .bk{transition:none}.stage.on .bk{animation:none}.cam,.inner.out{transform:none}.bank,.stage{perspective-origin:50% 50%}.tuled i,.tolm i{animation:none}}
 .lamp{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px auto 0;width:max-content;max-width:94%;padding:9px 20px;border-radius:3px;background:linear-gradient(rgba(96,58,18,.42),rgba(48,26,8,.52)),url("pildid/taust/puit.jpg") center/cover;border:2px solid #1d0f06;box-shadow:0 6px 14px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,220,160,.35),inset 0 0 0 1px rgba(255,220,160,.12)}
 .lamp__silt{font:700 .56rem 'Cinzel Decorative',serif;letter-spacing:.2em;text-transform:uppercase;color:#e8cf94;margin-right:4px;white-space:nowrap}
 .lamp label{position:relative;display:block;width:22px;height:22px}
@@ -1588,11 +1588,11 @@ body{background:#120905;overflow:hidden}
     var fy=Math.max(-70,Math.min(70,(r.top+r.height/2-innerHeight/2)*0.14));
     st.style.setProperty('--fx',fx.toFixed(0)+'px');st.style.setProperty('--fy',fy.toFixed(0)+'px');
     st.hidden=false;st.className='stage';void st.offsetWidth;st.className='stage on';
-    tm=setTimeout(function(){st.classList.add('op')},470);
+    tm=setTimeout(function(){st.classList.add('op')},640);
     window.requestAnimationFrame(mastaap);setTimeout(mastaap,140);
     document.getElementById('x').focus({preventScroll:true})
   }
-  function closeBook(){if(st.hidden)return;clearTimeout(tm);st.classList.remove('op');tm=setTimeout(function(){st.classList.remove('on');tm=setTimeout(function(){st.hidden=true;document.body.style.overflow='';btns.forEach(function(b){b.setAttribute('aria-pressed','false')});if(last)last.focus({preventScroll:true})},440)},1180)}
+  function closeBook(){if(st.hidden)return;clearTimeout(tm);st.classList.remove('op');tm=setTimeout(function(){st.classList.remove('on');tm=setTimeout(function(){st.hidden=true;document.body.style.overflow='';btns.forEach(function(b){b.setAttribute('aria-pressed','false')});if(last)last.focus({preventScroll:true})},480)},1500)}
   document.getElementById('x').addEventListener('click',closeBook);
   document.getElementById('scrim').addEventListener('click',closeBook);
   document.addEventListener('keydown',function(e){
