@@ -2810,7 +2810,7 @@ body{background:#120905;overflow:hidden}
     window.korkPaiguta=paiguta;
     [].forEach.call(pind.querySelectorAll('.tub-kork__leht,.tub-postkaart'),paiguta);
     var algus=null;
-    function ese(el){ return el&&el.closest?el.closest('.tub-kork__leht,.tub-postkaart,.tub-kork__loik'):null; }
+    function ese(el){ return el&&el.closest?el.closest('[data-pin]'):null; }
     pind.addEventListener('pointerdown',function(e){
       var el=ese(e.target); if(!el||!pind.contains(el))return;
       if(e.target.closest&&e.target.closest('.kork-x'))return;
@@ -3900,13 +3900,13 @@ body{background:#120905;overflow:hidden}
         im.src=saved;
       }
     }
-    var t6mm=false, a0=null, v0=null;
+    var t6mm=false, a0=null, v0=null, klops=true, klopsP=null;
     function kp(e){ var r=c.getBoundingClientRect(); return {x:(e.clientX-r.left)*c.width/(r.width||1), y:(e.clientY-r.top)*c.height/(r.height||1)}; }
     function kujuOn(){ return riist==='joon'||riist==='ristkülik'||riist==='ellips'; }
     c.addEventListener('pointerdown',function(e){
       if(!el.classList.contains('on-joonistus'))return;
       e.preventDefault(); e.stopPropagation();
-      var p=kp(e); a0=p; v0=p; t6mm=true;
+      var p=kp(e); a0=p; v0=p; t6mm=true; klops=true; klopsP=p;
       try{ c.setPointerCapture(e.pointerId); }catch(err){}
       if(kujuOn())return;
       g.save(); stiil(g, riist==='marker'?0.3:1);
@@ -3921,21 +3921,24 @@ body{background:#120905;overflow:hidden}
     c.addEventListener('pointermove',function(e){
       if(!t6mm)return; e.stopPropagation();
       var p=kp(e); v0=p;
+      if(klopsP&&(Math.abs(p.x-klopsP.x)+Math.abs(p.y-klopsP.y)>4))klops=false;
       if(kujuOn())return;
       if(riist==='aerograaf'){
         for(var i=0;i<6;i++){ var an=Math.random()*6.2832, rr=Math.random()*suurus; g.globalAlpha=0.1+Math.random()*0.35; g.fillRect(p.x+Math.cos(an)*rr,p.y+Math.sin(an)*rr,1.5,1.5); }
         g.globalAlpha=1;
       }else{ g.lineTo(p.x,p.y); g.stroke(); g.beginPath(); g.moveTo(p.x,p.y); }
     });
-    function l6pp(){
+    function l6pp(klopsiKontroll){
       if(!t6mm)return;
       t6mm=false;
       if(kujuOn()){
         if(a0&&v0){ g.save(); stiil(g,1); kuju(g,a0,v0); g.restore(); }
       } else { try{ g.restore(); }catch(err){} }
       try{ pindPiltSalvesta(el.dataset.pin,c.toDataURL('image/png')); }catch(err){}
+      /* lühike klõps (mitte tõmme) valitud esemel võtab valiku maha */
+      if(klopsiKontroll&&klops&&window.korkValiItem)window.korkValiItem(el);
     }
-    c.addEventListener('pointerup',l6pp);
+    c.addEventListener('pointerup',function(){ l6pp(true); });
     c.addEventListener('pointercancel',l6pp);
     c.addEventListener('pointerleave',function(){ if(t6mm)l6pp(); });
     return c;
