@@ -882,6 +882,73 @@ body{background:#120905;overflow:hidden}
 .loik img{display:block;width:30px;height:38px;object-fit:cover;filter:sepia(.4) contrast(1.05)}
 .loik:hover,.loik:focus-visible{background:#fff8e0;box-shadow:0 3px 9px rgba(0,0,0,.55)}
 .kork-ava__jalad{display:flex;flex-direction:column;gap:5px;padding-top:8px;border-top:1px solid rgba(217,180,90,.3)}
+.aja-riul{position:absolute;left:calc(100% + 8px);bottom:0;display:grid;grid-template-columns:repeat(2,46px);gap:24px 12px;width:104px;padding:9px 6px 11px;background:linear-gradient(#5a3218,#2b1708);border:1px solid #6b4a22;border-radius:2px;box-shadow:0 10px 18px rgba(0,0,0,.6)}
+.aja-riul .aja-obj{width:46px}
+.aja-riul .aja-obj__silt{bottom:-12px;font-size:.32rem;padding:1px 3px}
+body.ilm-halb #aja-toon{box-shadow:inset 0 0 260px 70px rgba(12,18,34,.40)}
+body.ilm-p2ike #aja-toon{box-shadow:inset 0 0 220px 40px rgba(255,232,176,.16)}
+/* ==== ajastu-elu: raadio, telefon, kirjutusmasin, ajaleht, tuur, valgus ==== */
+.aja-obj{position:relative;border:0;background:none;padding:0;cursor:pointer;display:block;width:66px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.6));transition:filter .2s}
+.aja-obj:hover{filter:drop-shadow(0 8px 10px rgba(0,0,0,.6)) drop-shadow(0 0 8px rgba(255,214,140,.55))}
+.aja-obj:focus-visible{outline:2px solid #ffe9a8;outline-offset:3px;border-radius:3px}
+.aja-obj svg{display:block;width:100%;height:auto}
+.aja-obj__silt{position:absolute;left:50%;bottom:-14px;translate:-50% 0;font:700 .4rem 'Cinzel Decorative',serif;letter-spacing:.08em;text-transform:uppercase;color:#f3dcae;background:rgba(40,21,7,.82);border:1px solid rgba(217,180,90,.5);padding:1px 5px;border-radius:2px;white-space:nowrap}
+.aja-paneel{position:fixed;right:12px;bottom:62px;width:min(92vw,404px);max-height:74vh;overflow:auto;z-index:420;padding:14px 16px 16px;background:linear-gradient(#f9f0da,#e7d6a6);color:#2b1a10;border:2px solid #7a5a1a;border-radius:3px;box-shadow:0 22px 44px rgba(0,0,0,.72);font-family:'Cinzel',serif}
+.aja-paneel[hidden]{display:none}
+.aja-paneel h3{margin:0 0 6px;font:900 1.02rem/1.2 'Cinzel Decorative',serif;color:#5a1620;letter-spacing:.02em}
+.aja-paneel p{margin:0 0 9px;font:500 .74rem/1.45 'Cinzel',serif;color:#4a3520}
+.aja-paneel__x{position:absolute;right:6px;top:4px;width:24px;height:24px;border:1px solid #7a5a1a;border-radius:50%;background:#e8d9ad;color:#5a1620;font:700 .7rem/1 system-ui;cursor:pointer}
+.aja-nupp{font:700 .56rem 'Cinzel Decorative',serif;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;background:#e8d9ad;color:#5a1620;border:1px solid #b8a273;border-radius:2px;cursor:pointer;box-shadow:0 2px 0 #b8a273}
+.aja-nupp:hover{background:#f5e9c8}
+.aja-nupp--tume{background:#5a1620;color:#ffe9a8;border-color:#d9b45a;box-shadow:0 2px 0 #2c1808}
+.aja-nupp--tume:hover{background:#7a2433}
+.aja-rivi{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px}
+.aja-silt{display:block;font:700 .5rem 'Cinzel Decorative',serif;letter-spacing:.16em;text-transform:uppercase;color:#8a6420;margin:10px 0 4px}
+.raadio__kast{display:flex;gap:12px;align-items:center;margin:6px 0 4px}
+.raadio__skaala{flex:1;position:relative;height:52px;border:2px solid #5a3a12;border-radius:3px;background:linear-gradient(#f6e9c6,#dcc794);overflow:hidden}
+.raadio__numbrid{display:flex;justify-content:space-between;padding:3px 6px 0;font:700 .44rem 'Cinzel',serif;color:#6b4a22}
+.raadio__osuti{position:absolute;top:0;bottom:0;width:2px;background:#a8242c;box-shadow:0 0 6px rgba(168,36,44,.8);left:18%;transition:left .12s}
+.raadio__jaam{position:absolute;bottom:4px;translate:-50% 0;font:700 .38rem 'Cinzel',serif;color:#5a1620;white-space:nowrap}
+.raadio__klaas{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.42) 0 14%,rgba(255,255,255,0) 30%);animation:raadioLaige 5.5s ease-in-out infinite;pointer-events:none}
+@keyframes raadioLaige{0%,100%{opacity:.25;translate:-12% 0}50%{opacity:.65;translate:14% 0}}
+.raadio__keer{width:34px;height:34px;border-radius:50%;border:2px solid #6b4a22;background:radial-gradient(circle at 34% 30%,#e6d3a4,#a9803a);cursor:pointer}
+.raadio__olek{font:700 .6rem 'Cinzel',serif;color:#5a1620;min-height:1.2em}
+.tel__kast{display:flex;gap:14px;align-items:center}
+.tel__ketas{position:relative;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,#2b1a10 0 27%,#e8d9ad 28% 100%);border:3px solid #6b4a22;flex:none}
+.tel__auk{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#f9f0da;border:2px solid #6b4a22;font:700 .62rem/1 'Cinzel',serif;color:#5a1620;cursor:pointer;display:grid;place-items:center;translate:0 -46px}
+.tel__auk:hover{background:#fff6dd;box-shadow:0 0 0 2px #d9b45a}
+.tel__number{font:700 1.05rem/1 'Courier New',monospace;letter-spacing:.22em;color:#5a1620;min-height:1.2em;background:rgba(90,58,28,.1);border:1px dashed rgba(90,58,28,.35);padding:6px 8px;border-radius:2px;text-align:center}
+.tel__jupp{display:flex;flex-direction:column;gap:6px;flex:1}
+.kw__paber{background:#fdf7e6;border:1px solid #cdbd96;box-shadow:inset 0 0 18px rgba(120,90,40,.18);padding:14px 16px;min-height:136px;max-height:200px;overflow:auto;font:500 .82rem/1.6 'Courier New',monospace;color:#2b1a10;white-space:pre-wrap}
+.kw__paber .kursor{display:inline-block;width:.55em;height:1em;background:#5a1620;vertical-align:-2px;animation:kwKursor .8s steps(1) infinite}
+@keyframes kwKursor{50%{opacity:0}}
+.kw__sisend{width:100%;box-sizing:border-box;font:500 .8rem/1.45 'Courier New',monospace;padding:7px;border:1px solid #b8a273;border-radius:2px;background:#fffdf4;color:#2b1a10;resize:vertical;min-height:56px}
+.ajaleht__leht{background:#f4ecd6;border:1px solid #cbb98f;padding:12px 14px;box-shadow:inset 0 0 24px rgba(120,90,40,.16);font-family:'Cormorant Garamond',serif;color:#2b1a10}
+.ajaleht__pea{text-align:center;border-bottom:3px double #5a1620;padding-bottom:6px;margin-bottom:8px}
+.ajaleht__nimi{font:900 1.5rem/1 'Cinzel Decorative',serif;color:#5a1620;letter-spacing:.04em}
+.ajaleht__kuup{font:700 .54rem 'Cinzel',serif;letter-spacing:.2em;text-transform:uppercase;color:#7a5a2a;margin-top:4px}
+.ajaleht__pealkiri{font:700 1.02rem/1.2 'Cormorant Garamond',serif;margin:9px 0 3px;color:#3a1a0e}
+.ajaleht__tekst{font:500 .86rem/1.4 'Cormorant Garamond',serif;color:#4a3520}
+.ajaleht__vahk{border:0;border-top:1px solid #cbb98f;margin:9px 0}
+.tuur{position:fixed;inset:0;z-index:610;display:none}
+.tuur.on{display:block}
+.tuur__vari{position:absolute;inset:0;background:radial-gradient(circle at 50% 44%,rgba(0,0,0,0) 20%,rgba(4,2,2,.78) 62%);pointer-events:none}
+.tuur__kaart{position:absolute;left:50%;bottom:70px;translate:-50% 0;width:min(92vw,540px);background:linear-gradient(#f9f0da,#e7d6a6);border:2px solid #7a5a1a;border-radius:3px;padding:13px 16px;color:#2b1a10;box-shadow:0 20px 44px rgba(0,0,0,.7);font-family:'Cinzel',serif}
+.tuur__nimi{font:700 .52rem 'Cinzel Decorative',serif;letter-spacing:.18em;text-transform:uppercase;color:#8a6420}
+.tuur__pealkiri{font:900 1.06rem/1.2 'Cinzel Decorative',serif;color:#5a1620;margin:3px 0 6px}
+.tuur__jutt{font:500 .8rem/1.45 'Cinzel',serif;color:#4a3520;margin:0}
+.tuur__rivi{display:flex;gap:8px;align-items:center;margin-top:10px}
+.tuur__loendur{font:700 .56rem 'Cinzel',serif;color:#7a5a2a;margin-left:auto}
+#aja-toon{position:fixed;inset:0;pointer-events:none;z-index:58;opacity:0;transition:opacity 1.2s ease,background 1.2s ease;background:radial-gradient(circle at 50% 40%,rgba(255,196,120,.06),rgba(10,6,2,.34))}
+body[data-aeg="hommik"] #aja-toon{opacity:.55;background:radial-gradient(circle at 50% 26%,rgba(255,238,198,.16),rgba(24,14,6,.14))}
+body[data-aeg="päev"] #aja-toon{opacity:.3;background:radial-gradient(circle at 50% 30%,rgba(255,240,210,.1),rgba(30,18,8,.1))}
+body[data-aeg="õhtu"] #aja-toon{opacity:.85;background:radial-gradient(circle at 50% 44%,rgba(255,168,84,.1),rgba(28,10,2,.42))}
+body[data-aeg="öö"] #aja-toon{opacity:1;background:radial-gradient(circle at 50% 58%,rgba(90,120,210,.08),rgba(4,3,10,.66))}
+body.oo #aja-toon{opacity:0}
+body.ilmutatud #b-ph img{filter:none !important;transition:filter .9s ease}
+body.ilmutatud #b-ph .foto-ilmub{animation:fotoIlmub 1s ease}
+@keyframes fotoIlmub{0%{filter:sepia(1) brightness(.4) contrast(1.4)}60%{filter:sepia(.3) brightness(1.15)}100%{filter:none}}
+
 </style>
 </head>
 <body>
@@ -971,7 +1038,27 @@ body{background:#120905;overflow:hidden}
     </div>
      <div class="tub-laud">
      <div class="tub-laud__pind"></div>
-     <div class="tub-laud__asjad">
+     <div class="aja-riul" role="group" aria-label="Väike nurgake: raadio, telefon, kirjutusmasin, päevaleht">
+      <button class="aja-obj" id="raadio" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="raadio-paneel" title="Kristallraadio — keera skaala peale">
+       <svg viewBox="0 0 90 74" aria-hidden="true"><rect x="5" y="14" width="80" height="52" rx="3" fill="#6b3a18"/><rect x="9" y="18" width="72" height="44" rx="2" fill="#8a5223"/><rect x="13" y="22" width="38" height="26" rx="1" fill="#e8cf94"/><rect x="15" y="24" width="34" height="22" fill="#f6e9c6"/><line x1="18" y1="34" x2="46" y2="34" stroke="#a8242c" stroke-width="1.6"/><circle cx="70" cy="31" r="9" fill="#2b1a10" stroke="#d9b45a" stroke-width="1.5"/><circle cx="70" cy="31" r="3" fill="#d9b45a"/><g fill="#2b1a10" opacity=".55"><rect x="14" y="52" width="52" height="2"/><rect x="14" y="56" width="52" height="2"/><rect x="14" y="60" width="52" height="2"/></g><path d="M42 14 L42 4 M36 4 h12" stroke="#d9b45a" stroke-width="2"/></svg>
+       <span class="aja-obj__silt">Raadio</span>
+      </button>
+      <button class="aja-obj" id="telefon" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="telefon-paneel" title="Telefon — vali number">
+       <svg viewBox="0 0 70 78" aria-hidden="true"><path d="M18 70V48c0-9 7-16 16-16h2c9 0 16 7 16 16v22" fill="none" stroke="#2b1a10" stroke-width="6"/><rect x="22" y="40" width="26" height="26" rx="3" fill="#3a2412"/><circle cx="35" cy="52" r="7" fill="#e8d9ad" stroke="#6b4a22" stroke-width="1.4"/><circle cx="35" cy="52" r="2" fill="#6b4a22"/><path d="M10 44h50" stroke="#b8a273" stroke-width="3"/><rect x="8" y="38" width="12" height="12" rx="3" fill="#2b1a10"/><rect x="50" y="38" width="12" height="12" rx="3" fill="#2b1a10"/><rect x="29" y="8" width="12" height="26" rx="4" fill="#2b1a10"/><circle cx="35" cy="10" r="7" fill="#5a3a12"/></svg>
+       <span class="aja-obj__silt">Telefon</span>
+      </button>
+      <button class="aja-obj" id="kirjutus" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="kirjutus-paneel" title="Kirjutusmasin — kirjuta kiri">
+       <svg viewBox="0 0 96 66" aria-hidden="true"><rect x="10" y="30" width="76" height="26" rx="3" fill="#2b1a10"/><rect x="16" y="20" width="64" height="12" rx="2" fill="#3a2412"/><rect x="30" y="6" width="36" height="18" fill="#f4ecd6" stroke="#cbb98f"/><g fill="#6b4a22"><circle cx="26" cy="50" r="3"/><circle cx="36" cy="50" r="3"/><circle cx="46" cy="50" r="3"/><circle cx="56" cy="50" r="3"/><circle cx="66" cy="50" r="3"/></g><rect x="20" y="56" width="56" height="4" fill="#1b0f08"/></svg>
+       <span class="aja-obj__silt">Kirjutusmasin</span>
+      </button>
+      <button class="aja-obj" id="ajaleht" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ajaleht-paneel" title="Päevaleht — tänane number">
+       <svg viewBox="0 0 84 66" aria-hidden="true"><rect x="8" y="8" width="68" height="50" fill="#f4ecd6" stroke="#cbb98f"/><rect x="14" y="13" width="56" height="6" fill="#5a1620"/><g fill="#8a7350"><rect x="14" y="23" width="24" height="2"/><rect x="14" y="27" width="24" height="2"/><rect x="14" y="31" width="24" height="2"/><rect x="14" y="35" width="24" height="2"/><rect x="14" y="39" width="16" height="2"/><rect x="42" y="23" width="28" height="20" fill="#d8c8a4"/></g></svg>
+       <span class="aja-obj__silt">Päevaleht</span>
+      </button>
+      </div>
+    <div class="tub-laud__asjad">
+      
+
       <span class="tub-teetass" id="teetass" role="button" tabindex="0" aria-label="Teetass — klõpsa, et teed valada"><span class="tub-teetass__aur"></span><img src="pildid/tuba/tass.png" alt="Tassi tee" width="150" height="88"></span>
       <span class="tub-tint" id="tint" role="button" tabindex="0" aria-label="Tindipott — klõpsa, et tinti valada"><img src="pildid/tuba/tint.png" alt="Tindipott" width="110" height="119"></span>
      </div>
@@ -1245,6 +1332,95 @@ body{background:#120905;overflow:hidden}
       <p><b>Tänud:</b> Mallid — Eva-Liisa Aibast · Fotod — Jaak Aibast (85 pilti) · Kass — Wikimedia Commons (Bengal, CC BY 3.0) · Pruudikleit — Livrustkammaren / Erik Lernestål (avalik omand) · Kell ja sahtelkapp — The Metropolitan Museum of Art (CC0) · Riistad ja aknavaade — Pearson Scott Foresman (avalik omand), Tiffany Studios ja Félix Leblanc (CC0), Fuzheado (CC0).</p>
       <span class="tub-hud__viide">Tapeet: „Japanese Passion Flower“ friis (u. 1880, avalik omand) · Puit: MHaensel73 / Wikimedia Commons (CC0) · Taimemotiivid: Wellcome Collection (CC BY 4.0) ja Susan Fereday (avalik omand) · Büst: Caracalla, Houston Museum (CC0) · Küünal ja tindipott: Wikimedia Commons (CC BY-SA) · Taim: iStockphoto/Chansom Pantip · Maalid: Museum Het Valkhof (CC BY-SA 4.0), Charlier Museum (avalik omand) · Sahtli ehted, nööbid ja võtmed: Wikimedia Commons (CC0/CC BY-SA) · Toa esemed (kell, sahtlikapp, teetass, tindipott): The Metropolitan Museum of Art (CC0) · Grammofon: Takkk / Wikimedia Commons (CC BY-SA 3.0) · Klaver: Steinway & Sons / Wikimedia Commons (CC BY-SA 3.0) · Postkaardid seinal: Wikimedia Commons (avalik omand, u. 1900) · Korktahvli väljalõiked: Charlie Chaplin (Witzel), Mary Pickford, Harry Houdini (LaPine), Wallace Reid, Edward M. Favor ja Fred C. Palmeri portree, „New Victor Records“ kuulutus 1909, „The Great Arrow“ kuulutus 1908 ja Fiati autokuulutus — Wikimedia Commons (avalik omand); Excelsiori jalgrattaplakat 1900 ja Curtis’s Botanical Magazine’i roos — Wikimedia Commons (avalik omand); „Lavine“ kassiillustratsioon — rawpixel (CC0) · GSAP + Draggable: gsap.com (lokaalne koopia) · Ilm: Open-Meteo (CC BY 4.0)</span>
      </div>
+     <div class="aja-paneel" id="raadio-paneel" role="dialog" aria-label="Kristallraadio" hidden>
+      <h3>Kristallraadio</h3>
+      <p>Keera skaala peale — kolm jaama tulevad sisse, vahepeal ainult krõbin.</p>
+      <div class="raadio__kast">
+       <div class="raadio__skaala">
+        <div class="raadio__numbrid"><span>200</span><span>300</span><span>400</span><span>500</span></div>
+        <div class="raadio__osuti" id="raadio-osuti"></div>
+        <span class="raadio__jaam" style="left:18%">Tallinna</span>
+        <span class="raadio__jaam" style="left:52%">Öine</span>
+        <span class="raadio__jaam" style="left:84%">Kaug</span>
+        <div class="raadio__klaas"></div>
+       </div>
+       <button class="raadio__keer" id="raadio-keer" type="button" aria-label="Raadio sisse või välja"></button>
+      </div>
+      <input id="raadio-skaala" type="range" min="0" max="100" value="18" step="1" style="width:100%" aria-label="Raadio skaala">
+      <p class="raadio__olek" id="raadio-olek" role="status">Raadio on väljas.</p>
+      <div class="aja-rivi">
+       <button class="aja-nupp aja-nupp--tume" id="raadio-mangima" type="button">Lülita sisse</button>
+      </div>
+     </div>
+     <div class="aja-paneel" id="telefon-paneel" role="dialog" aria-label="Telefon" hidden>
+      <h3>Telefon</h3>
+      <p>Vali ajalehest number <b>245</b> — ja kuula, kes vastab.</p>
+      <div class="tel__kast">
+       <div class="tel__ketas" id="tel-ketas"></div>
+       <div class="tel__jupp">
+        <div class="tel__number" id="tel-number" role="status" aria-live="polite">— — —</div>
+        <button class="aja-nupp" id="tel-lopeta" type="button">Pane toru ära</button>
+       </div>
+      </div>
+      <p class="raadio__olek" id="tel-olek">Toru on hargil.</p>
+     </div>
+     <div class="aja-paneel" id="kirjutus-paneel" role="dialog" aria-label="Kirjutusmasin" hidden>
+      <h3>Kirjutusmasin</h3>
+      <p>Kirjuta kiri — masin trükib selle tähehaaval välja. Valmis kirja saad korktahvlile kinnitada.</p>
+      <textarea class="kw__sisend" id="kw-sisend" rows="3" aria-label="Kirja tekst">Lugupeetud preili Ashworth,
+
+tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
+      <div class="aja-rivi">
+       <button class="aja-nupp aja-nupp--tume" id="kw-kirjuta" type="button">Trüki kiri</button>
+       <button class="aja-nupp" id="kw-kinnita" type="button" disabled>Kinnita tahvlile</button>
+      </div>
+      <div class="kw__paber" id="kw-paber" aria-live="polite"><span class="kursor"></span></div>
+     </div>
+     <div class="aja-paneel" id="ajaleht-paneel" role="dialog" aria-label="Päevaleht" hidden>
+      <div class="ajaleht__leht" id="ajaleht-leht"></div>
+      <div class="aja-rivi">
+       <button class="aja-nupp" id="ajaleht-uuenda" type="button">Loe uuesti</button>
+      </div>
+     </div>
+     <div class="aja-paneel" id="aja-paneel" role="dialog" aria-label="Toa seaded" hidden>
+      <h3>1926 · toa elu</h3>
+      <span class="aja-silt">Valgus</span>
+      <div class="aja-rivi">
+       <button class="aja-nupp" id="aja-oo" type="button" aria-pressed="false">Öölamp</button>
+       <button class="aja-nupp" id="aja-sund" type="button" aria-pressed="false">Kellaaeg</button>
+      </div>
+      <span class="aja-silt">Heli</span>
+      <div class="aja-rivi">
+       <button class="aja-nupp" id="aja-vaikne" type="button" aria-pressed="false">Vaikne režiim</button>
+       <button class="aja-nupp" id="aja-ambient" type="button" aria-pressed="false">Toa hääl</button>
+       <input id="aja-vol" type="range" min="0" max="100" value="50" step="5" style="width:100%;margin-top:6px" aria-label="Üldine helitugevus">
+      </div>
+      <span class="aja-silt">Tuba</span>
+      <div class="aja-rivi">
+       <button class="aja-nupp" id="aja-tuur" type="button">Tuur preili Ashworthiga</button>
+       <button class="aja-nupp" id="aja-salvesta" type="button">Salvesta tuba</button>
+       <button class="aja-nupp" id="aja-taasta" type="button">Taasta tuba</button>
+       <button class="aja-nupp" id="aja-postkaart" type="button">Postkaart PNG</button>
+       <button class="aja-nupp" id="aja-ilmuta" type="button">Ilmuta fotod</button>
+      </div>
+      <p id="aja-olek" role="status" style="margin-top:9px;font-size:.66rem;color:#6b4a22"></p>
+     </div>
+     <div class="tuur" id="tuur" aria-live="polite">
+      <div class="tuur__vari"></div>
+      <div class="tuur__kaart">
+       <p class="tuur__nimi">Preili Ashworth juhatab</p>
+       <p class="tuur__pealkiri" id="tuur-pealkiri"></p>
+       <p class="tuur__jutt" id="tuur-jutt"></p>
+       <div class="tuur__rivi">
+        <button class="aja-nupp aja-nupp--tume" id="tuur-edasi" type="button">Edasi →</button>
+        <button class="aja-nupp" id="tuur-lopeta" type="button">Lõpeta</button>
+        <span class="tuur__loendur" id="tuur-loendur"></span>
+       </div>
+      </div>
+     </div
+>
+     <div id="aja-toon" aria-hidden="true"></div>
+
      <div class="bank bank--hud">
       <div class="inner" id="b-in"><button class="sahtli-x" id="b-sulge" type="button" aria-label="Sulge pildipank">✕</button><div class="box"><div class="pad"><i class="wb"></i><i class="wl"></i><i class="wr"></i><div class="tabs" id="b-tabs"></div><p style="margin:12px 0 0;color:#c9b27a">Lohista pilte ringi ja klõpsa, et näha failiteed.</p><div class="ehted" aria-hidden="true">
           <img class="ehe ehe--keed" src="pildid/sahtel/keed.png" alt="" width="320" height="295" loading="lazy">
@@ -1289,6 +1465,7 @@ body{background:#120905;overflow:hidden}
       <button class="tub-hud__nupp" id="klaver-nupp" type="button" aria-expanded="false" aria-controls="klaver-paneel">Klaver</button>
       <button class="tub-hud__nupp" id="tanud-nupp" type="button" aria-expanded="false" aria-controls="tanud-paneel">Tänud</button>
       <button class="tub-hud__nupp" id="juhend-nupp" type="button" aria-expanded="false" aria-controls="juhend-paneel">Juhend</button>
+      <button class="tub-hud__nupp" id="aja-nupp" type="button" aria-expanded="false" aria-controls="aja-paneel">1926</button>
      </div>
      <div class="grammo-raadio" id="grammo-raadio" hidden>
       <button class="grammo-raadio__nupp" id="grammo-raadio-x" type="button" aria-label="Peida raadioekraan">×</button>
@@ -4236,5 +4413,648 @@ body{background:#120905;overflow:hidden}
 })();
 </script>
 
+<script>
+/* ajastu-elu: raadio, telefon, kirjutusmasin, ajaleht, tuur, valgus */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);};
+  var LS='malliriiul-';
+  function loe(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}}
+  function salvesta(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function olek(t){var e=$('aja-olek'); if(e)e.textContent=t;}
+  function vihje(t){var e=$('tub-vihje'); if(e)e.textContent=t;}
+
+  /* ---------- heli ---------- */
+  var AU={ctx:null,master:null,vaikne:!!loe(LS+'vaikne',false)};
+  function ac(){
+    if(AU.vaikne)return null;
+    if(!AU.ctx){var C=window.AudioContext||window.webkitAudioContext; if(!C)return null;
+      AU.ctx=new C(); AU.master=AU.ctx.createGain(); AU.master.gain.value=.5; AU.master.connect(AU.ctx.destination);}
+    if(AU.ctx.state==='suspended'){try{AU.ctx.resume();}catch(e){}}
+    return AU.ctx;
+  }
+  function noot(s,kest,tyyp,vol,viide){
+    var c=ac(); if(!c)return;
+    var t=c.currentTime+(viide||0), o=c.createOscillator(), g=c.createGain();
+    o.type=tyyp||'triangle'; o.frequency.value=s;
+    g.gain.setValueAtTime(.0001,t);
+    g.gain.exponentialRampToValueAtTime(vol||.14,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+(kest||.4));
+    o.connect(g); g.connect(AU.master); o.start(t); o.stop(t+(kest||.4)+.05);
+  }
+  var puhver=null;
+  function muraPuhver(){
+    var c=ac(); if(!c)return null;
+    if(!puhver){var b=c.createBuffer(1,Math.floor(c.sampleRate*2),c.sampleRate),d=b.getChannelData(0);
+      for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; puhver=b;}
+    return puhver;
+  }
+  function klops(vol,filt){
+    var c=ac(); if(!c)return;
+    var src=c.createBufferSource(); src.buffer=muraPuhver();
+    var bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=filt||1800; bp.Q.value=5;
+    var g=c.createGain(); var t=c.currentTime;
+    g.gain.setValueAtTime(vol||.16,t); g.gain.exponentialRampToValueAtTime(.0001,t+.06);
+    src.connect(bp); bp.connect(g); g.connect(AU.master); src.start(t); src.stop(t+.07);
+  }
+  function kone(tekst){
+    if(AU.vaikne||!window.speechSynthesis)return false;
+    try{
+      var u=new SpeechSynthesisUtterance(tekst);
+      u.lang='et-EE'; u.rate=.92; u.pitch=.9;
+      speechSynthesis.cancel(); speechSynthesis.speak(u); return true;
+    }catch(e){return false;}
+  }
+
+  /* ---------- paneelid ---------- */
+  var paneelid=['raadio-paneel','telefon-paneel','kirjutus-paneel','ajaleht-paneel','aja-paneel'];
+  paneelid.forEach(function(id){
+    var p=$(id); if(!p)return;
+    var x=document.createElement('button');
+    x.type='button'; x.className='aja-paneel__x'; x.textContent='✕'; x.setAttribute('aria-label','Sulge paneel');
+    x.addEventListener('click',function(){sulge(id);});
+    p.insertBefore(x,p.firstChild);
+  });
+  function sulge(id){
+    var p=$(id); if(!p)return;
+    p.hidden=true;
+    var n=$('aja-nupp'); if(n&&id==='aja-paneel')n.setAttribute('aria-expanded','false');
+    if(id==='raadio-paneel'&&raadio.sees)raadioLylita(false);
+    if(id==='telefon-paneel')telToru(false);
+  }
+  function ava(id){
+    paneelid.forEach(function(x){if(x!==id){var e=$(x); if(e)e.hidden=true;}});
+    var p=$(id); if(!p)return;
+    p.hidden=false;
+    var foco=p.querySelector('button,input,textarea'); if(foco)foco.focus({preventScroll:true});
+  }
+  paneelid.forEach(function(id){var p=$(id); if(p)p.addEventListener('keydown',function(e){if(e.key==='Escape')sulge(id);});});
+
+  ['raadio','telefon','kirjutus','ajaleht'].forEach(function(id){
+    var b=$(id); if(!b)return;
+    b.addEventListener('click',function(){
+      ava(id+'-paneel');
+      b.setAttribute('aria-expanded','true');
+      vihje(b.getAttribute('title')||'');
+    });
+  });
+  var ajaNupp=$('aja-nupp');
+  if(ajaNupp)ajaNupp.addEventListener('click',function(){
+    var p=$('aja-paneel'); if(!p)return;
+    var lahti=p.hidden; p.hidden=!lahti; ajaNupp.setAttribute('aria-expanded',String(lahti));
+    if(lahti)ava('aja-paneel');
+  });
+
+  /* ---------- raadio ---------- */
+  var JAAMAD=[{s:18,n:'Tallinna Raadio',t:'muusika'},{s:52,n:'Öine saade',t:'jutt'},{s:84,n:'Kaugjaam',t:'muusika'}];
+  var raadio={sees:false,jaam:-1,allikas:null,voim:null,loend:null};
+  function raadioMura(){
+    var c=ac(); if(!c)return;
+    if(raadio.allikas)return;
+    var src=c.createBufferSource(); src.buffer=muraPuhver(); src.loop=true;
+    var bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=1500; bp.Q.value=.7;
+    var g=c.createGain(); g.gain.value=.02;
+    src.connect(bp); bp.connect(g); g.connect(AU.master); src.start();
+    raadio.allikas=src; raadio.voim=g;
+  }
+  function raadioMuraSulge(){
+    if(raadio.loend){clearInterval(raadio.loend);raadio.loend=null;}
+    if(raadio.allikas){try{raadio.allikas.stop();}catch(e){} raadio.allikas=null; raadio.voim=null;}
+    raadio.jaam=-1;
+  }
+  var MELOODIA=[392,523.25,659.25,523.25,440,587.33,698.46,587.33];
+  function raadioJaam(j){
+    if(raadio.loend){clearInterval(raadio.loend);raadio.loend=null;}
+    if(j.t==='muusika'){
+      var i=0;
+      raadio.loend=setInterval(function(){
+        if(!raadio.sees)return;
+        noot(MELOODIA[i%MELOODIA.length],.62,'triangle',.1);
+        if(i%2===1)noot(MELOODIA[(i+2)%MELOODIA.length]/2,.5,'sine',.07,.16);
+        i++;
+      },640);
+    }else{
+      kone('Öine saade Tallinnast. Kell on hiline, linn magab. Järgmisel tunnil räägime sellest, kuidas 1926. aastal ehitati Toompeale uus trepp.');
+      raadio.loend=setInterval(function(){
+        if(!raadio.sees)return;
+        noot(220,.9,'sine',.05);
+      },4000);
+    }
+  }
+  function raadioLylita(sisse){
+    var o=$('raadio-olek'), k=$('raadio-mangima');
+    raadio.sees=!!sisse;
+    if(k){k.textContent=sisse?'Lülita välja':'Lülita sisse';k.setAttribute('aria-pressed',String(!!sisse));}
+    if(!sisse){
+      raadioMuraSulge();
+      if(o)o.textContent='Raadio on väljas.';
+      if(window.speechSynthesis)speechSynthesis.cancel();
+      return;
+    }
+    raadioMura(); h2alesta();
+  }
+  function h2alesta(){
+    var s=$('raadio-skaala'); if(!s)return;
+    var v=+s.value, osuti=$('raadio-osuti');
+    if(osuti)osuti.style.left=v+'%';
+    if(!raadio.sees)return;
+    var parim=null, vahe=999;
+    JAAMAD.forEach(function(j){var d=Math.abs(j.s-v); if(d<vahe){vahe=d;parim=j;}});
+    var o=$('raadio-olek');
+    if(parim&&vahe<=2.5){
+      if(raadio.voim)raadio.voim.gain.value=.018;
+      if(raadio.jaam!==parim.s){raadio.jaam=parim.s;raadioJaam(parim);}
+      if(o)o.textContent='Häälestatud · '+parim.n;
+    }else{
+      if(raadio.loend){clearInterval(raadio.loend);raadio.loend=null;}
+      raadio.jaam=-1;
+      if(raadio.voim)raadio.voim.gain.value=.14;
+      if(o)o.textContent='Krõbin… keera skaalat.';
+    }
+  }
+  var sk=$('raadio-skaala'); if(sk)sk.addEventListener('input',h2alesta);
+  var rk=$('raadio-keer'); if(rk)rk.addEventListener('click',function(){raadioLylita(!raadio.sees);});
+  var rm=$('raadio-mangima'); if(rm)rm.addEventListener('click',function(){raadioLylita(!raadio.sees);});
+
+  /* ---------- telefon ---------- */
+  var tel={numbrid:'',toru:false};
+  var ketas=$('tel-ketas');
+  if(ketas){
+    var jarjend=['1','2','3','4','5','6','7','8','9','0'];
+    jarjend.forEach(function(n,i){
+      var b=document.createElement('button');
+      b.type='button'; b.className='tel__auk'; b.textContent=n;
+      b.setAttribute('aria-label','Vali number '+n);
+      b.style.transform='rotate('+(i*36)+'deg) translateY(-46px) rotate(-'+(i*36)+'deg)';
+      b.style.translate='0 0';
+      b.addEventListener('click',function(){telVali(n);});
+      ketas.appendChild(b);
+    });
+  }
+  function telToru(sees){
+    tel.toru=!!sees;
+    var o=$('tel-olek');
+    if(sees){
+      noot(425,.5,'sine',.1);
+      if(o)o.textContent='Toru on käes. Vali number.';
+      tel.numbrid=''; telNaita();
+    }else{
+      tel.numbrid=''; telNaita();
+      if(o)o.textContent='Toru on hargil.';
+      if(window.speechSynthesis)speechSynthesis.cancel();
+    }
+  }
+  function telNaita(){
+    var e=$('tel-number'); if(!e)return;
+    var n=tel.numbrid;
+    while(n.length<3)n+='—';
+    e.textContent=n.split('').join(' ');
+  }
+  function telVali(n){
+    if(!tel.toru)telToru(true);
+    noot(700,.07,'square',.06);
+    noot(1000,.07,'square',.05,0);
+    tel.numbrid+=n;
+    telNaita();
+    if(tel.numbrid.length>=3){
+      var valitud=tel.numbrid, o=$('tel-olek');
+      tel.numbrid='';
+      setTimeout(function(){
+        if(valitud==='245'){
+          noot(480,.14,'sine',.09);
+          setTimeout(function(){
+            if(o)o.textContent='…keegi tõstab toru.';
+            var räägitud=kone('Preili Ashworth siin. Number kakssada nelikümmend viis on ajalehes trükitud vaid sellepärast, et uudishimulikud helistaksid. Kuna te helistasite, siis teadke: kell seinal ei näita kunagi valet aega, aga tahvel mäletab kõike, mis talle kinnitatakse. Head ööd.');
+            if(!räägitud&&o)o.textContent='…keegi hingab torusse. (Hääl puudub selles brauseris.)';
+            noot(300,.9,'sine',.04,1.2);
+          },520);
+        }else{
+          noot(180,.5,'sawtooth',.06);
+          if(o)o.textContent='Hõivatud. Proovi ajalehes trükitud numbrit.';
+        }
+        telNaita();
+      },260);
+    }
+  }
+  var tl=$('tel-lopeta'); if(tl)tl.addEventListener('click',function(){telToru(false);});
+
+  /* ---------- kirjutusmasin ---------- */
+  var kwTaimer=null, kwValmis='', kwJookseb=false;
+  var kwPaber=$('kw-paber'), kwNupp=$('kw-kirjuta'), kwKinnita=$('kw-kinnita');
+  function kwTuhista(){
+    if(kwTaimer){clearTimeout(kwTaimer);kwTaimer=null;}
+    kwJookseb=false;
+    if(kwNupp)kwNupp.disabled=false;
+  }
+  if(kwNupp)kwNupp.addEventListener('click',function(){
+    var s=$('kw-sisend'); if(!s||!kwPaber)return;
+    var tekst=s.value.replace(/\r/g,'').replace(/[ \t]+$/gm,'').trim();
+    if(!tekst){vihje('Kiri on tühi.');return;}
+    kwTuhista();
+    kwJookseb=true; kwValmis='';
+    kwPaber.innerHTML='<span class="kursor"></span>';
+    kwNupp.disabled=true;
+    if(kwKinnita)kwKinnita.disabled=true;
+    var i=0, kiirus=Math.max(9,Math.min(32,900/Math.max(40,tekst.length)*2));
+    function samm(){
+      if(!kwJookseb)return;
+      if(i>=tekst.length){
+        kwJookseb=false; kwValmis=tekst;
+        kwPaber.innerHTML=tekst.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'<span class="kursor"></span>';
+        if(kwNupp)kwNupp.disabled=false;
+        if(kwKinnita)kwKinnita.disabled=false;
+        noot(140,.14,'triangle',.08);
+        vihje('Kiri on trükitud. Kinnita see korktahvlile.');
+        return;
+      }
+      var ch=tekst.charAt(i++);
+      kwValmis+=ch;
+      kwPaber.textContent=kwValmis;
+      var k=document.createElement('span'); k.className='kursor'; kwPaber.appendChild(k);
+      if(ch!==' '&&i%1===0)klops(ch==='\n'?.2:.09, ch==='\n'?420:1600+Math.random()*700);
+      kwTaimer=setTimeout(samm, ch==='\n'?kiirus*4:kiirus);
+    }
+    samm();
+  });
+  if(kwKinnita)kwKinnita.addEventListener('click',function(){
+    if(!kwValmis)return;
+    kiriTahvlile(kwValmis);
+    vihje('Kiri on korktahvlil.');
+  });
+
+  function kiriTahvlile(tekst){
+    var pind=$('kork-pind'); if(!pind)return;
+    var kiri=loe(LS+'kirjad',[]);
+    kiri.push({t:tekst,d:Date.now()});
+    salvesta(LS+'kirjad',kiri);
+    tahvelJoonista();
+  }
+  function tahvelJoonista(){
+    var pind=$('kork-pind'); if(!pind)return;
+    pind.querySelectorAll('.kork-kiri').forEach(function(e){e.remove();});
+    var kiri=loe(LS+'kirjad',[]);
+    kiri.forEach(function(k,idx){
+      var d=document.createElement('div');
+      d.className='kork-kiri';
+      d.style.cssText='position:absolute;left:'+(8+(idx%3)*29)+'%;top:'+(10+Math.floor(idx/3)*24)+'%;width:25%;min-width:88px;max-width:150px;background:#fdf7e6;color:#2b1a10;padding:9px 10px;font:500 .52rem/1.45 "Courier New",monospace;box-shadow:0 6px 12px rgba(0,0,0,.45);transform:rotate('+((idx%2?1:-1)*1.4)+'deg);white-space:pre-wrap;z-index:4;pointer-events:auto;cursor:pointer;border:1px solid #d8c9a4';
+      d.title='Kiri korktahvlilt — klõpsa, et lugeda';
+      d.textContent=k.t.length>160?k.t.slice(0,157)+'…':k.t;
+      d.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        vihje(k.t);
+        d.style.zIndex='9';
+      });
+      pind.appendChild(d);
+    });
+  }
+  var kirjad=loe(LS+'kirjad',[]);
+  if(kirjad.length)setTimeout(tahvelJoonista,1200);
+
+  /* ---------- ajaleht ---------- */
+  var PEALKIRJAD=[
+    ['Uus trammiliin jõuab Kadriorgu','Tallinna linnavolikogu kinnitas eile hommikul pika vaidluse järel trammiliini pikenduse. Tööd algavad kevadel ja lõpevad sügiseks.'],
+    ['Kohvik "Kuldne Lõvi" avab uksed','Vanalinna uus kohvik pakub kohvi, mis on toodud otse Brasiiliast. Esimesel päeval on kohv tasuta kõigile, kes tulevad kübaraga.'],
+    ['Elekter jõuab veel seitsmesse majja','Linna elektrivõrk laieneb. Insenerid kinnitavad, et lambipirnid põlevad nüüdsest ka tormiga.'],
+    ['Raadioamatöörid püüdsid signaali kaugelt','Tallinna raadioseltsi liikmed kuulsid öösel saatjaid, mis asuvad väidetavalt tuhandete kilomeetrite kaugusel. Krõbinat oli palju, aga muusikat ka.'],
+    ['Kevadine laat toob kokku käsitöölised','Laadal saab näha pitsi, klaasi ja nahatööd. Korraldajad lubavad, et kohvikud on avatud hilisema tunnini kui mullu.'],
+    ['Koolilapsed korjasid metsast lilli','Loodusõpetuse tund viis kolmanda klassi metsa. Õpetaja sõnul leiti kaheksa liiki kevadlilli ja üks väga rahulik siil.'],
+    ['Uus plaat grammofonile','Plaadifirma saatis välja shellaki, millel on kaks valssi. Arvustaja kiidab eriti teist poolt, kus viiul mängib nagu oleks tuppa astunud.'],
+    ['Kellassepp hoiatab: kerige kellasid','Sepp soovitab kellasid iga päev samal ajal kerida. Muidu jääb kell seisma täpselt siis, kui külalised tulevad.']
+  ];
+  function kuuNimi(i){return ['jaanuar','veebruar','märts','aprill','mai','juuni','juuli','august','september','oktoober','november','detsember'][i];}
+  function nadalapaev(i){return ['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'][i];}
+  function ajalehtEhita(){
+    var nuud=new Date();
+    var aasta=1926, kuu=nuud.getMonth(), päev=nuud.getDate();
+    var seeme=kuu*31+päev;
+    var leht=$('ajaleht-leht'); if(!leht)return;
+    var a=PEALKIRJAD[seeme%PEALKIRJAD.length];
+    var b=PEALKIRJAD[(seeme*3+2)%PEALKIRJAD.length];
+    var c=PEALKIRJAD[(seeme*5+5)%PEALKIRJAD.length];
+    function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+    leht.innerHTML=
+      '<div class="ajaleht__pea"><div class="ajaleht__nimi">PÄEVALEHT</div>'+
+      '<div class="ajaleht__kuup">'+päev+'. '+kuuNimi(kuu)+' '+aasta+' · '+nadalapaev(nuud.getDay())+'</div></div>'+
+      '<h4 class="ajaleht__pealkiri">'+esc(a[0])+'</h4><p class="ajaleht__tekst">'+esc(a[1])+'</p>'+
+      '<hr class="ajaleht__vahk">'+
+      '<h4 class="ajaleht__pealkiri">'+esc(b[0])+'</h4><p class="ajaleht__tekst">'+esc(b[1])+'</p>'+
+      '<hr class="ajaleht__vahk">'+
+      '<h4 class="ajaleht__pealkiri">'+esc(c[0])+'</h4><p class="ajaleht__tekst">'+esc(c[1])+'</p>'+
+      '<hr class="ajaleht__vahk">'+
+      '<p class="ajaleht__tekst" style="font-size:.74rem;text-align:center;letter-spacing:.06em">ILM · '+ilmRida()+'<br>TELEFON · Tallinna 2-45</p>';
+  }
+  function ilmRida(){
+    var t=$('ilm-t'), x=$('ilm-tekst');
+    if(t&&x)return (t.textContent||'')+' · '+(x.textContent||'');
+    return 'kevadine ja vaikne';
+  }
+  ajalehtEhita();
+  var au=$('ajaleht-uuenda'); if(au)au.addEventListener('click',function(){ajalehtEhita();klops(.14,2400);});
+
+  /* ---------- tuur ---------- */
+  var TUUR=[
+    {sel:'.tiib--l .tub-kell',p:'Seinakell',j:'See on maja vanim asi. Preili Ashworth kerib seda iga hommik enne hommikukohvi — ja kui teda majas ei ole, kerib keegi teine. Kella all on väike taimer, kui tahad töötada nagu 1926. aastal: kakskümmend viis minutit ja siis puhkus.'},
+    {sel:'.tub-grammo',p:'Grammofon',j:'Shellakplaat, terav nõel ja üks väga kannatlik vedru. Klõpsa korpusel, et plaati vahetada, ja keera väikest nuppu — see on helitugevus. Kui muusika hakkab, keerleb ketas ja haar liigub ise.'},
+    {sel:'#raadio',p:'Kristallraadio',j:'Raadio ei vaja elektrit, ainult pikka antenni ja kannatust. Keera skaalat: kolm jaama tulevad sisse, vahepeal on ainult krõbin. Öine saade on minu lemmik — see räägib linnast, mis magab.'},
+    {sel:'.tub-aken',p:'Aken',j:'Aken näitab päris ilma. Kui väljas sajab, sajab ka siin, ja tuba läheb pisut hämaramaks. Vaadet võib lohistada — tänav on pikem, kui raam lubab.'},
+    {sel:'#pildid',p:'Pildipank',j:'Siin on kõik need fotod, mida ma aastaid kogusin. Vajuta „Ilmuta fotod" ja vaata, kuidas sepiast saab värv — nii nagu vanasti pimedas toast.'},
+    {sel:'#telefon',p:'Telefon',j:'Number on ajalehe viimase lehekülje servas: 2-45. Kui helistad, vastan mina. Vahel räägin kaua.'},
+    {sel:'#kirjutus',p:'Kirjutusmasin',j:'Kirjuta kiri ja masin trükib selle tähehaaval. Hea kiri lõpeb alati korktahvliga — nii ei lähe ta kunagi kaotsi.'}
+  ];
+  var tuur={i:0,lahti:false};
+  function tuurAva(){
+    var t=$('tuur'); if(!t)return;
+    tuur.lahti=true; tuur.i=0; t.classList.add('on');
+    tuurNaita();
+    tuurKuula(true);
+  }
+  function tuurSulge(){
+    var t=$('tuur'); if(!t)return;
+    tuur.lahti=false; t.classList.remove('on');
+    if(window.speechSynthesis)speechSynthesis.cancel();
+    tuurKuula(false);
+  }
+  var tuurVaikne=false;
+  function tuurKuula(sees){
+    if(!sees){tuurVaikne=false;return;}
+    var s=TUUR[tuur.i]; if(!s)return;
+    var el=document.querySelector(s.sel);
+    if(el&&el.scrollIntoView){try{el.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});}catch(e){el.scrollIntoView();}}
+  }
+  function tuurNaita(){
+    var s=TUUR[tuur.i]; if(!s)return;
+    var p=$('tuur-pealkiri'), j=$('tuur-jutt'), l=$('tuur-loendur'), e=$('tuur-edasi');
+    if(p)p.textContent=s.p;
+    if(j)j.textContent=s.j;
+    if(l)l.textContent=(tuur.i+1)+' / '+TUUR.length;
+    if(e)e.textContent=tuur.i===TUUR.length-1?'Lõpeta ✓':'Edasi →';
+    var el=document.querySelector(s.sel);
+    if(el&&el.scrollIntoView){try{el.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});}catch(err){el.scrollIntoView();}}
+    noot(520+tuur.i*40,.18,'triangle',.09);
+    kone(s.j);
+  }
+  var te=$('tuur-edasi'); if(te)te.addEventListener('click',function(){
+    if(tuur.i>=TUUR.length-1){tuurSulge();return;}
+    tuur.i++; tuurNaita();
+  });
+  var tlo=$('tuur-lopeta'); if(tlo)tlo.addEventListener('click',tuurSulge);
+  var tb=$('aja-tuur'); if(tb)tb.addEventListener('click',function(){
+    sulge('aja-paneel');
+    tuurAva();
+  });
+
+  /* ---------- valgus ja kellaaeg ---------- */
+  function aegNimi(h){
+    if(h<5)return 'öö';
+    if(h<9)return 'hommik';
+    if(h<17)return 'päev';
+    if(h<22)return 'õhtu';
+    return 'öö';
+  }
+  var sund=loe(LS+'sund',false);
+  function valgus(){
+    var d=new Date();
+    if(!sund)document.body.setAttribute('data-aeg',aegNimi(d.getHours()));
+    var kn=$('aja-sund'); if(kn)kn.setAttribute('aria-pressed',String(!!sund));
+    var oo=$('aja-oo');
+    if(oo)oo.setAttribute('aria-pressed',String(document.body.classList.contains('oo')));
+  }
+  valgus();
+  setInterval(valgus,60000);
+  var ooN=$('aja-oo'); if(ooN)ooN.addEventListener('click',function(){
+    document.body.classList.toggle('oo');
+    var sees=document.body.classList.contains('oo');
+    salvesta(LS+'oo',sees);
+    ooN.setAttribute('aria-pressed',String(sees));
+    noot(sees?300:700,.2,'sine',.12);
+    vihje(sees?'Öölamp põleb — tuba on soojas valguses.':'Öölamp kustus.');
+    valgus();
+  });
+  if(loe(LS+'oo',false))document.body.classList.add('oo');
+  var suN=$('aja-sund'); if(suN)suN.addEventListener('click',function(){
+    sund=!sund; salvesta(LS+'sund',sund);
+    if(!sund)document.body.removeAttribute('data-aeg');
+    valgus();
+    noot(420,.15,'triangle',.08);
+    vihje(sund?'Valgus järgib päris kellaaega.':'Valgus on kinni pandud — vali öölamp või jäta päevane.');
+  });
+
+  /* ---------- vaikne režiim ---------- */
+  function vaikneSeis(){
+    var b=$('aja-vaikne');
+    if(b){b.setAttribute('aria-pressed',String(AU.vaikne));b.textContent=AU.vaikne?'Vaikne: sees':'Vaikne režiim';}
+    if(AU.vaikne){
+      if(window.speechSynthesis)speechSynthesis.cancel();
+      if(raadio.allikas){raadioMuraSulge(); if(raadio.sees)raadioLylita(raadio.sees);}
+      if(ambient&&ambient.sees)ambientLylita(false);
+    }
+  }
+  var vb=$('aja-vaikne'); if(vb)vb.addEventListener('click',function(){
+    AU.vaikne=!AU.vaikne; salvesta(LS+'vaikne',AU.vaikne);
+    vaikneSeis();
+    if(!AU.vaikne)ac();
+    vihje(AU.vaikne?'Vaikne režiim: kõik helid on väljas (ka raadio ja kõne).':'Heli on tagasi.');
+  });
+  vaikneSeis();
+
+  var vol=document.getElementById('aja-vol');
+  function volSea(v){ if(AU.master)AU.master.gain.value=(v/100)*0.9; }
+  if(vol){
+    vol.value=loe(LS+'heli',50);
+    volSea(+vol.value);
+    vol.addEventListener('input',function(){ volSea(+vol.value); salvesta(LS+'heli',+vol.value); });
+    vol.addEventListener('change',function(){ klops(.08,1200); });
+  }
+
+  /* ---------- toa hääl ---------- */
+  var ambient={sees:false,loend:null,allikas:null,voim:null};
+  function ambientLylita(sees){
+    ambient.sees=!!sees;
+    var b=$('aja-ambient'); if(b)b.setAttribute('aria-pressed',String(ambient.sees));
+    if(sees){
+      var c=ac(); if(!c){ambient.sees=false;if(b)b.setAttribute('aria-pressed','false');vihje('Heli ei ole selles brauseris saadaval.');return;}
+      if(!ambient.allikas){
+        var src=c.createBufferSource(); src.buffer=muraPuhver(); src.loop=true;
+        var lp=c.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=380;
+        var g=c.createGain(); g.gain.value=.05;
+        src.connect(lp); lp.connect(g); g.connect(AU.master); src.start();
+        ambient.allikas=src; ambient.voim=g;
+      }
+      if(ambient.loend)clearInterval(ambient.loend);
+      var tick=0;
+      ambient.loend=setInterval(function(){
+        if(!ambient.sees)return;
+        klops(.05,2600);          /* kella tiksumine */
+        tick++;
+        if(tick%8===0)noot(110,.7,'sine',.02);   /* maja hingamine */
+        if(tick%24===0)klops(.03,700);           /* tänav */
+      },1000);
+      vihje('Toa hääl: kell tiksub, maja hingab.');
+    }else{
+      if(ambient.loend){clearInterval(ambient.loend);ambient.loend=null;}
+      if(ambient.allikas){try{ambient.allikas.stop();}catch(e){} ambient.allikas=null; ambient.voim=null;}
+      vihje('Toa hääl on väljas.');
+    }
+  }
+  var ab=$('aja-ambient'); if(ab)ab.addEventListener('click',function(){ambientLylita(!ambient.sees);});
+
+  /* ---------- foto ilmutamine ---------- */
+  var ilmu=$('aja-ilmuta');
+  if(ilmu)ilmu.addEventListener('click',function(){
+    var sees=document.body.classList.toggle('ilmutatud');
+    salvesta(LS+'ilmutatud',sees);
+    var pildid=document.querySelectorAll('#b-ph img');
+    if(sees){
+      pildid.forEach(function(im,i){
+        im.classList.remove('foto-ilmub');
+        setTimeout(function(){im.classList.add('foto-ilmub');},(i%14)*90);
+      });
+      noot(600,.25,'sine',.08); noot(900,.3,'sine',.06,.12);
+    }else{
+      pildid.forEach(function(im){im.classList.remove('foto-ilmub');});
+    }
+    olek(sees?'Fotod on ilmutatud — värvid on väljas.':'Fotod on jälle vanad ja pruunikad.');
+    vihje(sees?'Ilmutusvann: fotod lähevad värviliseks.':'Fotod on tagasi sepiaajas.');
+  });
+  if(loe(LS+'ilmutatud',false))document.body.classList.add('ilmutatud');
+
+  /* ---------- salvesta / taasta ---------- */
+  function koikVotmed(){
+    var out={};
+    try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i); if(k&&k.indexOf('malliriiul-')===0&&k!=='malliriiul-tuba-seis')out[k]=localStorage.getItem(k);}}catch(e){}
+    return out;
+  }
+  var sv=$('aja-salvesta');
+  if(sv)sv.addEventListener('click',function(){
+    var hulk=koikVotmed();
+    var kokku=Object.keys(hulk).length;
+    try{localStorage.setItem('malliriiul-tuba-seis',JSON.stringify({aeg:Date.now(),hulk:hulk}));}catch(e){olek('Salvestamine ebaõnnestus: mälu täis.');return;}
+    olek('Tuba salvestatud ('+kokku+' seisu). Taastamine laeb lehe uuesti.');
+    noot(520,.2,'triangle',.1);noot(780,.25,'triangle',.09,.1);
+    vihje('Tuba on salvestatud nagu postkaart sahtlisse.');
+  });
+  var ta=$('aja-taasta');
+  if(ta)ta.addEventListener('click',function(){
+    var s=loe('malliriiul-tuba-seis',null);
+    if(!s||!s.hulk){olek('Ühtki salvestust ei ole veel.');return;}
+    try{
+      Object.keys(s.hulk).forEach(function(k){localStorage.setItem(k,s.hulk[k]);});
+      olek('Taastatud. Laen tuba uuesti…');
+      setTimeout(function(){location.reload();},550);
+    }catch(e){olek('Taastamine ebaõnnestus.');}
+  });
+
+  /* ---------- postkaart PNG ---------- */
+  function postkaart(){
+    var ruum=document.querySelector('.tub__ruum')||document.body;
+    var kast=ruum.getBoundingClientRect();
+    var W=1200,H=800;
+    var cv=document.createElement('canvas'); cv.width=W; cv.height=H;
+    var x=cv.getContext('2d');
+    /* taust */
+    var g=x.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,'#2a170c'); g.addColorStop(.55,'#4a2a14'); g.addColorStop(1,'#241208');
+    x.fillStyle=g; x.fillRect(0,0,W,H);
+    /* seinapaber, kui leian */
+    try{
+      var tiib=document.querySelector('.tiib');
+      var bg=tiib?getComputedStyle(tiib).backgroundImage:'';
+      var m=bg&&bg.match(/url\("?([^")]+)"?\)/);
+      if(m){var img=new Image(); img.src=m[1];}
+    }catch(e){}
+    /* esemed */
+    var skaala=Math.min(W/Math.max(1,kast.width), H/Math.max(1,kast.height));
+    var ox=(W-kast.width*skaala)/2, oy=(H-kast.height*skaala)/2;
+    var pildid=ruum.querySelectorAll('img');
+    var joonistatud=0;
+    pildid.forEach(function(im){
+      if(!im.naturalWidth||!im.complete)return;
+      var r=im.getBoundingClientRect();
+      if(r.bottom<kast.top||r.top>kast.bottom||r.right<kast.left||r.left>kast.right)return;
+      if(r.width<26||r.height<26)return;
+      var dx=ox+(r.left-kast.left)*skaala, dy=oy+(r.top-kast.top)*skaala;
+      var dw=r.width*skaala, dh=r.height*skaala;
+      if(dw>W*1.4||dh>H*1.4)return;
+      try{x.drawImage(im,dx,dy,dw,dh);joonistatud++;}catch(e){}
+    });
+    /* vinjett */
+    var vg=x.createRadialGradient(W/2,H/2,H*.28,W/2,H/2,H*.78);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.55)');
+    x.fillStyle=vg; x.fillRect(0,0,W,H);
+    /* raam */
+    x.strokeStyle='rgba(217,180,90,.85)'; x.lineWidth=6;
+    x.strokeRect(18,18,W-36,H-36);
+    x.strokeStyle='rgba(217,180,90,.35)'; x.lineWidth=2; x.strokeRect(32,32,W-64,H-64);
+    /* tekst */
+    var d=new Date();
+    function kahe(n){return n<10?'0'+n:''+n;}
+    x.fillStyle='#f4e6c4'; x.textAlign='left';
+    x.font='700 22px "Cinzel Decorative", serif';
+    x.fillText('MALLIRIIUL · TUBA 1926',60,H-58);
+    x.font='500 18px "Cinzel", serif';
+    x.fillStyle='rgba(244,230,196,.75)';
+    x.fillText('Postkaart · '+kahe(d.getDate())+'.'+kahe(d.getMonth()+1)+'.'+d.getFullYear()+' '+kahe(d.getHours())+':'+kahe(d.getMinutes()),60,H-30);
+    /* tempel */
+    x.save();
+    x.translate(W-110,H-110); x.rotate(-.14);
+    x.strokeStyle='rgba(168,36,44,.8)'; x.lineWidth=3;
+    x.beginPath(); x.arc(0,0,46,0,Math.PI*2); x.stroke();
+    x.fillStyle='rgba(168,36,44,.85)'; x.font='700 10px "Cinzel", serif'; x.textAlign='center';
+    x.fillText('TALLINN',0,-6); x.fillText('1926',0,8);
+    x.restore();
+    return {cv:cv,pilte:joonistatud};
+  }
+  var pk=$('aja-postkaart');
+  if(pk)pk.addEventListener('click',function(){
+    var r=postkaart();
+    try{
+      var a=document.createElement('a');
+      a.download='malliriiul-postkaart-'+Date.now()+'.png';
+      a.href=r.cv.toDataURL('image/png');
+      document.body.appendChild(a); a.click(); a.remove();
+      olek('Postkaart laaditi alla ('+r.pilte+' eset).');
+      noot(660,.2,'sine',.1); noot(990,.3,'sine',.08,.12);
+      vihje('Postkaart on allalaaditud.');
+    }catch(e){
+      olek('Postkaarti ei õnnestunud koostada (lõuend on kaitstud).');
+    }
+  });
+
+  /* ---------- esimene puudutus ---------- */
+  var alustatud=false;
+  function alusta(){
+    if(alustatud)return; alustatud=true;
+    document.removeEventListener('pointerdown',alusta,true);
+    document.removeEventListener('keydown',alusta,true);
+    if(!AU.vaikne)ac();
+  }
+  document.addEventListener('pointerdown',alusta,true);
+  document.addEventListener('keydown',alusta,true);
+
+
+  /* ---------- aken juhhib toa valgust ---------- */
+  var aknVaade=document.getElementById('aken-vaade');
+  function ajaIlm(){
+    if(!aknVaade)return;
+    var c=aknVaade.className||'';
+    document.body.classList.toggle('ilm-halb',/ilm--(vihm|lumi|pilv|öö)/.test(c));
+    document.body.classList.toggle('ilm-p2ike',!/ilm--/.test(c));
+  }
+  ajaIlm();
+  if(aknVaade&&window.MutationObserver){
+    new MutationObserver(ajaIlm).observe(aknVaade,{attributes:true,attributeFilter:['class']});
+  }
+
+  /* ---------- klaviatuur ---------- */
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      if(tuur.lahti){tuurSulge();return;}
+      paneelid.forEach(function(id){var p=$(id); if(p&&!p.hidden)sulge(id);});
+    }
+  });
+  if(location.hash==='#tuur'){setTimeout(tuurAva,600);}
+})();
+
+</script>
 </body>
 </html>
