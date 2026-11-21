@@ -4550,6 +4550,7 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
       }
     }
     if(typeof ilmLehtUuenda==='function')ilmLehtUuenda();
+    p.scrollTop=0;
     var foco=p.querySelector('button,input,textarea'); if(foco)foco.focus({preventScroll:true});
   }
   paneelid.forEach(function(id){var p=$(id); if(p)p.addEventListener('keydown',function(e){if(e.key==='Escape')sulge(id);});});
