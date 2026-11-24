@@ -74,7 +74,8 @@
 .mallid-ava__pakk {
   padding: 24px 24px 22px;
   border-radius: var(--raadius);
-  background: var(--tint);
+  background: linear-gradient(rgba(25, 22, 19, 0.9), rgba(25, 22, 19, 0.95)),
+    url("pildid/taust/tapeet-tile.jpg") center / cover no-repeat;
   color: var(--paber);
   box-shadow: 8px 8px 0 rgba(25, 22, 19, 0.12);
 }
@@ -108,6 +109,61 @@
   font-size: 0.78rem;
   line-height: 1.55;
   color: rgba(247, 242, 232, 0.62);
+}
+
+.mallid-band {
+  position: relative;
+  height: clamp(190px, 26vw, 268px);
+  margin: 34px 0 0;
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  overflow: hidden;
+  background: #1b1814;
+}
+
+.mallid-band img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  filter: sepia(0.4) contrast(1.02) brightness(0.94);
+}
+
+.mallid-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(20, 17, 14, 0.84), rgba(20, 17, 14, 0.34) 48%, rgba(20, 17, 14, 0.05) 78%);
+}
+
+.mallid-band__kiri {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-width: min(48ch, 78%);
+  padding: 26px 30px 24px;
+}
+
+.mallid-band__silt {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--laim);
+}
+
+.mallid-band__kiri span:last-child {
+  font-family: var(--serif);
+  font-size: 1.04rem;
+  line-height: 1.45;
+  color: rgba(247, 242, 232, 0.88);
 }
 
 /* ---------- Mallide võrgustik ---------- */
@@ -147,8 +203,11 @@
 
 .mallid-juhend {
   margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid var(--joon);
+  padding: 34px 34px 30px;
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  background: linear-gradient(rgba(247, 242, 232, 0.95), rgba(247, 242, 232, 0.985)),
+    url("pildid/kaunistus/kirjatahed-1857.jpg") center / cover no-repeat;
 }
 
 .mallid-juhend h2 {
@@ -179,7 +238,8 @@
   margin-top: 68px;
   padding: 32px 34px;
   border-radius: var(--raadius);
-  background: var(--tint);
+  background: linear-gradient(rgba(25, 22, 19, 0.9), rgba(25, 22, 19, 0.94)),
+    url("pildid/taust/tapeet-tile.jpg") center / cover no-repeat;
   color: var(--paber);
 }
 
@@ -329,6 +389,19 @@
 
   .mallid-juhend .sammud {
     grid-template-columns: 1fr;
+  }
+
+  .mallid-band {
+    height: 232px;
+  }
+
+  .mallid-band__kiri {
+    max-width: 100%;
+    padding: 18px 20px 16px;
+  }
+
+  .mallid-band__kiri span:last-child {
+    font-size: 0.92rem;
   }
 
   .fotod-riba {

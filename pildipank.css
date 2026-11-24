@@ -10,8 +10,56 @@
 }
 
 .pildipank__pais {
-  padding-bottom: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  align-items: start;
+  gap: 24px 42px;
+  padding-bottom: 30px;
   border-bottom: 1px solid var(--joon);
+}
+
+/* Ajastu-kaunistus: 1905. aasta Kodaki kuulutus teibiga seinal */
+
+.pildipank__kleebis {
+  position: relative;
+  width: 250px;
+  margin: 14px 10px 0 0;
+  padding: 10px 10px 0;
+  background: #fffdf8;
+  border: 1px solid rgba(25, 22, 19, 0.14);
+  box-shadow: 9px 10px 0 rgba(25, 22, 19, 0.07), 0 18px 34px rgba(25, 22, 19, 0.14);
+  transform: rotate(1.6deg);
+}
+
+.pildipank__kleebis::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  translate: -50% 0;
+  width: 96px;
+  height: 26px;
+  background: rgba(216, 242, 74, 0.55);
+  border: 1px solid rgba(25, 22, 19, 0.1);
+  transform: rotate(-2.5deg);
+}
+
+.pildipank__kleebis img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(25, 22, 19, 0.08);
+}
+
+.pildipank__kleebis figcaption {
+  margin-top: 9px;
+  padding: 0 2px 11px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--hall);
 }
 
 .pildipank__pais h1 {
@@ -234,6 +282,16 @@
 }
 
 /* ---------- Väiksemad ekraanid ---------- */
+
+@media (max-width: 900px) {
+  .pildipank__pais {
+    grid-template-columns: 1fr;
+  }
+
+  .pildipank__kleebis {
+    display: none;
+  }
+}
 
 @media (max-width: 720px) {
   .pildipank {
