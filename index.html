@@ -999,7 +999,7 @@ html.algus-lahti,html.algus-lahti body{overflow:hidden}
 </style>
 </head>
 <body>
-<div class="algus" id="algus" role="dialog" aria-modal="true" aria-labelledby="algus-pealkiri">
+<div class="algus" id="algus" role="dialog" aria-modal="true" aria-labelledby="algus-pealkiri" tabindex="-1">
  <div class="algus__kaart">
   <p class="algus__silt">Koolitöötuba · INSA insapäevad</p>
   <h1 class="algus__pealkiri" id="algus-pealkiri">Malliriiul</h1>
@@ -5268,10 +5268,19 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
  var kaart=document.getElementById('algus'), mang=document.getElementById('algus-mang'), kodu=document.getElementById('algus-nupp');
  if(!kaart||!mang)return;
  var mallidLink=kaart.querySelector('.algus__valikud a');
+ /* ?tuba=1 on ühekordne: eemaldame aadressiribalt, et järgmine laadimine
+    näitaks jälle valikut, mitte ei viskaks kohe tuppa. */
+ function puhastaAadress(){
+  try{
+   var osad=location.search.replace(/^\?/,'').split('&').filter(function(x){return x&&x.indexOf('tuba')!==0});
+   var uus=location.pathname+(osad.length?'?'+osad.join('&'):'')+(location.hash||'');
+   history.replaceState(null,'',uus);
+  }catch(e){}
+ }
  function ava(){
   kaart.hidden=false;
   document.documentElement.classList.add('algus-lahti');
-  try{mang.focus({preventScroll:true})}catch(e){mang.focus()}
+  try{kaart.focus({preventScroll:true})}catch(e){kaart.focus()}
  }
  function sulge(){
   kaart.hidden=true;
@@ -5286,12 +5295,21 @@ tänan hubase toa eest. Jätan selle kirja tahvlile.</textarea>
   if(e.key==='Escape'){e.preventDefault();sulge();return;}
   if(!sees)return;
   if(e.key==='ArrowRight'||e.key==='ArrowDown'){
-   if(document.activeElement===mang&&mallidLink){e.preventDefault();mallidLink.focus();}
+   if(document.activeElement===mallidLink)return;
+   e.preventDefault();
+   if(document.activeElement===mang&&mallidLink)mallidLink.focus();
+   else mang.focus();
   }else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){
-   if(document.activeElement!==mang){e.preventDefault();mang.focus();}
+   if(document.activeElement===mang)return;
+   e.preventDefault();mang.focus();
   }
  });
- if(/[?&]tuba/.test(location.search)){kaart.hidden=true;return;}
+ if(/[?&]tuba/.test(location.search)){
+  kaart.hidden=true;
+  document.documentElement.classList.remove('algus-lahti');
+  puhastaAadress();
+  return;
+ }
  ava();
 })();
 </script>
