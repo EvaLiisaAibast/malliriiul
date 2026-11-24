@@ -1648,3 +1648,113 @@ code {
 .pildid__cta {
   margin-top: 26px;
 }
+
+/* ---------- Arhiivileiud: teibitud ajastu-pildid lehe lõpus ---------- */
+
+.arhiiv {
+  margin-top: 64px;
+  padding-top: 26px;
+  border-top: 1px solid var(--joon);
+}
+
+.arhiiv .silt {
+  margin-bottom: 22px;
+}
+
+.arhiiv__read {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 30px;
+  align-items: flex-start;
+}
+
+.arhiiv__pilt {
+  position: relative;
+  width: 152px;
+  margin: 0;
+  padding: 6px 6px 0;
+  background: #fffdf8;
+  border: 1px solid rgba(25, 22, 19, 0.12);
+  box-shadow: 6px 7px 0 rgba(25, 22, 19, 0.06), 0 12px 22px rgba(25, 22, 19, 0.1);
+  transform: rotate(-1.2deg);
+  transition: transform 0.2s ease;
+}
+
+.arhiiv__pilt:nth-child(2) {
+  transform: rotate(1.1deg);
+}
+
+.arhiiv__pilt:nth-child(3) {
+  transform: rotate(-0.6deg);
+}
+
+.arhiiv__pilt:hover {
+  transform: rotate(0) translateY(-2px);
+}
+
+.arhiiv__pilt::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  translate: -50% 0;
+  width: 54px;
+  height: 15px;
+  background: rgba(216, 242, 74, 0.45);
+  border: 1px solid rgba(25, 22, 19, 0.08);
+  transform: rotate(2deg);
+}
+
+.arhiiv__pilt img {
+  display: block;
+  width: 100%;
+  height: 106px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid rgba(25, 22, 19, 0.07);
+}
+
+.arhiiv__pilt figcaption {
+  margin-top: 5px;
+  padding-bottom: 7px;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--hall);
+}
+
+.arhiiv__allikas {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--hall);
+}
+
+@media (max-width: 720px) {
+  .arhiiv {
+    margin-top: 48px;
+  }
+
+  .arhiiv__read {
+    gap: 18px 16px;
+  }
+
+  .arhiiv__pilt {
+    width: 98px;
+  }
+
+  .arhiiv__pilt img {
+    height: 74px;
+  }
+
+  .arhiiv__pilt::before {
+    width: 40px;
+    height: 12px;
+  }
+
+  .arhiiv__pilt figcaption {
+    font-size: 0.52rem;
+  }
+}
