@@ -16,8 +16,13 @@
   grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
   align-items: end;
   gap: 30px 48px;
-  padding-bottom: 34px;
-  border-bottom: 1px solid var(--joon);
+  padding: 30px 26px 32px;
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  /* Sama tapeet mis ruumis, aga pleegitatud, et tekst jääks loetavaks. */
+  background: linear-gradient(rgba(247, 242, 232, 0.84), rgba(247, 242, 232, 0.92)),
+    url("pildid/taust/tapeet-tile.jpg") center / 460px auto repeat;
+  box-shadow: 6px 6px 0 rgba(25, 22, 19, 0.07);
 }
 
 .mallid-ava h1 {
@@ -380,6 +385,12 @@
 @media (max-width: 760px) {
   .mallid-leht {
     padding: 30px 18px 0;
+  }
+
+  .mallid-ava {
+    padding: 22px 18px 24px;
+    background: linear-gradient(rgba(247, 242, 232, 0.9), rgba(247, 242, 232, 0.95)),
+      url("pildid/taust/tapeet-tile.jpg") center / 340px auto repeat;
   }
 
   .mallide-vorgustik {

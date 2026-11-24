@@ -14,8 +14,13 @@
   grid-template-columns: minmax(0, 1fr) 250px;
   align-items: start;
   gap: 24px 42px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--joon);
+  padding: 30px 28px 30px;
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  /* Sama tapeet mis ruumis, aga pleegitatud, et tekst jääks loetavaks. */
+  background: linear-gradient(rgba(247, 242, 232, 0.84), rgba(247, 242, 232, 0.92)),
+    url("pildid/taust/tapeet-tile.jpg") center / 460px auto repeat;
+  box-shadow: 6px 6px 0 rgba(25, 22, 19, 0.07);
 }
 
 /* Ajastu-kaunistus: 1905. aasta Kodaki kuulutus teibiga seinal */
@@ -47,7 +52,9 @@
 .pildipank__kleebis img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 296px;
+  object-fit: cover;
+  object-position: top center;
   border: 1px solid rgba(25, 22, 19, 0.08);
 }
 
@@ -296,6 +303,12 @@
 @media (max-width: 720px) {
   .pildipank {
     padding: 34px 18px 60px;
+  }
+
+  .pildipank__pais {
+    padding: 22px 18px 24px;
+    background: linear-gradient(rgba(247, 242, 232, 0.9), rgba(247, 242, 232, 0.95)),
+      url("pildid/taust/tapeet-tile.jpg") center / 340px auto repeat;
   }
 
   .pildipank__vorgustik {
