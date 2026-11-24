@@ -996,6 +996,40 @@ html.algus-lahti,html.algus-lahti body{overflow:hidden}
 .algus__nool{margin-top:auto;padding-top:8px;font:700 .62rem 'Cinzel Decorative',serif;letter-spacing:.18em;text-transform:uppercase;color:#c9a355}
 .algus__vihje{margin:22px 0 0;font-size:.72rem;letter-spacing:.05em;color:rgba(240,223,180,.5)}
 @media (max-width:660px){.algus{padding:12px}.algus__kaart{padding:26px 18px 22px}.algus__valikud{grid-template-columns:1fr}}
+
+/* ---------- avavaade: peenem viimistlus ---------- */
+.algus{isolation:isolate;padding:34px 22px;
+ background:radial-gradient(760px 460px at 50% -70px,rgba(255,200,110,.26),transparent 66%),radial-gradient(1000px 660px at 50% 116%,rgba(90,22,32,.55),transparent 72%),linear-gradient(#2d1218,#0f0709 74%)}
+.algus::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.45;
+ background-image:radial-gradient(rgba(246,220,138,.15) 1px,transparent 1px);background-size:3px 3px}
+.algus::after{content:"";position:fixed;inset:16px;pointer-events:none;border:1px solid rgba(217,180,90,.2);border-radius:12px}
+.algus__kaart{position:relative;width:min(860px,100%);padding:48px 44px 32px;border:1px solid rgba(217,180,90,.44);border-radius:18px;
+ background:linear-gradient(rgba(60,21,29,.9),rgba(24,11,14,.96));
+ box-shadow:0 40px 92px rgba(0,0,0,.66),inset 0 0 0 1px rgba(255,220,150,.07),inset 0 1px 0 rgba(255,232,180,.16);
+ animation:algusTuleb .5s cubic-bezier(.2,.8,.3,1) both}
+@keyframes algusTuleb{from{opacity:0;transform:translateY(16px) scale(.985)}}
+.algus__kaart::before{content:"M";position:absolute;top:-27px;left:50%;translate:-50% 0;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
+ font:900 1.42rem 'Cinzel Decorative',serif;color:#2a1015;background:var(--gold);
+ box-shadow:0 10px 24px rgba(0,0,0,.55),0 0 0 6px #180a0c}
+.algus__silt{margin-bottom:14px;letter-spacing:.3em;color:#d8b46a}
+.algus__pealkiri{font-size:clamp(2.2rem,5.4vw,3.5rem);margin-bottom:0}
+.algus__jutt{max-width:44ch;margin:18px auto 30px;font-size:1rem;line-height:1.55;color:rgba(244,229,192,.82)}
+.algus__jutt::before{ content:"";display:block;width:150px;height:9px;margin:0 auto 16px;
+ background:linear-gradient(90deg,transparent,rgba(217,180,90,.9) 30%,rgba(217,180,90,.9) 70%,transparent) center/100% 1px no-repeat}
+.algus__valikud{counter-reset:valik;gap:18px}
+.algus__valik{position:relative;overflow:hidden;padding:22px 22px 20px;border:1px solid rgba(217,180,90,.42);border-radius:14px;
+ background:linear-gradient(160deg,rgba(255,232,180,.1),rgba(255,232,180,.04))}
+.algus__valik::before{counter-increment:valik;content:counter(valik,decimal-leading-zero);position:absolute;top:13px;right:18px;
+ font:700 .58rem 'Cinzel',serif;letter-spacing:.18em;color:rgba(217,180,90,.6)}
+.algus__valik::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;opacity:0;transition:opacity .16s ease;
+ background:linear-gradient(rgba(246,220,138,0),rgba(246,220,138,.55),rgba(246,220,138,0))}
+.algus__valik:hover::after,.algus__valik:focus-visible::after{opacity:1}
+.algus__valik:hover,.algus__valik:focus-visible{border-color:rgba(246,220,138,.7);transform:translateY(-2px);box-shadow:0 16px 32px rgba(0,0,0,.4)}
+.algus__nimi{font-size:1.35rem}
+.algus__nool{display:flex;align-items:center;gap:9px;letter-spacing:.2em;transition:color .16s ease,letter-spacing .2s ease}
+.algus__valik:hover .algus__nool,.algus__valik:focus-visible .algus__nool{color:#ffe9a8;letter-spacing:.26em}
+.algus__vihje{margin-top:26px;padding-top:18px;border-top:1px solid rgba(217,180,90,.16);font-size:.72rem;color:rgba(240,223,180,.45)}
+@media (max-width:660px){.algus{padding:40px 14px 18px}.algus__kaart{padding:40px 18px 24px}.algus__kaart::before{width:46px;height:46px;top:-23px}.algus__valikud{grid-template-columns:1fr}}
 </style>
 </head>
 <body>

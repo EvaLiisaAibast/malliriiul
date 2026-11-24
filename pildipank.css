@@ -9,6 +9,11 @@
   padding: 52px 28px 80px;
 }
 
+.pildipank__pais {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--joon);
+}
+
 .pildipank__pais h1 {
   font-family: var(--serif);
   font-weight: 400;
@@ -100,6 +105,10 @@
   margin-left: auto;
 }
 
+.pais__nav a[aria-current="page"] {
+  border-bottom-color: var(--tuli);
+}
+
 .filtreeri__arv {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -127,8 +136,10 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.pilt:hover {
+.pilt:hover,
+.pilt:focus-within {
   transform: translateY(-3px);
+  border-color: var(--tint);
   box-shadow: 6px 6px 0 rgba(25, 22, 19, 0.12);
 }
 
@@ -137,9 +148,25 @@
 }
 
 .pilt__ava {
+  position: relative;
   display: block;
   background: #e8e1d4;
   overflow: hidden;
+}
+
+.pilt__ava::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(25, 22, 19, 0) 52%, rgba(25, 22, 19, 0.24));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pilt:hover .pilt__ava::after,
+.pilt:focus-within .pilt__ava::after {
+  opacity: 1;
 }
 
 .pilt__ava img {

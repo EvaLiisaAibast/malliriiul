@@ -5,315 +5,379 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mallid – Malliriiul</title>
 <meta name="description" content="Kümme veebimalli eraldi ZIP-idena või kõik korraga, eelvaade iga malli juures ja kogu fotovalik eraldi vaatamiseks.">
-<meta name="theme-color" content="#f6f1e6">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235a1620'/><circle cx='16' cy='16' r='10' fill='none' stroke='%23d9b45a' stroke-width='2'/><path d='M16 16V9M16 16l5 4' stroke='%23f6dc8a' stroke-width='2' stroke-linecap='round'/></svg>">
-<style>
-  :root{
-    --paber:#f6f1e6; --kaart:#fffdf8; --tint:#201a15; --hall:#6f6659;
-    --joon:rgba(32,26,21,.14); --vein:#5a1620; --kuld:#b8892e;
-    --serif:'Iowan Old Style',Georgia,'Times New Roman',serif;
-    --sans:'Segoe UI',system-ui,-apple-system,'Trebuchet MS',sans-serif;
-    --max:1120px;
-  }
-  *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;background:var(--paber);color:var(--tint);font:16px/1.5 var(--sans);
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--vein);outline-offset:3px;border-radius:2px}
-  .sisu{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-  /* ---------- päis ---------- */
-  .pais{border-bottom:1px solid var(--joon);background:rgba(246,241,230,.92)}
-  .pais__in{display:flex;align-items:center;gap:24px;height:64px}
-  .marg{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 17px var(--serif);letter-spacing:.02em}
-  .marg__märk{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--vein);color:#f6dc8a;font:700 15px var(--serif)}
-  .pais__nav{margin-left:auto;display:flex;gap:22px;font-size:14px}
-  .pais__nav a{text-decoration:none;color:var(--hall);padding:6px 0;border-bottom:2px solid transparent}
-  .pais__nav a:hover{color:var(--tint);border-color:var(--kuld)}
-
-  /* ---------- avaosa ---------- */
-  .ava{padding:56px 0 36px;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:end}
-  .silt{margin:0 0 14px;font:600 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--vein)}
-  h1{margin:0 0 14px;font:700 clamp(34px,5vw,56px)/1.05 var(--serif);letter-spacing:-.01em}
-  h1 em{font-style:italic;color:var(--vein)}
-  .ava__jutt{margin:0;max-width:52ch;color:var(--hall);font-size:17px}
-  .ava__tegurid{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-  .nupp{
-    display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;
-    background:var(--vein);color:#ffeecb;text-decoration:none;border:1px solid var(--vein);
-    font:600 15px var(--sans);transition:transform .12s ease,background .12s ease
-  }
-  .nupp:hover{background:#7a2433;transform:translateY(-1px)}
-  .nupp--joon{background:transparent;color:var(--vein);border-color:rgba(90,22,32,.4)}
-  .nupp--joon:hover{background:rgba(90,22,32,.06);transform:none}
-  .ava__markus{margin:0;font-size:13px;color:var(--hall)}
-
-  /* ---------- mallide ruudustik ---------- */
-  .mallid{padding:8px 0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
-  .mall{
-    display:flex;flex-direction:column;background:var(--kaart);border:1px solid var(--joon);
-    border-radius:14px;overflow:hidden;transition:box-shadow .15s ease,transform .15s ease
-  }
-  .mall:hover{box-shadow:0 14px 30px rgba(32,26,21,.1);transform:translateY(-2px)}
-  .mall__pilt{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#e7dfd1;border:0}
-  .mall__keha{display:flex;flex-direction:column;gap:6px;padding:16px 16px 14px;flex:1}
-  .mall__nimi{margin:0;font:700 20px var(--serif)}
-  .mall__jutt{margin:0;font-size:14.5px;color:var(--hall);flex:1}
-  .mall__jalus{display:flex;align-items:center;gap:14px;margin-top:12px;padding-top:12px;border-top:1px solid var(--joon);font-size:13.5px}
-  .mall__vaata{
-    background:none;border:0;padding:0;font:600 13.5px var(--sans);color:var(--vein);
-    cursor:pointer;text-decoration:underline;text-underline-offset:3px
-  }
-  .mall__zip{margin-left:auto;text-decoration:none;color:var(--hall);padding:4px 0}
-  .mall__zip:hover{color:var(--vein)}
-  .mall__suurus{color:#9a9184;font-size:12.5px}
-
-  /* ---------- juhend ---------- */
-  .juhend{margin:44px 0 8px;padding:26px 28px;border:1px solid var(--joon);border-radius:14px;background:var(--kaart)}
-  .juhend h2{margin:0 0 14px;font:700 22px var(--serif)}
-  .juhend ol{margin:0;padding-left:20px;display:grid;gap:7px;color:var(--hall);font-size:15px}
-  .juhend b{color:var(--tint)}
-  code{font-family:Consolas,'Courier New',monospace;font-size:13px;background:rgba(90,22,32,.07);padding:1px 5px;border-radius:4px;color:var(--vein)}
-
-  /* ---------- fotod ---------- */
-  .fotod{margin:34px 0 0;padding:26px 28px;border-radius:14px;background:var(--vein);color:#f7e6c6;display:flex;flex-wrap:wrap;align-items:center;gap:18px}
-  .fotod h2{margin:0 0 4px;font:700 22px var(--serif);color:#fff4dc}
-  .fotod p{margin:0;font-size:14.5px;color:rgba(255,244,220,.78);max-width:56ch}
-  .fotod .nupp{margin-left:auto;background:#f6dc8a;color:#48141c;border-color:#f6dc8a}
-  .fotod .nupp:hover{background:#fff0bd}
-
-  .jalus{margin-top:40px;padding:22px 0 40px;border-top:1px solid var(--joon);font-size:13px;color:var(--hall);display:flex;flex-wrap:wrap;gap:8px 22px}
-  .jalus a{color:var(--hall)}
-
-  /* ---------- eelvaade ---------- */
-  .vaade{position:fixed;inset:0;z-index:50;background:rgba(24,10,13,.86);display:none;padding:20px}
-  .vaade.on{display:flex;flex-direction:column;gap:12px}
-  .vaade__riba{display:flex;align-items:center;gap:14px;color:#f7e6c6;max-width:1400px;width:100%;margin:0 auto}
-  .vaade__nimi{font:700 18px var(--serif)}
-  .vaade__linkke{margin-left:auto;display:flex;gap:16px;font-size:14px}
-  .vaade__linkke a{color:#f6dc8a}
-  .vaade__x{background:none;border:1px solid rgba(247,230,198,.45);color:#f7e6c6;border-radius:999px;padding:7px 14px;font:600 14px var(--sans);cursor:pointer}
-  .vaade__x:hover{background:rgba(247,230,198,.14)}
-  .vaade iframe{flex:1;width:100%;max-width:1400px;margin:0 auto;border:0;border-radius:12px;background:#fff;box-shadow:0 24px 60px rgba(0,0,0,.5)}
-
-  @media (min-width:1000px){
-    .mallid>.mall:last-child:nth-child(3n+1){grid-column:2}
-  }
-  @media (max-width:820px){
-    .ava{grid-template-columns:1fr;gap:24px;padding:36px 0 24px}
-    .fotod .nupp{margin-left:0}
-    .pais__nav{gap:14px;font-size:13px}
-  }
-  @media (max-width:600px){
-    .sisu{padding:0 16px}
-    .mallid{grid-template-columns:1fr}
-    .juhend,.fotod{padding:20px}
-    .vaade{padding:10px}
-  }
-</style>
+<meta name="theme-color" content="#f7f2e8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23ff4d24'/><path d='M24 72V28h10l16 24 16-24h10v44H66V46L50 68 34 46v26z' fill='%23f7f2e8'/></svg>">
+<link rel="stylesheet" href="stiil.css">
+<link rel="stylesheet" href="mallid.css">
 </head>
 <body>
 
+<a class="huppe-link" href="#mallid">Hüppa mallide juurde</a>
+
 <header class="pais">
-  <div class="sisu pais__in">
-    <a class="marg" href="index.html?tuba=1"><span class="marg__märk">M</span> Malliriiul</a>
-    <nav class="pais__nav" aria-label="Põhinavigatsioon">
-      <a href="index.html?tuba=1">Tuba</a>
-      <a href="pildipank.html">Pildid</a>
-      <a href="#juhend">Kuidas kasutada</a>
-    </nav>
-  </div>
+  <a class="logo" href="index.html" aria-label="Malliriiul, avaleht">
+    <span class="logo__marg">M</span>
+    <span class="logo__nimi">Malliriiul</span>
+  </a>
+
+  <nav class="pais__nav" aria-label="Põhinavigatsioon">
+    <a href="index.html?tuba=1">Tuba</a>
+    <a href="pildipank.html">Pildid</a>
+    <a href="#juhend">Kuidas kasutada</a>
+  </nav>
+
+  <a class="nupp nupp--tume nupp--vaike" href="zip/koik-mallid.zip" download>
+    Laadi kõik alla <span aria-hidden="true">↓</span>
+  </a>
 </header>
 
-<main class="sisu">
+<main class="mallid-leht">
 
-  <section class="ava">
+  <section class="mallid-ava">
     <div>
-      <p class="silt">Kümme malli · INSA insapäevad</p>
-      <h1>Vali kujundus, <em>laadi ja muuda.</em></h1>
-      <p class="ava__jutt">
+      <p class="silt"><span class="silt__tapp"></span> Kümme malli · INSA insapäevad</p>
+      <h1>Vali kujundus,<br><em>laadi ja muuda.</em></h1>
+      <p class="mallid-ava__jutt">
         Iga mall on tavaline <code>index.html</code> + <code>stiil.css</code> + piltide kaust.
         Laadi üks korraga või kõik koos, ava tekstiredaktoris ja otsi sõna „MUUDA“.
       </p>
+      <ul class="mallid-ava__faktid">
+        <li><b>10</b> valmis kujundust</li>
+        <li><b>9,6 MB</b> kogu pakk</li>
+        <li><b>0</b> sõltuvust internetist</li>
+      </ul>
     </div>
-    <div class="ava__tegurid">
-      <a class="nupp" href="zip/koik-mallid.zip" download>Laadi kõik korraga <span aria-hidden="true">↓</span></a>
-      <p class="ava__markus">10 malli · ZIP 9,6 MB · töötab ka ilma internetita</p>
+
+    <div class="mallid-ava__pakk">
+      <p class="mallid-ava__pakk-silt">Kõik korraga</p>
+      <p class="mallid-ava__pakk-nimi">koik-mallid.zip</p>
+      <a class="nupp nupp--hele" href="zip/koik-mallid.zip" download>
+        Laadi alla <span aria-hidden="true">↓</span>
+      </a>
+      <p class="mallid-ava__pakk-markus">Kümme kausta, igaühes oma pildid ja <code>JUHEND.txt</code>.</p>
     </div>
   </section>
 
-  <section class="mallid" aria-label="Mallid">
+  <section class="mallide-vorgustik" id="mallid" aria-label="Mallid">
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/01-pastelne-paevik.jpg" alt="Pastelne päevik – helesinine päevikuleht" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#dfeaf7">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/pastelne-paevik/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/01-pastelne-paevik.jpg" alt="Pastelne päevik – helesinine päevikuleht" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="pastelne-paevik" data-nimi="Pastelne päevik"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Pastelne päevik</h2>
-        <p class="mall__jutt">Pink, sõbralik ja veidi kleepsuline isiklik päevik. Kõige kergem alustada.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="pastelne-paevik" data-nimi="Pastelne päevik">Vaata</button>
-          <a class="mall__zip" href="zip/mall-pastelne-paevik.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,9 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Pastelne päevik</h2>
+          <span class="mall__number">01 · 0,9 MB</span>
+        </div>
+        <p>Pink, sõbralik ja veidi kleepsuline isiklik päevik. Kõige kergem alustada.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="pastelne-paevik" data-nimi="Pastelne päevik" aria-label="Vaata eelvaadet: Pastelne päevik">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-pastelne-paevik.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/02-neon-retro.jpg" alt="Neon Retro – tumelilla bändileht" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#2a1b3d">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/neon-retro/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/02-neon-retro.jpg" alt="Neon Retro – tumelilla bändileht" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="neon-retro" data-nimi="Neon Retro"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Neon Retro</h2>
-        <p class="mall__jutt">80ndate süntesaatorid, neoonvärvid ja lõputu horisont.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="neon-retro" data-nimi="Neon Retro">Vaata</button>
-          <a class="mall__zip" href="zip/mall-neon-retro.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,6 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Neon Retro</h2>
+          <span class="mall__number">02 · 0,6 MB</span>
+        </div>
+        <p>80ndate süntesaatorid, neoonvärvid ja lõputu horisont.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="neon-retro" data-nimi="Neon Retro" aria-label="Vaata eelvaadet: Neon Retro">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-neon-retro.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/03-ajakiri.jpg" alt="Ajakiri – ajakirja esikülg pealkirjaga Kultuur" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#efe6d6">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/ajakiri/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/03-ajakiri.jpg" alt="Ajakiri – ajakirja esikülg pealkirjaga Kultuur" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="ajakiri" data-nimi="Ajakiri"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Ajakiri</h2>
-        <p class="mall__jutt">Suur seriifkiri, ranged jooned ja ajakirja hing. Sobib lugudeks.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="ajakiri" data-nimi="Ajakiri">Vaata</button>
-          <a class="mall__zip" href="zip/mall-ajakiri.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,8 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Ajakiri</h2>
+          <span class="mall__number">03 · 0,8 MB</span>
+        </div>
+        <p>Suur seriifkiri, ranged jooned ja ajakirja hing. Sobib lugudeks.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="ajakiri" data-nimi="Ajakiri" aria-label="Vaata eelvaadet: Ajakiri">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-ajakiri.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/04-fotoportfoolio.jpg" alt="Fotoportfoolio – suur foto ja väike tekst" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#dcd8d0">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/fotoportfoolio/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/04-fotoportfoolio.jpg" alt="Fotoportfoolio – suur foto ja väike tekst" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="fotoportfoolio" data-nimi="Fotoportfoolio"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Fotoportfoolio</h2>
-        <p class="mall__jutt">Pildid saavad kogu ruumi ja tekst jääb nende alla.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="fotoportfoolio" data-nimi="Fotoportfoolio">Vaata</button>
-          <a class="mall__zip" href="zip/mall-fotoportfoolio.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">1,2 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Fotoportfoolio</h2>
+          <span class="mall__number">04 · 1,2 MB</span>
+        </div>
+        <p>Pildid saavad kogu ruumi ja tekst jääb nende alla.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="fotoportfoolio" data-nimi="Fotoportfoolio" aria-label="Vaata eelvaadet: Fotoportfoolio">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-fotoportfoolio.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/05-terminal.jpg" alt="Terminal – roheline kiri mustal taustal" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#12251c">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/terminal/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/05-terminal.jpg" alt="Terminal – roheline kiri mustal taustal" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="terminal" data-nimi="Terminal"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Terminal</h2>
-        <p class="mall__jutt">Roheline kiri mustal ja käsurea moodi leht. Nüüd ka fotodega.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="terminal" data-nimi="Terminal">Vaata</button>
-          <a class="mall__zip" href="zip/mall-terminal.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,8 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Terminal</h2>
+          <span class="mall__number">05 · 0,8 MB</span>
+        </div>
+        <p>Roheline kiri mustal ja käsurea moodi leht. Nüüd ka fotodega.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="terminal" data-nimi="Terminal" aria-label="Vaata eelvaadet: Terminal">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-terminal.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/06-kollaaz.jpg" alt="Kollaaž – paberitükid ja suvised fotod" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#efe3cf">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/kollaaz/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/06-kollaaz.jpg" alt="Kollaaž – paberitükid ja suvised fotod" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="kollaaz" data-nimi="Kollaaž"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Kollaaž</h2>
-        <p class="mall__jutt">Väljalõigatud paberid, teip ja suvi. Kõik tohib kattuda.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="kollaaz" data-nimi="Kollaaž">Vaata</button>
-          <a class="mall__zip" href="zip/mall-kollaaz.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,8 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Kollaaž</h2>
+          <span class="mall__number">06 · 0,8 MB</span>
+        </div>
+        <p>Väljalõigatud paberid, teip ja suvi. Kõik tohib kattuda.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="kollaaz" data-nimi="Kollaaž" aria-label="Vaata eelvaadet: Kollaaž">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-kollaaz.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/07-bento.jpg" alt="Bento – kaartide mosaiik autodest" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#f4dad6">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/bento/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/07-bento.jpg" alt="Bento – kaartide mosaiik autodest" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="bento" data-nimi="Bento"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Bento</h2>
-        <p class="mall__jutt">Kaartide mosaiik garaažist: roosa BMW, Skyline, Viper, Ferrari.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="bento" data-nimi="Bento">Vaata</button>
-          <a class="mall__zip" href="zip/mall-bento.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">1,5 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Bento</h2>
+          <span class="mall__number">07 · 1,5 MB</span>
+        </div>
+        <p>Kaartide mosaiik garaažist: roosa BMW, Skyline, Viper, Ferrari.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="bento" data-nimi="Bento" aria-label="Vaata eelvaadet: Bento">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-bento.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/08-kohvik.jpg" alt="Kohvik Kirsipuu – soe menüüleht" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#eadfcd">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/kohvik/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/08-kohvik.jpg" alt="Kohvik Kirsipuu – soe menüüleht" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="kohvik" data-nimi="Kohvik Kirsipuu"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Kohvik Kirsipuu</h2>
-        <p class="mall__jutt">Menüü, lahtiolekuajad ja broneerimine ühel selgel lehel.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="kohvik" data-nimi="Kohvik Kirsipuu">Vaata</button>
-          <a class="mall__zip" href="zip/mall-kohvik.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">0,4 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Kohvik Kirsipuu</h2>
+          <span class="mall__number">08 · 0,4 MB</span>
+        </div>
+        <p>Menüü, lahtiolekuajad ja broneerimine ühel selgel lehel.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="kohvik" data-nimi="Kohvik Kirsipuu" aria-label="Vaata eelvaadet: Kohvik Kirsipuu">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-kohvik.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/09-pood.jpg" alt="Metsaääre pood – tootekaardid ja hinnad" loading="lazy" width="1280" height="800">
+    <article class="mall" style="--toon:#e2e8d6">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/pood/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/09-pood.jpg" alt="Metsaääre pood – tootekaardid ja hinnad" loading="lazy" width="1280" height="800">
+          <button class="kaader__ava" type="button" data-vaade="pood" data-nimi="Metsaääre pood"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Metsaääre pood</h2>
-        <p class="mall__jutt">Väikese poe vitriin hindade ja väikese ostukorviga.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="pood" data-nimi="Metsaääre pood">Vaata</button>
-          <a class="mall__zip" href="zip/mall-pood.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">1,3 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Metsaääre pood</h2>
+          <span class="mall__number">09 · 1,3 MB</span>
+        </div>
+        <p>Väikese poe vitriin hindade ja väikese ostukorviga.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="pood" data-nimi="Metsaääre pood" aria-label="Vaata eelvaadet: Metsaääre pood">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-pood.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
-    <article class="mall">
-      <img class="mall__pilt" src="screenshots/11-matkapaevik.png" alt="Matkapäevik – merevaade ja rajaandmed" loading="lazy" width="1280" height="662">
+    <article class="mall" style="--toon:#dbe3e5">
+      <div class="mall__eelvaade">
+        <div class="brauser">
+          <span class="brauser__tapid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brauser__aadress">mallid/matkapaevik/index.html</span>
+          <span class="brauser__lukk" aria-hidden="true">⌘</span>
+        </div>
+        <div class="kaader">
+          <img src="screenshots/11-matkapaevik.png" alt="Matkapäevik – merevaade ja rajaandmed" loading="lazy" width="1280" height="662">
+          <button class="kaader__ava" type="button" data-vaade="matkapaevik" data-nimi="Matkapäevik"><span>Vaata lähemalt</span></button>
+        </div>
+      </div>
       <div class="mall__keha">
-        <h2 class="mall__nimi">Matkapäevik</h2>
-        <p class="mall__jutt">Rajad, märkmed teelt ja kokkuklapitavad vastused. Jahe kaardistiil.</p>
-        <div class="mall__jalus">
-          <button class="mall__vaata" type="button" data-vaade="matkapaevik" data-nimi="Matkapäevik">Vaata</button>
-          <a class="mall__zip" href="zip/mall-matkapaevik.zip" download>ZIP ↓</a>
-          <span class="mall__suurus">1,4 MB</span>
+        <div class="mall__pealkiri">
+          <h2>Matkapäevik</h2>
+          <span class="mall__number">10 · 1,4 MB</span>
+        </div>
+        <p>Rajad, märkmed teelt ja kokkuklapitavad vastused. Jahe kaardistiil.</p>
+        <div class="mall__tegevused">
+          <button class="nupp nupp--tume nupp--vaike" type="button" data-vaade="matkapaevik" data-nimi="Matkapäevik" aria-label="Vaata eelvaadet: Matkapäevik">Vaata</button>
+          <a class="nupp nupp--vaata nupp--vaike" href="zip/mall-matkapaevik.zip" download>ZIP ↓</a>
         </div>
       </div>
     </article>
 
   </section>
 
-  <section class="juhend" id="juhend" aria-labelledby="juhend-pealkiri">
-    <h2 id="juhend-pealkiri">Kolm sammu</h2>
-    <ol>
-      <li>Laadi ZIP ja paki lahti — kausta jäävad <code>index.html</code>, <code>stiil.css</code> ja <code>pildid/</code>.</li>
-      <li>Ava <code>index.html</code> tekstiredaktoris ja otsi sõna <b>MUUDA</b> — need kommentaarid näitavad täpselt, mida muuta.</li>
-      <li>Kopeeri kaust Raspberry Pi peale (Nginxi juurkaust <code>/var/www/html</code>) ja ava leht võrgus.</li>
-    </ol>
+  <section class="mallid-juhend" id="juhend" aria-labelledby="juhend-pealkiri">
+    <p class="silt"><span class="silt__tapp"></span> Kolm sammu</p>
+    <h2 id="juhend-pealkiri">ZIP-ist valmis leheks</h2>
+    <div class="sammud">
+      <div class="samm">
+        <span class="samm__number" aria-hidden="true">1</span>
+        <h3>Paki lahti</h3>
+        <p>Laadi ZIP ja paki lahti — kausta jäävad <code>index.html</code>, <code>stiil.css</code> ja <code>pildid/</code>.</p>
+      </div>
+      <div class="samm">
+        <span class="samm__number" aria-hidden="true">2</span>
+        <h3>Otsi MUUDA</h3>
+        <p>Ava <code>index.html</code> tekstiredaktoris ja otsi sõna <b>MUUDA</b> — need kommentaarid näitavad täpselt, mida muuta.</p>
+      </div>
+      <div class="samm">
+        <span class="samm__number" aria-hidden="true">3</span>
+        <h3>Pane Pi peale</h3>
+        <p>Kopeeri kaust Raspberry Pi peale (Nginxi juurkaust <code>/var/www/html</code>) ja ava leht võrgus.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="fotod" aria-labelledby="fotod-pealkiri">
+  <section class="fotod-riba" aria-labelledby="fotod-pealkiri">
     <div>
-      <h2 id="fotod-pealkiri">Fotod eraldi</h2>
-      <p>Kogu töötoa pildivalik — 85 fotot kategooriate kaupa, iga pilt eraldi vaatamiseks ja valmis failiteega.</p>
+      <p class="silt silt--hele"><span class="silt__tapp"></span> Pildipank</p>
+      <h2 id="fotod-pealkiri">85 fotot <em>eraldi</em></h2>
+      <p>Kogu töötoa pildivalik kategooriate kaupa, iga pilt eraldi vaatamiseks ja valmis failiteega.</p>
     </div>
-    <a class="nupp" href="pildipank.html">Vaata kõiki fotosid <span aria-hidden="true">→</span></a>
+    <a class="nupp nupp--hele" href="pildipank.html">Vaata fotosid <span aria-hidden="true">→</span></a>
   </section>
-
-  <footer class="jalus">
-    <span>Malliriiul · INSA insapäevad</span>
-    <a href="index.html?tuba=1">← Tagasi tuppa</a>
-    <span>Fotod: Jaak Aibast</span>
-  </footer>
 
 </main>
 
-<div class="vaade" id="vaade" role="dialog" aria-modal="true" aria-label="Malli eelvaade" hidden>
-  <div class="vaade__riba">
-    <span class="vaade__nimi" id="vaade-nimi">Eelvaade</span>
-    <span class="vaade__linkke">
-      <a id="vaade-aken" href="#" target="_blank" rel="noopener">Ava uues vahelehes</a>
-      <a id="vaade-zip" href="#" download>ZIP ↓</a>
-      <button class="vaade__x" id="vaade-x" type="button">✕ Sulge</button>
-    </span>
+<footer class="jalus">
+  <div class="jalus__logo">
+    <span class="logo__marg">M</span>
+    <div>
+      <p>Malliriiul</p>
+      <p class="jalus__vaike">Valmis kujundused õpilastele · Tehtud INSA insapäevade raames 2026</p>
+    </div>
   </div>
-  <iframe id="vaade-raam" title="Malli eelvaade" loading="lazy"></iframe>
+  <nav class="jalus__nav" aria-label="Jaluse navigatsioon">
+    <a href="index.html?tuba=1">Tuba</a>
+    <a href="pildipank.html">Pildipank</a>
+    <a href="#mallid">Mallid</a>
+    <a href="#juhend">Juhend</a>
+  </nav>
+  <p class="jalus__markus">Mallid: Eva-Liisa Aibast · Fotod: Jaak Aibast</p>
+</footer>
+
+<div class="vaade" id="vaade" role="dialog" aria-modal="true" aria-labelledby="vaade-nimi" hidden>
+  <div class="vaade__taust" aria-hidden="true"></div>
+  <div class="vaade__paneel">
+    <div class="vaade__pais">
+      <div>
+        <p class="vaade__silt">Malli eelvaade</p>
+        <p class="vaade__nimi" id="vaade-nimi">Mall</p>
+      </div>
+      <div class="vaade__teod">
+        <a class="vaade__aken" id="vaade-aken" href="#" target="_blank" rel="noopener">Ava uues vahelehes ↗</a>
+        <a class="nupp nupp--tume nupp--vaike" id="vaade-zip" href="#" download>ZIP ↓</a>
+        <button class="nupp nupp--vaata nupp--vaike" id="vaade-x" type="button">✕ Sulge</button>
+      </div>
+    </div>
+    <iframe id="vaade-raam" title="Malli eelvaade" loading="lazy"></iframe>
+  </div>
 </div>
 
 <script>
@@ -334,24 +398,25 @@
     aken.href = "mallid/" + mall + "/index.html";
     zip.href = "zip/mall-" + mall + ".zip";
     vaade.hidden = false;
-    vaade.classList.add("on");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modaal-avatud");
     x.focus();
   }
 
   function sulge() {
-    vaade.classList.remove("on");
     vaade.hidden = true;
     raam.removeAttribute("src");
-    document.body.style.overflow = "";
+    document.body.classList.remove("modaal-avatud");
     if (viimane) viimane.focus();
   }
 
-  Array.prototype.forEach.call(document.querySelectorAll(".mall__vaata"), function (nupp) {
+  Array.prototype.forEach.call(document.querySelectorAll("[data-vaade]"), function (nupp) {
     nupp.addEventListener("click", function () { ava(nupp); });
   });
+
   x.addEventListener("click", sulge);
-  vaade.addEventListener("click", function (e) { if (e.target === vaade) sulge(); });
+  vaade.addEventListener("click", function (e) {
+    if (e.target === vaade || e.target.className === "vaade__taust") sulge();
+  });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !vaade.hidden) { e.preventDefault(); sulge(); }
   });

@@ -1,0 +1,350 @@
+/* ==========================================================================
+   MALLID – mallide allalaadimise leht.
+   Täiendab stiil.css-i (värvid, fondid ja kaardid tulevad sealt).
+   ========================================================================== */
+
+.mallid-leht {
+  max-width: var(--sisu-laius);
+  margin: 0 auto;
+  padding: 46px 28px 0;
+}
+
+/* ---------- Avaosa ---------- */
+
+.mallid-ava {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  align-items: end;
+  gap: 30px 48px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid var(--joon);
+}
+
+.mallid-ava h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5.6vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.mallid-ava h1 em {
+  font-style: italic;
+  color: var(--tuli);
+}
+
+.mallid-ava__jutt {
+  max-width: 60ch;
+  margin-top: 18px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #4d463d;
+}
+
+.mallid-ava__jutt code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: rgba(25, 22, 19, 0.06);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.mallid-ava__faktid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--hall);
+}
+
+.mallid-ava__faktid b {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  color: var(--tint);
+}
+
+/* Allalaadimise paneel */
+
+.mallid-ava__pakk {
+  padding: 24px 24px 22px;
+  border-radius: var(--raadius);
+  background: var(--tint);
+  color: var(--paber);
+  box-shadow: 8px 8px 0 rgba(25, 22, 19, 0.12);
+}
+
+.mallid-ava__pakk-silt {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 232, 0.55);
+}
+
+.mallid-ava__pakk-nimi {
+  margin: 6px 0 20px;
+  font-family: var(--mono);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.mallid-ava__pakk .nupp {
+  width: 100%;
+}
+
+.mallid-ava__pakk-markus {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(247, 242, 232, 0.22);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: rgba(247, 242, 232, 0.62);
+}
+
+/* ---------- Mallide võrgustik ---------- */
+
+#mallid {
+  margin-top: 38px;
+}
+
+.mall__tegevused .nupp--vaata {
+  border-color: rgba(25, 22, 19, 0.35);
+}
+
+.mall__pealkiri h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.kaader img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: #fff;
+}
+
+.kaader__ava {
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* ---------- Kolm sammu ---------- */
+
+.mallid-juhend {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--joon);
+}
+
+.mallid-juhend h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 30px;
+}
+
+.mallid-juhend .sammud {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.samm code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+/* ---------- Fotode riba ---------- */
+
+.fotod-riba {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 40px;
+  margin-top: 68px;
+  padding: 32px 34px;
+  border-radius: var(--raadius);
+  background: var(--tint);
+  color: var(--paber);
+}
+
+.fotod-riba h2 {
+  margin-top: 4px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.fotod-riba h2 em {
+  font-style: italic;
+  color: var(--laim);
+}
+
+.fotod-riba p {
+  max-width: 52ch;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(247, 242, 232, 0.66);
+}
+
+.fotod-riba .nupp {
+  margin-left: auto;
+}
+
+/* ---------- Eelvaate modaal ---------- */
+
+.vaade {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.vaade__taust {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 22, 19, 0.72);
+  backdrop-filter: blur(6px);
+  animation: vaade-ilmub 0.2s ease;
+}
+
+.vaade__paneel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(1180px, 100%);
+  height: min(88vh, 900px);
+  background: var(--paber);
+  border: 2px solid var(--tint);
+  border-radius: 18px;
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: vaade-paneel 0.24s ease;
+}
+
+.vaade__pais {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--joon);
+  background: var(--paber-helendus);
+}
+
+.vaade__silt {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hall);
+}
+
+.vaade__nimi {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.vaade__teod {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.vaade__aken {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--hall);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vaade__aken:hover {
+  color: var(--tint);
+}
+
+.vaade iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: #fff;
+}
+
+@keyframes vaade-ilmub {
+  from { opacity: 0; }
+}
+
+@keyframes vaade-paneel {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+}
+
+/* ---------- Väiksemad ekraanid ---------- */
+
+@media (max-width: 900px) {
+  .mallid-ava {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .mallid-ava__pakk {
+    order: -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .mallid-leht {
+    padding: 30px 18px 0;
+  }
+
+  .mallide-vorgustik {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .mallid-juhend .sammud {
+    grid-template-columns: 1fr;
+  }
+
+  .fotod-riba {
+    padding: 24px 22px;
+  }
+
+  .fotod-riba .nupp {
+    margin-left: 0;
+  }
+
+  .vaade {
+    padding: 10px;
+  }
+
+  .vaade__teod {
+    margin-left: 0;
+    width: 100%;
+  }
+}
