@@ -997,28 +997,44 @@ html.algus-lahti,html.algus-lahti body{overflow:hidden}
 .algus__vihje{margin:22px 0 0;font-size:.72rem;letter-spacing:.05em;color:rgba(240,223,180,.5)}
 @media (max-width:660px){.algus{padding:12px}.algus__kaart{padding:26px 18px 22px}.algus__valikud{grid-template-columns:1fr}}
 
-/* ---------- avavaade: peenem viimistlus ---------- */
-.algus{isolation:isolate;padding:34px 22px;
- background:radial-gradient(760px 460px at 50% -70px,rgba(255,200,110,.24),transparent 66%),radial-gradient(1000px 680px at 50% 118%,rgba(38,8,14,.9),transparent 74%),linear-gradient(rgba(32,11,16,.84),rgba(12,6,8,.92)),url("pildid/taust/tapeet-tile.jpg") center/cover no-repeat,#140a0c}
-.algus::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.45;
- background-image:radial-gradient(rgba(246,220,138,.15) 1px,transparent 1px);background-size:3px 3px}
-.algus::after{content:"";position:fixed;inset:16px;pointer-events:none;border:1px solid rgba(217,180,90,.2);border-radius:12px}
-.algus__kaart{position:relative;width:min(860px,100%);padding:48px 44px 32px;border:1px solid rgba(217,180,90,.44);border-radius:18px;
- background:linear-gradient(rgba(60,21,29,.9),rgba(24,11,14,.96));
- box-shadow:0 40px 92px rgba(0,0,0,.66),inset 0 0 0 1px rgba(255,220,150,.07),inset 0 1px 0 rgba(255,232,180,.16);
+/* ---------- avavaade: ajastu-raam, kullast ornament ---------- */
+.algus{isolation:isolate;padding:38px 22px;
+ background:radial-gradient(760px 460px at 50% -70px,rgba(255,200,110,.26),transparent 66%),radial-gradient(1000px 700px at 50% 118%,rgba(38,8,14,.92),transparent 74%),linear-gradient(rgba(32,11,16,.82),rgba(12,6,8,.93)),url("pildid/taust/tapeet-tile.jpg") center/cover no-repeat,#140a0c}
+.algus::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.42;
+ background-image:radial-gradient(rgba(246,220,138,.16) 1px,transparent 1px);background-size:3px 3px}
+/* Välimine kullaraam: topeltjoon nagu vanal kutsel */
+.algus::after{content:"";position:fixed;inset:16px;pointer-events:none;border:1px solid rgba(217,180,90,.24);border-radius:12px;
+ box-shadow:inset 0 0 0 5px rgba(18,9,11,.55),inset 0 0 0 6px rgba(217,180,90,.13)}
+.algus__kaart{position:relative;width:min(900px,100%);padding:52px 46px 30px;border:1px solid rgba(217,180,90,.46);border-radius:18px;
+ background:linear-gradient(rgba(60,21,29,.965),rgba(22,10,13,.99)),url("pildid/kaunistus/kirjatahed-1857.jpg") center/cover no-repeat;
+ box-shadow:0 44px 100px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,220,150,.07),inset 0 1px 0 rgba(255,232,180,.18);
  animation:algusTuleb .5s cubic-bezier(.2,.8,.3,1) both}
 @keyframes algusTuleb{from{opacity:0;transform:translateY(16px) scale(.985)}}
 .algus__kaart::before{content:"M";position:absolute;top:-27px;left:50%;translate:-50% 0;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;
  font:900 1.42rem 'Cinzel Decorative',serif;color:#2a1015;background:var(--gold);
  box-shadow:0 10px 24px rgba(0,0,0,.55),0 0 0 6px #180a0c}
-.algus__silt{margin-bottom:14px;letter-spacing:.3em;color:#d8b46a}
+.algus__kaart::after{content:"";position:absolute;inset:9px;pointer-events:none;border:1px solid rgba(217,180,90,.16);border-radius:12px}
+.algus__silt{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;letter-spacing:.28em;color:#d8b46a}
+.algus__silt::before,.algus__silt::after{content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,rgba(217,180,90,.75))}
+.algus__silt::after{background:linear-gradient(270deg,transparent,rgba(217,180,90,.75))}
+.algus__teemant{font-size:.42rem;line-height:1;color:rgba(217,180,90,.85)}
 .algus__pealkiri{font-size:clamp(2.2rem,5.4vw,3.5rem);margin-bottom:0}
-.algus__jutt{max-width:44ch;margin:18px auto 30px;font-size:1rem;line-height:1.55;color:rgba(244,229,192,.82)}
+.algus__jutt{max-width:46ch;margin:18px auto 30px;font-size:1rem;line-height:1.55;color:rgba(244,229,192,.82)}
 .algus__jutt::before{ content:"";display:block;width:150px;height:9px;margin:0 auto 16px;
  background:linear-gradient(90deg,transparent,rgba(217,180,90,.9) 30%,rgba(217,180,90,.9) 70%,transparent) center/100% 1px no-repeat}
-.algus__valikud{counter-reset:valik;gap:18px}
-.algus__valik{position:relative;overflow:hidden;padding:22px 22px 20px;border:1px solid rgba(217,180,90,.42);border-radius:14px;
+.algus__valikud{counter-reset:valik;gap:18px;align-items:stretch}
+.algus__valik{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;padding:24px 22px 20px;border:1px solid rgba(217,180,90,.42);border-radius:14px;
  background:linear-gradient(160deg,rgba(255,232,180,.1),rgba(255,232,180,.04))}
+.algus__valik--lisa{background:linear-gradient(160deg,rgba(255,232,180,.05),rgba(255,232,180,.015))}
+.algus__valik--peamine{border-color:rgba(246,220,138,.6);
+ background:linear-gradient(160deg,rgba(255,232,180,.18),rgba(255,232,180,.05));box-shadow:inset 0 0 0 1px rgba(246,220,138,.16)}
+.algus__märk{align-self:flex-start;padding:3px 10px;border:1px solid rgba(217,180,90,.4);border-radius:999px;
+ font:700 .54rem 'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,223,180,.62);background:rgba(20,10,12,.35)}
+.algus__valik--peamine .algus__märk{border-color:rgba(246,220,138,.7);background:rgba(246,220,138,.16);color:#ffe9a8}
+.algus__faktid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 38px;list-style:none;margin:30px 0 0;padding:22px 6px 0;
+ border-top:1px solid rgba(217,180,90,.18)}
+.algus__faktid li{font:600 .6rem 'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,223,180,.48)}
+.algus__faktid b{display:block;margin-bottom:5px;font:900 1.45rem/1 'Cinzel Decorative',serif;letter-spacing:0;color:#ffe9a8}
 .algus__valik::before{counter-increment:valik;content:counter(valik,decimal-leading-zero);position:absolute;top:13px;right:18px;
  font:700 .58rem 'Cinzel',serif;letter-spacing:.18em;color:rgba(217,180,90,.6)}
 .algus__valik::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;opacity:0;transition:opacity .16s ease;
@@ -1026,30 +1042,41 @@ html.algus-lahti,html.algus-lahti body{overflow:hidden}
 .algus__valik:hover::after,.algus__valik:focus-visible::after{opacity:1}
 .algus__valik:hover,.algus__valik:focus-visible{border-color:rgba(246,220,138,.7);transform:translateY(-2px);box-shadow:0 16px 32px rgba(0,0,0,.4)}
 .algus__nimi{font-size:1.35rem}
-.algus__nool{display:flex;align-items:center;gap:9px;letter-spacing:.2em;transition:color .16s ease,letter-spacing .2s ease}
+.algus__nool{display:flex;align-items:center;gap:9px;margin-top:auto;padding-top:10px;letter-spacing:.2em;transition:color .16s ease,letter-spacing .2s ease}
 .algus__valik:hover .algus__nool,.algus__valik:focus-visible .algus__nool{color:#ffe9a8;letter-spacing:.26em}
-.algus__vihje{margin-top:26px;padding-top:18px;border-top:1px solid rgba(217,180,90,.16);font-size:.72rem;color:rgba(240,223,180,.45)}
-@media (max-width:660px){.algus{padding:40px 14px 18px}.algus__kaart{padding:40px 18px 24px}.algus__kaart::before{width:46px;height:46px;top:-23px}.algus__valikud{grid-template-columns:1fr}}
+.algus__valik--lisa .algus__nool{color:rgba(240,223,180,.6)}
+.algus__vihje{margin:18px 0 0;font-size:.72rem;color:rgba(240,223,180,.42)}
+@media (max-width:660px){.algus{align-items:flex-start;padding:32px 14px 16px}.algus__kaart{padding:38px 18px 20px}.algus__kaart::before{width:46px;height:46px;top:-23px}.algus__valikud{grid-template-columns:1fr}
+ .algus__silt{gap:8px;font-size:.5rem;letter-spacing:.2em}.algus__silt::before,.algus__silt::after{width:16px}
+ .algus__faktid{gap:8px 22px;margin-top:22px;padding-top:16px}.algus__faktid b{font-size:1.25rem}
+ .algus__vihje{margin-top:14px}}
 </style>
 </head>
 <body>
 <div class="algus" id="algus" role="dialog" aria-modal="true" aria-labelledby="algus-pealkiri" tabindex="-1">
  <div class="algus__kaart">
-  <p class="algus__silt">Koolitöötuba · INSA insapäevad</p>
+  <p class="algus__silt"><span class="algus__teemant" aria-hidden="true">◆</span>Koolitöötuba · INSA insapäevad<span class="algus__teemant" aria-hidden="true">◆</span></p>
   <h1 class="algus__pealkiri" id="algus-pealkiri">Malliriiul</h1>
-  <p class="algus__jutt">Kaks ust: ühest sisse tuppa mängima, teisest mallide ja fotode juurde.</p>
+  <p class="algus__jutt">Mallid ja fotod on see, millega tund algab. Mänguala on boonus, kui aega üle jääb.</p>
   <div class="algus__valikud">
-   <button class="algus__valik" id="algus-mang" type="button">
+   <button class="algus__valik algus__valik--lisa" id="algus-mang" type="button">
+    <span class="algus__märk">Kui jääb aega</span>
     <span class="algus__nimi">Mänguala</span>
     <span class="algus__kirj"><b>1920. aastate tuba.</b> Keri tuba, mängi klaverit, keera grammofoni, ava kapp ja otsi riiulilt malli.</span>
     <span class="algus__nool">Sisene →</span>
    </button>
-   <a class="algus__valik" href="mallid.html">
+   <a class="algus__valik algus__valik--peamine" href="mallid.html">
+    <span class="algus__märk">Alusta siit</span>
     <span class="algus__nimi">Mallid ja pildid</span>
     <span class="algus__kirj"><b>Kümme kujundust ZIP-ina</b> — ükshaaval või kõik korraga — ja kogu fotovalik eraldi.</span>
     <span class="algus__nool">Vaata →</span>
    </a>
   </div>
+  <ul class="algus__faktid">
+   <li><b>10</b> valmis malli</li>
+   <li><b>85</b> fotot</li>
+   <li><b>0</b> sõltuvust internetist</li>
+  </ul>
   <p class="algus__vihje">Klaviatuur: Tab valib, Enter avab · toas kerib nooltega</p>
  </div>
 </div>
