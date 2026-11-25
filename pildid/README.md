@@ -14,7 +14,7 @@ USB-le või arhiivi.
 | [`autod/`](autod/) | sõiduautod, klassikud, ralliautod | 13 |
 | [`soidukid/`](soidukid/) | lennukid, kopter, paat, mootorratas, veoautod | 9 |
 | [`inimesed-ja-kohad/`](inimesed-ja-kohad/) | inimesed, hooned, tänavad, sadam, mesinik | 15 |
-| [`kaunistus/`](kaunistus/) | lehtede kaunistused Wikimedia Commonsist ja Internet Archive'ist (avalik omand) | 6 |
+| [`kaunistus/`](kaunistus/) | lehtede kaunistused Wikimedia Commonsist ja Internet Archive'ist (avalik omand) | 14 |
 
 ## Kuidas kasutada
 
@@ -57,3 +57,11 @@ Internet Archive (skaneeritud raamatulehed):
 | `arhiiv-tyybid-1912.jpg` | Kirjatüüpide näidiseleht, American specimen book of type styles, 1912, lk 209 | [archive.org](https://archive.org/details/americanspecimen00amer) |
 | `arhiiv-kapiteelid-1900.jpg` | G. E. Walteri kataloog, kapiteelid, 1900, lk 9 | [archive.org](https://archive.org/details/catalogofcapital00gewa) |
 | `arhiiv-ornament-1892.jpg` | Meyeri „Handbook of Ornament“, plaat 14 (oblong ja selle jaotus), 1892 | [archive.org](https://archive.org/details/handbookoforname00meyerich) |
+| `arhiiv-initsiaalid-1891.jpg` | „The embroiderer's book of design“, kaunistatud suurtähed, 1891, lk 11 | [archive.org](https://archive.org/details/embroiderersbook00dela) |
+| `arhiiv-ornamendid-1891.jpg` | „The embroiderer's book of design“, punased ornamendid ja initsiaalid, 1891 | [archive.org](https://archive.org/details/embroiderersbook00dela) |
+| `arhiiv-kirjatyybid-1900.jpg` | Kirjatüüpide näidisleht „Century Oldstyle“, 20. sajandi algus, lk 111 | [archive.org](https://archive.org/details/americanspecimen00amer) |
+| `arhiiv-plaadid-1905.jpg` | „A handbook of plant-form“, plaatide nimekiri, 1905 | [archive.org](https://archive.org/details/handbookofplantf00clar) |
+| `arhiiv-seemnekataloog-1898.jpg` | Alneer Brothers'i seemne- ja taimede kataloogi kaas, 1898 | [archive.org](https://archive.org/details/CAT31291661) |
+| `arhiiv-juurviljad-1898.jpg` | Alneer Brothers'i kataloog, aedviljade lehekülg, 1898 | [archive.org](https://archive.org/details/CAT31291661) |
+| `arhiiv-lill-1905.jpg` | „A handbook of plant-form“, plaat 26 (võilill), 1905 | [archive.org](https://archive.org/details/handbookofplantf00clar) |
+| `arhiiv-poesas-1905.jpg` | „A handbook of plant-form“, plaat 3 (põõsas), 1905 | [archive.org](https://archive.org/details/handbookofplantf00clar) |

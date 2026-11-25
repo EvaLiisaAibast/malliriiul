@@ -1649,6 +1649,84 @@ code {
   margin-top: 26px;
 }
 
+/* ---------- Arhiiviklomp: teibitud lehtede kuhi sektsioonide vahel ---------- */
+
+.klomp {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 16px 0 12px;
+}
+
+.klomp__pilt {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0 -14px;
+  padding: 8px 8px 0;
+  background: #fffdf8;
+  border: 1px solid rgba(25, 22, 19, 0.14);
+  box-shadow: 8px 9px 0 rgba(25, 22, 19, 0.06), 0 16px 30px rgba(25, 22, 19, 0.13);
+  transform: rotate(-2.2deg) translateY(7px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.klomp__pilt:nth-child(2) {
+  transform: rotate(1.7deg) translateY(-9px);
+}
+
+.klomp__pilt:nth-child(3) {
+  transform: rotate(-1deg) translateY(11px);
+}
+
+.klomp__pilt:nth-child(4) {
+  transform: rotate(2.5deg) translateY(-4px);
+}
+
+.klomp__pilt:hover {
+  z-index: 2;
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 10px 12px 0 rgba(25, 22, 19, 0.08), 0 22px 40px rgba(25, 22, 19, 0.18);
+}
+
+.klomp__pilt::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  translate: -50% 0;
+  width: 64px;
+  height: 20px;
+  background: rgba(216, 242, 74, 0.5);
+  border: 1px solid rgba(25, 22, 19, 0.1);
+  transform: rotate(-2.5deg);
+}
+
+.klomp__pilt:nth-child(even)::before {
+  transform: rotate(3deg);
+}
+
+.klomp__pilt img {
+  display: block;
+  width: auto;
+  height: clamp(130px, 17vw, 220px);
+  object-fit: cover;
+  border: 1px solid rgba(25, 22, 19, 0.08);
+  filter: sepia(0.16) contrast(1.03);
+}
+
+.klomp__pilt figcaption {
+  padding: 6px 2px 8px;
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--hall);
+}
+
 /* ---------- Arhiivileiud: teibitud ajastu-pildid lehe lõpus ---------- */
 
 .arhiiv {
@@ -1756,5 +1834,29 @@ code {
 
   .arhiiv__pilt figcaption {
     font-size: 0.52rem;
+  }
+
+  .klomp {
+    margin-top: 26px;
+    padding: 12px 0 8px;
+  }
+
+  .klomp__pilt {
+    margin: 0 -12px;
+    padding: 5px 5px 0;
+  }
+
+  .klomp__pilt img {
+    height: 78px;
+  }
+
+  .klomp__pilt::before {
+    width: 44px;
+    height: 14px;
+  }
+
+  /* Telefonis jäävad pisikesed allkirjad ära, et kuhi jääks puhtaks. */
+  .klomp__pilt figcaption {
+    display: none;
   }
 }
